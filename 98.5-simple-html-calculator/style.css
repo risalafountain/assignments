@@ -1,0 +1,29 @@
+/* color choices
+#05386b-text
+#3739683-top and bottom operations
+#5cdb95-background
+#8ee4af-middle operation
+#edf5e1-buttons  */
+
+html, body {
+    margin: 0; 
+    padding: 0;
+}
+
+body {
+    background-color: #5cdb95;
+    color: #05386b;
+}
+
+button {
+  color: #05386b;
+  background-color: #edf5e1;
+  border-radius: 25px;
+}
+
+div {
+  border: red dotted 2px;
+  width:fit-content;
+  display: block;
+  align-items: center;
+}
