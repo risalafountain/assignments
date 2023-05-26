@@ -19,11 +19,25 @@ button {
   color: #05386b;
   background-color: #edf5e1;
   border-radius: 25px;
+  margin: 15px;
 }
 
 div {
-  border: red dotted 2px;
+  /* border: red dotted 2px; */
   width:fit-content;
-  display: block;
+  display: flex;
   align-items: center;
+  align-content: center;
+}
+
+input {
+  margin: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  font-weight: 900;
 }
