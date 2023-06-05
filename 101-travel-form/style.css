@@ -1,0 +1,61 @@
+/* COLOR SCHEME 
+supernova fbc40e - background
+rhino 343f71 - purplish tone 
+twilight e9d8e4 - soft pink tone 
+pomegranate f34c19 - orangey
+*/
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body { 
+    background-color: #b3dee5;
+    font-weight: 900;
+    border-color: #ffa101;
+    color: #31525b;
+    }
+
+#dropDown {
+    /* background-color: #ffa101; */
+    color: #31525b;   
+}
+
+h1{
+    text-align: center;
+    position: relative;
+    color:#31525b;
+}
+
+div {
+    background-color: #31525b;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-weight: 900; 
+    border-radius: 26px;
+    border-style: double;
+    border-color: #ffa101;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+br {
+    content: 150px;
+}
+
+#myForm {
+    margin-left: 115px;
+    border-style: dotted green;
+    text-align: left;
+}
+input {
+    border-color: #ffa101;
+}
+
+button {
+ background-color: #ffa101;
+ color: #31525b;
+}
