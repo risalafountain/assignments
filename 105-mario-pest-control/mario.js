@@ -2,35 +2,32 @@
 
 const form = document.getElementById("myForm")
 
-let num1 = document.getElementById("goomba")
-let num2 = document.getElementById("bob")
-let num3 = document.getElementById("cheep")
+let gInput = document.getElementById("goomba")
+let gTotal = document.getElementById("gTotal")
+let bInput = document.getElementById("bob")
+let cInput = document.getElementById("cheep")
+let gValue = document.getElementById("gValue")
+let bValue = document.getElementById("bValue")
+let cValue = document.getElementById("cValue")
+
 
 //get total from each caught and multiply by the value /baddie 
 
-form.addEventListener("submit", (event) => {
+function total(event) {
     event.preventDefault()
-})
-
-// function sum() {
-//     document.getElementById("solution").innerHTML = ("The Total is " + (parseInt(num1) * 5 + parseInt(num2) + parseInt(num3))) 
-//     console.log("test" + num1 * 5)
-// }
-
-// let goombaCost = 5
-// let bobCost = 7
-// let cheepCost = 11
-
-function goombaTotal () {
-   let goombaTotal = parseInt(num1) * 5
-
-    document.getElementById("gTotal").innerHTML = "The Total of Goomba Cost is:" ((parseInt(num1) * parseInt(goombaCost)))
-}
-
-function bobTotal () {
     
+    let goombaTotal = parseInt(gInput.value)* 5
+    gTotal.value = goombaTotal
+
+    let bobTotal = parseInt(bInput.value) * 7
+    bTotal.value = bobTotal
+    
+    let cheepTotal = parseInt(cInput.value) * 11
+    cTotal.value = cheepTotal    
+
+    document.getElementById("solution").value = gTotal.value + bTotal.value + cTotal.value + " Coinage" //yes
+    console.log("this works?")
 }
 
-function cheepTotal () {
-    
-}
+
+document.getElementById("submit").addEventListener("click", total)
