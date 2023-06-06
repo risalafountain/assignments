@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="mariostyle.css"/>
+    <title>Mario Pest Control</title>
+</head>
+<body>
+    <h1>Mario Pest Control</h1>
+
+    <form id = "myForm">
+        <h2>Baddies:</h2>
+        
+        <input type = "number" id ="goomba" min = "0" label = "Goombas"/>x 5 coins each 
+        <input type = "text" id = "gTotal"/>
+        <button id = "gButton" onClick = "goombaTotal()"> = </button>  
+        
+        <p>Bob-ombs  </p><input type = "number" id ="bob" min = "0"/>  x 7 coins each =  
+        
+        <p>Cheep-cheeps </p><input type = "number" id ="cheep" min = "0"/> x 11 coins each = 
+        
+        <p id = "solution"></p>
+        <button onClick ="sum()" >Submit</button>
+    
+    </form>
+
+    <!-- <div>
+        Baddies: 
+        <ul>Goombas 5 coins</ul> <input type = "number"/>
+        <ul>Bob-ombs 7 coins</ul>
+        <ul>Cheep-cheeps 11 coins</ul>
+        <ul>Total Caught</ul>
+    </div> -->
+    <footer>mario@mariopestcontrol.com mariopestcontrol.com 1234 Pipe Dream Lane Mushroom Kingdom </footer>
+    <script src = "mario.js"></script>
+</body>
+</html>
