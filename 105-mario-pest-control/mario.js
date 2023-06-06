@@ -18,14 +18,18 @@ function total(event) {
     
     let goombaTotal = parseInt(gInput.value)* 5
     gTotal.value = goombaTotal
+    console.log(gTotal.value)
 
     let bobTotal = parseInt(bInput.value) * 7
     bTotal.value = bobTotal
-    
+    console.log(bTotal.value)
+
     let cheepTotal = parseInt(cInput.value) * 11
     cTotal.value = cheepTotal    
+    console.log(cTotal.value)
 
-    document.getElementById("solution").value = gTotal.value + bTotal.value + cTotal.value + " Coinage" //yes
+    document.getElementById("solution").innerHTML = parseInt (gTotal.value) + parseInt (bTotal.value) + parseInt (cTotal.value) + " Coinage Total"
+
     console.log("this works?")
 }
 
