@@ -6,3 +6,4 @@ IMG FOR BADDIES
 
 <img src = "https://mario.wiki.gallery/images/thumb/6/63/CheepCheepNSMBU.png/200px-CheepCheepNSMBU.png"/>
 
+ <img class = "image" id = "mario" src = "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/04/mario-coins-featured.jpg"/>
