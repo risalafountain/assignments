@@ -326,3 +326,5 @@ numbers.every(function(number){
 ```
 
 These are not all of the available Higher Order Functions, but these are the most common. I encourage you to familiarize yourself with these because they will be EXTREMELY useful throughout your coding career.
+
+https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#functional-programming
