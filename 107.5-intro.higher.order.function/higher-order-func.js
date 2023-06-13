@@ -1,6 +1,7 @@
 // Higher Order Functions
 // callback is a function passed into another function
 
+
 function doMath(num1, num2, callback){
     return callback(num1, num2)
 }

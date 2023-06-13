@@ -2,7 +2,7 @@ A higher order function either:
 
 - takes one or more functions as an argument
     
-    or
+    or/and
     
 - outputs a function
 
