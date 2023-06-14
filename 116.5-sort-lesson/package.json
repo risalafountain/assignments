@@ -1,0 +1,12 @@
+{
+  "name": "116.5-sort-lesson",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sort.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
