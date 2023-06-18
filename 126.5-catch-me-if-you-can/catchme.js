@@ -5,16 +5,17 @@
 function sum(x, y){
     //check data types first and throw error (what does checking data types look like? is it console.log(type of sum)?)
     //throw ("hey I'm an error") 
-    try {
-        sum(1, 2) 
-        throw new Error ("Uh-oh! New error!")
-        console.log("this is the console log")
-    }
-    
-    catch (err) {
-        console.log("This is an error")
-    }
     return x + y;
+}
+
+try {
+    sum(1, 2) 
+    throw new Error ("Uh-oh! New error!")
+    console.log("this is the console log")
+}
+
+catch (err) {
+    console.log("This is an error")
 }
 
 console.log("this is a test")
@@ -26,7 +27,7 @@ var user = {username: "sam", password: "123abc"};
 function login(username, password){
  return (`Welcome ${username}! Your password is ${password}`)
  try { 
-    if (username != password) {throw ("Username and Password DO NOT Match")}
+    if (username !== password) {throw ("Username and Password DO NOT Match")}
  }
  catch(err) {
     console.log("login successful")
