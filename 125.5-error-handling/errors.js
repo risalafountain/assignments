@@ -20,5 +20,4 @@ catch (err) {
 finally {
     console.log("I am running no matter what!")
 }
-
 //
