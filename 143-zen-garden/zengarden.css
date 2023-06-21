@@ -1,0 +1,100 @@
+html, body {
+    margin: 0;
+    padding: 0; 
+}
+
+/*for mobile devices*/
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(100px, autofill);
+    height: 120px;
+}
+
+ul {
+    border: solid 3px blueviolet ;
+    padding-left: 0px;
+    width: fit-content;
+}
+
+.box{
+    border: dotted red;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: larger;
+}
+
+/* 
+.sidebar {
+    width: fit-content;
+} */
+
+#header {
+    background-image: url("http://www.csszengarden.com/214/huntington.jpg");
+    background-size: contain;
+    color: white;
+    margin: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0px;
+    text-align: center;
+    backdrop-filter: sepia(100%);
+}
+
+#circle-img {
+    width: 100px;
+    height: 100px;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+}
+
+h4{
+    margin: 0;
+    padding: 0;
+}
+
+/* #top-sidebar {
+} */
+
+#content-source {
+    background-image: url("http://www.csszengarden.com/214/koi.jpg");
+    background-color: #134347;
+    color: white;
+    text-align: center;
+}
+
+#social {
+    background-color: #134347;
+    color: white;
+    text-align: center;
+}
+
+#menu-sidebar {
+    background-image: url("http://www.csszengarden.com/214/bamboo.png");
+    background-color: #9ecbab
+}
+
+#mid-content {
+    background-image: url("http://www.csszengarden.com/214/bamboo.png");
+    background-color: #9ecbab  
+}
+
+#authors {
+    background-color: #d8e4dc;
+}
+
+#empty-sidebar {
+    background-color: #d8e4dc;
+}
+
+#social {
+    @font-face {
+        font-family:socialMediaButtons ;
+        src: url("http://www.csszengarden.com/214/verdemoderna.woff");
+    }
+}
+
+
+
+
