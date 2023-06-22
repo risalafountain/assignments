@@ -4,10 +4,12 @@ html, body {
 }
 
 /*for mobile devices*/
+
 .grid-container{
     display: grid;
-    grid-template-columns: repeat(100px, autofill);
-    height: 120px;
+    grid-template-columns: repeat(3, autofit);
+    grid-template-rows: repeat(11, autofit);
+    /* height: 120px; */
 }
 
 ul {
@@ -29,19 +31,38 @@ ul {
 } */
 
 #header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-image: url("http://www.csszengarden.com/214/huntington.jpg");
-    background-size: contain;
+    background-size: cover;
     color: white;
     margin: 0px;
     padding-bottom: 0px;
     border-bottom: 0px;
     text-align: center;
-    backdrop-filter: sepia(100%);
+    /* grid-row: 1/10;
+    grid-column: 1/2; */
+}
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; 
 }
 
-#circle-img {
-    width: 100px;
-    height: 100px;
+#top-sidebar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("http://www.csszengarden.com/214/huntington.jpg");
+    background-size: cover;
+    color: white;
+    margin: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0px;
+    text-align: center; 
 }
 
 h1{
@@ -54,47 +75,113 @@ h4{
     padding: 0;
 }
 
-/* #top-sidebar {
+#mid-content {
+    background-image: url("http://www.csszengarden.com/214/bamboo.png");
+    background-color: #9ecbab;
+    /* grid-row: 4/10; */
+}
+/* 
+#content-bottom {
+    grid-row: 5/10;
 } */
 
 #content-source {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url("http://www.csszengarden.com/214/koi.jpg");
     background-color: #134347;
     color: white;
     text-align: center;
+    height: 150px;
+    /* grid-row: 6/10; */
 }
 
 #social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #134347;
     color: white;
     text-align: center;
-}
-
-#menu-sidebar {
-    background-image: url("http://www.csszengarden.com/214/bamboo.png");
-    background-color: #9ecbab
-}
-
-#mid-content {
-    background-image: url("http://www.csszengarden.com/214/bamboo.png");
-    background-color: #9ecbab  
+    height: 100px;
+   
 }
 
 #authors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #d8e4dc;
+    grid-row:  8/9;
+    grid-column: 1/2;
+}
+
+#menu-sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("http://www.csszengarden.com/214/bamboo.png");
+    background-color: #9ecbab;
+    grid-row: 10/11;
+    grid-column: 1/2;
 }
 
 #empty-sidebar {
     background-color: #d8e4dc;
+    grid-row: 9/10;
+    grid-column: 1/2;
 }
 
-#social {
-    @font-face {
-        font-family:socialMediaButtons ;
-        src: url("http://www.csszengarden.com/214/verdemoderna.woff");
+/*for laptop*/
+@media screen and (min-width: 768px) { 
+    #top-content {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    /* color: red; */
     }
+    
+    #authors {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    
+    #mid-content {
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+    
+    #bottom-content {
+        grid-column: 1/2;
+        grid-row:4/5;
+    }
+    
+    #content-source {
+        grid-column: 1/3;
+        grid-row: 5/6;
+    }
+    #social {
+        grid-column: 1/3;
+        grid-row: 6/7;
+    }
+    
+    #top-sidebar {
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
+    #authors {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    #menu-sidebar {
+        grid-column: 2/3;
+        grid-row: 3/4;
+    }
+
+    #empty-sidebar {
+        grid-column: 2/3;
+        grid-row: 4/5;
+    } 
 }
-
-
-
-
