@@ -3,32 +3,100 @@ html, body {
     padding: 0; 
 }
 
-/*for mobile devices*/
+/********** Custom Fonts/Icons **********/
+@font-face {
+    font-family: 'verdemoderna';
+    font-style: normal;
+    font-weight: normal;
+    src: url(fonts/verdemoderna.woff);
+}
 
+@font-face {
+    font-family: 'julius';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/JuliusSansOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'libre';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/LibreBaskerville-Regular.ttf');
+}
+
+
+
+/*for mobile devices*/
 .grid-container{
     display: grid;
+    font-family: "libre";
     grid-template-columns: repeat(3, autofit);
     grid-template-rows: repeat(11, autofit);
     /* height: 120px; */
 }
 
+h1{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+
+}
+
+h3 {
+    margin: 0; 
+    font-family: 'julius';
+}
+
+h4{
+    margin: 0;
+    padding: 0;
+    font-family: "libre";
+    color:#c0d9cb;
+    font-weight: normal;
+}
+
+
 ul {
     border: solid 3px blueviolet ;
-    padding-left: 0px;
+    list-style-type: none;
+    padding: 15px;
+    margin: 5px;
     width: fit-content;
+    font-family: "julius";
+    color: #607476;
 }
+
+
+li {
+    font-family: "julius";
+}
+
+span {
+    font-family: "libre";
+    color: #95a099
+}
+
+a {
+    font-family: "libre";
+
+}
+
+p {
+    font-family: "libre";
+}
+
+
 
 .box{
-    border: dotted red;
     padding-left: 100px;
     padding-right: 100px;
-    font-size: larger;
+    padding-top: 25px;
+    font-family: "libre";
+    color: #325050;
+    line-height: 2;
 }
 
-/* 
-.sidebar {
-    width: fit-content;
-} */
 
 #header {
     display: flex;
@@ -42,9 +110,11 @@ ul {
     padding-bottom: 0px;
     border-bottom: 0px;
     text-align: center;
-    /* grid-row: 1/10;
-    grid-column: 1/2; */
+    font-family: "julius";
+    height: 250px;
+   
 }
+
 #logo {
     display: flex;
     justify-content: center;
@@ -58,43 +128,30 @@ ul {
     align-items: center;
     background-image: url("http://www.csszengarden.com/214/huntington.jpg");
     background-size: cover;
-    color: white;
+    color:#c0d9cb;
     margin: 0px;
     padding-bottom: 0px;
     border-bottom: 0px;
     text-align: center; 
-}
+    height:75px;
 
-h1{
-    margin: 0;
-    padding: 0;
-}
-
-h4{
-    margin: 0;
-    padding: 0;
 }
 
 #mid-content {
     background-image: url("http://www.csszengarden.com/214/bamboo.png");
-    background-color: #9ecbab;
-    /* grid-row: 4/10; */
+    background-color: #c0d9cb;
 }
-/* 
-#content-bottom {
-    grid-row: 5/10;
-} */
 
 #content-source {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     background-image: url("http://www.csszengarden.com/214/koi.jpg");
     background-color: #134347;
     color: white;
     text-align: center;
     height: 150px;
-    /* grid-row: 6/10; */
+    font-size: 25px;;
 }
 
 #social {
@@ -105,30 +162,32 @@ h4{
     color: white;
     text-align: center;
     height: 100px;
-   
+    font-family: 'verdemoderna';
 }
 
 #authors {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: #d8e4dc;
+    align-items: center; */
+
+    background-color: #e5ede8 ;
+    padding-top: 25px;
     grid-row:  8/9;
     grid-column: 1/2;
 }
 
 #menu-sidebar {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     background-image: url("http://www.csszengarden.com/214/bamboo.png");
-    background-color: #9ecbab;
+    background-color: #b1cdbd;
     grid-row: 10/11;
     grid-column: 1/2;
 }
 
 #empty-sidebar {
-    background-color: #d8e4dc;
+    background-color: #e5ede8;
     grid-row: 9/10;
     grid-column: 1/2;
 }
@@ -166,6 +225,7 @@ h4{
     }
     
     #top-sidebar {
+        height: 250px;
         grid-column: 2/3;
         grid-row: 1/2;
     }
