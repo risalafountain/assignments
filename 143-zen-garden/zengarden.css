@@ -46,7 +46,13 @@ h1{
 button {
     font-family: 'verdemoderna';
     background: rgba(255,255,255,0.1);
+    font-size: 43px;
+    margin: 30px;
+    color: #ffffff6b;
+    background-color: #ffffff29;
+    border: none; 
 }
+
 h3 {
     margin: 0; 
     font-family: 'julius';
@@ -134,10 +140,16 @@ a {
     background-size: cover; */
     color:#c0d9cb;
     margin: 0px;
-    padding-bottom: 0px;
+    padding-bottom: 15px;
     border-bottom: 0px;
     text-align: center; 
     height:75px;
+}
+
+#top-sidebar > h3 {
+    color: #ffffff6b;
+    background-color: #ffffff29;
+    border: 2px dotted red; 
 }
 
 #mid-content {
