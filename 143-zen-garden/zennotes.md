@@ -32,3 +32,5 @@ http://www.csszengarden.com/214/koi.jpg
 
 HUNTIGNTON BACKGROUND
 http://www.csszengarden.com/214/huntington.jpg
+
+Trying to figure out how to do the updates on sidebar in mobile mode! 
