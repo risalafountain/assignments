@@ -207,7 +207,7 @@ a {
     grid-column: 1/2;
 }
 
-/*for laptop*/
+/*for laptop-------------------------------------------------------------------------------------------------------------*/
 @media screen and (min-width: 768px) { 
     #top-content {
         grid-column: 1/2;
