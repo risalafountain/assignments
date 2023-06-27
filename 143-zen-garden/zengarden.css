@@ -89,7 +89,8 @@ li {
 span {
     font-family: "libre";
     font-size: small;
-    color: #95a099
+    color: #95a099;
+    font-style: italic;    
 }
 
 a {
@@ -107,7 +108,6 @@ a {
     /* if i remove this then the top-sidebar fits*/ 
     /*line-height: 2; */ 
 }
-
 
 #header {
     display: flex;
@@ -162,15 +162,23 @@ a {
 }
 
 #content-source {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
-    background-image: url("http://www.csszengarden.com/214/koi.jpg");
+    align-items: center;
+    background-image: url("http://www.csszengarden.com/214/koi.jpg"), url("http://www.csszengarden.com/214/gridlines-opaque.png"), url("./images/contours-opaque.png") ;
     background-color: #134347;
-    color: white;
+    font-family: "libre";
+    color: #95a099;
     text-align: center;
-    height: 150px;
-    font-size: 25px;;
+    height: 250px;
+    font-size: 25px;
+    background-repeat: repeat, no-repeat, repeat;
+    background-size: auto, cover, auto;
+}
+
+#content-source > a {
+    color: red;
+    font-size: 25px;
 }
 
 #social {
@@ -178,17 +186,20 @@ a {
     justify-content: center;
     align-items: center;
     background-color: #134347;
-    color: white;
     text-align: center;
     height: 100px;
     font-family: 'verdemoderna';
+    font-size: 43px;
+    color: #ffffff6b;
+    /* margin: 30px; */
+    /* background-color: #ffffff29; */
+    /* background: rgba(255,255,255,0.1); */
 }
 
 #authors {
     /* display: flex;
     justify-content: center;
     align-items: center; */
-
     background-color: #e5ede8 ;
     padding-top: 25px;
     grid-row:  8/9;
@@ -211,21 +222,29 @@ a {
     grid-column: 1/2;
 }
 
-/*for laptop-------------------------------------------------------------------------------------------------------------*/
+/*for laptop*/
 @media screen and (min-width: 768px) { 
-/*     
+    .box{
+        /* padding-left: 100px;
+        /* padding-right: 100px; */
+        padding-top: 25px; 
+        font-family: "libre";
+        color: #325050;
+        line-height: 2; 
+    }
+    
     #header{
         grid-column: 1 / 3;
-         display: flex;      
-    }*/
+        grid-row: 1/2;
+        display: flex;      
+    }
 
    #top-sidebar {
-        /* height: 250px;
-        align-self: flex-end;
-        margin-bottom: 100px; */
         display: flex;
         justify-content: flex-end;
         align-content: flex-end;
+        grid-column: 2/3;
+        grid-row: 1/2;
     }
 
     #top-content {
@@ -235,8 +254,9 @@ a {
     }
     
     #authors {
-        grid-column: 2/3;
+        grid-column: 1/2;
         grid-row: 2/3;
+        padding-left: 0px;
     }
     
     #mid-content {
@@ -266,7 +286,7 @@ a {
     #menu-sidebar {
         grid-column: 2/3;
         grid-row: 3/4;
-        
+        padding-left: 0px;
     }
 
     #empty-sidebar {
