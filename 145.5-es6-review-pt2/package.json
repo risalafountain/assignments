@@ -1,0 +1,12 @@
+{
+  "name": "145.5-es6-review-pt2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "es6-pt2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
