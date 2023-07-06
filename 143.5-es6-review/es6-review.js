@@ -55,7 +55,7 @@ console.log(`The ${person.ageRange}, ${person.name}, is ${person.age} years old.
 
 const springMonths = ["March", "April", "May"]
 const fallMonths = ["September", "October", "November"]
-// replace this line with one that uses a spread oporator to do the same thing as concat
+// replace this line with one that uses a spread operator to do the same thing as concat
 //const fringeMonths = springMonths.concat(fallMonths)
 
 const fringeMonths = [...springMonths, ...fallMonths]
