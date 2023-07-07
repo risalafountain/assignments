@@ -1,0 +1,14 @@
+
+.map-photo{
+    width: 210px;
+    padding-bottom: 0;
+    border: solid black 6px;
+}
+
+header{
+    background-color: bisque;
+}
+
+body{
+    background-color: powderblue;
+}
