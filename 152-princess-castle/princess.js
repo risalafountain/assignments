@@ -6,7 +6,8 @@ const playerName = ["Mario", "Luigi"]
 
 const namePicked = readline.keyInSelect (playerName)
 const gameName = playerName[namePicked] 
-console.log(`You chose ${gameName}`)
+
+console.log(`Hello, ${gameName}`)
 
 class Player {
     constructor (name, status, totalCoins, hasStar) {
@@ -17,7 +18,14 @@ class Player {
     }
      
     gotHit(){
-        console.log(`you were hit`)
+    //create variable w/ array of statuses 
+       const statusUpdate  = ["poweredUp", "big", "small", "unalived"]
+    //iterate through the arrays 
+      statusUpdate.forEach(status => {
+    //assign each status to player class
+        return this.statusUpdate
+       console.log(`you were hit`)
+      });
    }
    
     gotPowerUp () {
@@ -35,38 +43,6 @@ const player1 = new Player(gameName, "small", 0, false)
 
 player1.gotHit()
 
+// function randomRange {
 
-function solution(inputString){
-
-  //step 1: split string into array
-  const splitStr = inputString.split(" ")
-  //step 2: iterate the array   //map, for loops
-  const mappedArr = splitStr.map(word => {
-    //step 3: string method to manipulate the data
-    return word.charAt(0).toUpperCase() + word.slice(1)
-  })
-
-  return mappedArr.join(" ")
-  //step 4: put it all back together
-
-
-}
- console.log(solution("the princess is in another castle!!!"))
-
- // The Princess Is In Another Castle
-
- //talk it out  // asking questions
-
- //psuedo code plan 
-
- //problem solving
-
-
-
-
-
- //string method to manipulate the data
- //find index 0 of each word
- //split the string into an array
-
- return inputString.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+// }
