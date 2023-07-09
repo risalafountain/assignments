@@ -53,21 +53,33 @@ class Player {
     }  
   }
 
+  addCoin() {
+    return this.totalCoins++
+  }
+
+  print (){
+    if (hasStar = true) {
+      console.log(`\nName: ${gameName} \nStatus: ${this.status} \nTotal Coins: ${this.totalCoins} \nStatus: ${this.status} \n You have a Star!`)      
+    } else {
+      console.log(`\nName: ${gameName} \nStatus: ${this.status} \nTotal Coins: ${this.totalCoins} \nStatus: ${this.status} \n You do not have a Star!`)      
+    }
+  }
+}
+
+function randomRange() {
+ let randomNum = Math.random() * 2
+ if (randomNum === 0) {
+  gotHit()
+ } else if (randomNum === 1) {
+  {gotPowerup()
+  } else {
   addCoin()
-  return this.totalCoins++
+  }
+ }
+}
 
-}    
-  
-// when this is called    
-//     gotPowerUp () {
-//    }
- 
-// // when this is called, add 1 coin to total  
-   
-//    print(){    
-//    }
-// }
 
-// const player1 = new Player(gameName, "small", 0, false)
 
-// player1.gotHit()
+const player1 = new Player(gameName, "small", 0, false)
+
+player1.gotHit()
