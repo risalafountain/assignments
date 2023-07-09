@@ -16,33 +16,38 @@ class Player {
         this.totalCoins = totalCoins; //number
         this.hasStar = hasStar; //boolean
     }
-     
+//each time the method it is called it goes through the array     
     gotHit(){
-    //create variable w/ array of statuses 
-       const statusUpdate  = ["poweredUp", "big", "small", "unalived"]
-    //iterate through the arrays 
-      statusUpdate.forEach(status => {
-    //assign each status to player class
-        return this.statusUpdate
-       console.log(`you were hit`)
-      });
-   }
+      switch (this.status) {
+        case "Powered Up":
+         if (this.hasStar === true) {
+            this.status = "Powered Up"
+            this.hasStar = false
+            console.log("Your star has protected you!")
+          } else {
+            this.status = "Big"
+          }
+          break;
+      }
+    }
+
+
+    
+}    
+  
+// when this is called    
+//     gotPowerUp () {
+//    }
+ 
+// // when this is called, add 1 coin to total  
+//     addCoin() {
+//       return this.totalCoins++
+//    }
    
-    gotPowerUp () {
-
-   }
-   
-    addCoin() {
-   }
-   
-   print(){    
-   }
-}
-
-const player1 = new Player(gameName, "small", 0, false)
-
-player1.gotHit()
-
-// function randomRange {
-
+//    print(){    
+//    }
 // }
+
+// const player1 = new Player(gameName, "small", 0, false)
+
+// player1.gotHit()
