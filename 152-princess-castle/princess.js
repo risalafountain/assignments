@@ -28,11 +28,34 @@ class Player {
             this.status = "Big"
           }
           break;
+      
+      case "Big":
+        this.status = "Small"
+        break;
+      
+      case "Small":
+        this.status = "Unalived"
+        console.log("You have lost the game!")
+        break;
       }
     }
 
+  gotPowerup() {
+    switch (this.status) {
+      case "Big":
+        this.status = "Powered Up"
+        console.log(`Congratulations, ${gameName}! You got a Star!`)
+        break; 
 
-    
+      case "Small": 
+      this.status = "Big"
+      break;  
+    }  
+  }
+
+  addCoin()
+  return this.totalCoins++
+
 }    
   
 // when this is called    
@@ -40,9 +63,6 @@ class Player {
 //    }
  
 // // when this is called, add 1 coin to total  
-//     addCoin() {
-//       return this.totalCoins++
-//    }
    
 //    print(){    
 //    }
