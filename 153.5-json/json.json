@@ -1,0 +1,12 @@
+
+{
+    "name":"Steve", 
+    "age":20, 
+    "isAlive": true, 
+    "friends": ["john", "betty", "jake"],
+    "address": {
+        "street" : "123 Street",
+        "city": "SLC"
+    }
+}
+

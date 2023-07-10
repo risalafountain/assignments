@@ -1,0 +1,18 @@
+# JSON
+    - Javascript Object Notation
+    - JSON is a data format for transfering data that shares a strong resemblance to a Javascript object.
+    - JSON can be used to transfer:
+        - strings
+        - numbers
+        - booleans
+        - arrays
+        - objects
+
+    - JSON can be coverted to javascript using the JSON.parse() method.
+    - Javascript can be converted to JSON using the JSON.stringify() method. (for sending data to a server)
+    
+    Rules:
+        - Must use double quotes (key value paris must always use double quotes)
+        - No trailing comma on the last entry in a JSON object
+
+jsonlint.com: validates your JSON (will green light if it is  valid JSON )
