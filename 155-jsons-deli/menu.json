@@ -1,0 +1,66 @@
+{
+    "appetizers": [
+        {
+            "name": "Nachos",
+            "ingredients": ["beans", "lettuce", "tomato", "queso"],
+            "description": "Regular Bean Nachos"
+        },
+        {
+            "name": "Flautas",
+            "ingredients": ["shredded chicken", "corn tortilla", "tomato", "Queso"],
+            "description": "Crunchy"
+        }
+    ],
+
+    "cold sandwiches": [
+        {
+            "name": "Ham",
+            "ingredients": ["white bread", "mustard", "ham", "pickles"],
+            "description": "Cold Pork Sandwich"
+        },
+        {
+            "name": "PBJ",
+            "ingredients" : ["white bread", "peanut butter", "jelly"],
+            "description": "Pretty self explanatory this one"
+        }
+    ], 
+
+    "hot sandwiches": [
+        {
+            "name": "chopped beef",
+            "ingredients": ["bbq sauce", "brisket", "pickles", "onions"],
+            "description": "texas favorite"
+        },
+        {
+            "name": "chopped beef",
+            "ingredients": ["bbq sauce", "brisket", "pickles", "onions"],
+            "description": "texas favorite"
+        }
+    ],
+
+    "desserts": [
+        {
+            "name": "Cheesecake 2.0",
+            "ingredients": ["cheesecake", "strawberries", "oreo crust"],
+            "description": "Traditional Cheesecake with an upgrade"
+        },
+        {
+            "name": "Case of the Mondays",
+            "ingredients": ["Chocolate Syrup", "Soft Serve Ice Cream", "Whipped topping"],
+            "description": "Chocolate Sundae"
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Dr Pepper",
+            "ingredients": ["Dr Pepper", "crushed ice", "cherries"],
+            "description": "Dr Pepper with cherries "
+        },
+        {
+            "name": "Sweet Tea",
+            "ingredients": ["Tea", "sugar", "lemon" ],
+            "description": "No Splenda allowed"
+        }
+    ]
+}
+
