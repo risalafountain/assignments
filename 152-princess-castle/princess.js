@@ -15,7 +15,7 @@ class Player {
     this.name = name; //string "mario" "luigi"
     this.status = status; //status changed from poweredUp to Big to Small to Dead 
     this.totalCoins = totalCoins; //number
-        this.hasStar = hasStar; //boolean
+    this.hasStar = hasStar; //boolean
       }
       
       //each time the method it is called it goes through the array     
@@ -42,7 +42,7 @@ class Player {
               }
             }
             
-            gotPowerup() {
+            gotPowerUp() {
               switch (this.status) {
                 case "Big":
                   this.status = "Powered Up"
@@ -60,30 +60,35 @@ class Player {
               }
               
               print (){
-                if (hasStar = true) {
-                  console.log(`\nName: ${gameName} \nStatus: ${this.status} \nTotal Coins: ${this.totalCoins} \nStatus: ${this.status} \n You have a Star!`)      
+                if (this.hasStar) {
+                  console.log(`\nName: ${gameName} \nStatus: ${this.status} \nTotal Coins: ${this.totalCoins} \n `)      
                 } else {
-                  console.log(`\nName: ${gameName} \nStatus: ${this.status} \nTotal Coins: ${this.totalCoins} \nStatus: ${this.status} \n You do not have a Star!`)      
+                  console.log(`\nName: ${gameName} \nStatus: ${this.status} \nTotal Coins: ${this.totalCoins} \n `)      
                 }
               }
             }
             
             
-const player1 = new Player(gameName, "small", 0, false)
+const player1 = new Player(gameName, "Big", 0, false)
 
-//how do i call this function? or where do I call this function? 
-function randomRange() {
-  let randomNum = Math.random() *2
-  if (randomNum === 0) {
-    gotHit()
-  } else if (randomNum === 1) {
-    gotPowerup()
+//how/where do i call this function? or where do I call this function? How do I "put the random range function inside a setInterval function that ends after a player is dead?"
+// function randomRange() {
+//   let randomNum = Math.random() *2
+// }
+// player1ow do i fill this out? 
+// intervalId = setInterval(randomRange, 2000 )
+
+const fish = setInterval(()=>{
+  const randomRange = Math.floor(Math.random() * 3)
+  if (randomRange === 0) {
+    player1.gotHit()
+  } else if (randomRange === 1) {
+    player1.gotPowerUp()
   } else {
-    addCoin()
+    player1.addCoin()
   }
-}
-
-//how do i fill this out? 
-intervalId = setInterval(randomRange, 2000 )
-
-
+ if (player1.status === "Unalived") {
+  clearInterval(fish)
+ } 
+ player1.print()
+},1000)
