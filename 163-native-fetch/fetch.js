@@ -22,7 +22,6 @@ after this we will be using axios throughout the rest of the course. this is jus
 //     .catch(err => console.log(err))
 
 //to send it to web page set up a for loop  and create an h1  then add the name as the text content and put the h1 on the page 
-
 fetch("https://rickandmortyapi.com/api/character") //get the array 
     .then(res => res.json()) //bring it back and convert it to json and parse it 
     .then(res => { //receive it as js 
@@ -36,4 +35,4 @@ fetch("https://rickandmortyapi.com/api/character") //get the array
     })
     .catch(err => console.log(err))
 
-    
+
