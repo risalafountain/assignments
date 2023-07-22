@@ -1,7 +1,7 @@
 // GET's THE TODO's FROM THE DATABASE
 function getData(){
     axios.get("https://api.vschool.io/risala/todo") //does a get request to a todo list using the vschool API
-        .then(res => listData(res.data)) //whent he results come back, call the function listData to get the todo list 
+        .then(res => listData(res.data)) //when the results come back, call the function listData to get the todo list 
         .catch(err => console.log(err))
 }
 

@@ -1,0 +1,24 @@
+/* Color Scheme
+Medium Persian Blue #005D9E
+Crayola's Gold #EDC483
+Persian Green #00A69B
+ */
+
+body {
+    background-color: #005d9e;
+}
+
+input {
+    padding: 2px;
+    background-color: #EDC483;
+}
+
+button {
+   padding: 5px;
+   margin-top: 5px;
+   margin-bottom: 15px;
+}
+
+#todoList {
+    border: dotted red;
+}
