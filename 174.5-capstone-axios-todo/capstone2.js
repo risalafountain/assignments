@@ -1,4 +1,4 @@
-
+const todoDiv = document.getElementById('todoList')
 //get the todos from the database
 //see current list of todos
 
@@ -15,29 +15,31 @@ axios.get("https://api.vschool.io/risalaf/todo")
     .then(response => {
         console.log(response)
         for (let i = 0; i < response.data.length; i++) {
-            
+            const div = document.createElement('div')
+            todoDiv.appendChild(div)
             //display img
             const img = document.createElement("img")
             img.src = response.data[i].imgUrl
             img.style.width = "100px"
             img.style.height = "100px"
-            document.body.appendChild(img)
+            img.style.float = 'left'
+            div.appendChild(img)
 
             //list item title
             const h1 = document.createElement('h1')
             h1.textContent = response.data[i].title
-            document.body.appendChild(h1)
+            div.appendChild(h1)
             
             //list item price
             const cost = document.createElement("h1")
-            cost.textContent = response.data[i].price
-            document.body.appendChild(cost)
+            cost.textContent = `$ ${response.data[i].price}`
+            div.appendChild(cost)
            
             //create a completed button
             const completeBtn = document.createElement("button")
             completeBtn.innerText = "Done"
             completeBtn.style.width = "50px"
-            document.body.appendChild(completeBtn);
+            div.appendChild(completeBtn);
             
             //strikethrough completed todo
             completeBtn.addEventListener("click", function () {
@@ -48,7 +50,7 @@ axios.get("https://api.vschool.io/risalaf/todo")
             const resetBtn = document.createElement("button")
             resetBtn.innerText = "Reset"
             resetBtn.style.width = "50px"
-            document.body.appendChild(resetBtn)
+            div.appendChild(resetBtn)
 
             //remove line through
             resetBtn.addEventListener("click", function (){
