@@ -95,7 +95,7 @@ function createToDo(item){
                     console.log(("the check box is unchecked"))
                 }
             })
-            
+          
     //create a delete button 
     const deleteBtn = document.createElement("button")
     deleteBtn.innerText = "Delete"
@@ -106,8 +106,8 @@ function createToDo(item){
         .then(response => console.log(response.data))
         .catch(error => console.log(error))
     })
-}  
- 
+   } 
+
     //new var for user inputted data
     const formInput = document["todoForm"] 
     formInput.addEventListener("submit", function(e){
