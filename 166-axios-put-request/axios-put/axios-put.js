@@ -14,7 +14,7 @@
 //     .then(response => console.log(response.data))
 //     .catch(error => console.log(error))
 
-//this is how it looks in JS 
+//thisow it looks in JS 
 
 // const person = {
 //     name: "steve",
