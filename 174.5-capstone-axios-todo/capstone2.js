@@ -1,3 +1,7 @@
+//**the data I am entering is being attached to the dom twice. how can i fix this?
+   // the clear list function is in place to prevent this. what am I missing there?
+
+//page must be refreshed before I can see the effects of the new todo or the deleted although they are being logged in the console
 const todoDiv = document.getElementById('todoList')
 
 //get the todos from the database
@@ -10,6 +14,7 @@ function getData(){
 
 //todo show up as soon as the page loads 
 //list the todo titles to the dom 
+
 function listData(data) {
      clearList()
 for (let i = 0; i < data.length; i++) {
@@ -65,14 +70,19 @@ function createToDo(item){
     div.appendChild(cost)
     
     //create a completed checkbox
-    const checkBoxStatus= document.createElement("input")
+    const checkBoxStatus = document.createElement("input")
     checkBoxStatus.setAttribute("type", "checkbox")
     checkBoxStatus.style.width = "20px"
     checkBoxStatus.style.height = "20px"
     //checkBoxStatus.style.width = "50px"
     checkBoxStatus.style.float = "end"
     div.appendChild(checkBoxStatus);
-      
+     
+    if (item.completed === true) {
+        title.style.textDecoration = "line-through"
+        checkBoxStatus.checked = true
+    }
+
     //strikethrough completed todo or no change if unchecked
     checkBoxStatus.addEventListener("click", function () {
         if (checkBoxStatus.checked) {
@@ -103,7 +113,7 @@ function createToDo(item){
 
     deleteBtn.addEventListener("click", function (){
         axios.delete(`https://api.vschool.io/risalaf/todo/${item._id}`)
-        .then(response => console.log(response.data))
+        .then(response => getData())
         .catch(error => console.log(error))
     })
    } 
@@ -125,15 +135,15 @@ function createToDo(item){
     console.log(newTodo)
     
     //reset the input after submit
-    newTodo.imgUrl.value ="",
-    newTodo.title.value = "",
-    newTodo.description.value = "",
-    newTodo.price.value = ""
+    formInput.imgUrl.value =""
+    formInput.title.value = ""
+    formInput.description.value = ""
+    formInput.price.value = ""
     
     //make a post request with the same url and add new todo to the list
     axios.post("https://api.vschool.io/risalaf/todo", newTodo)
     //when the request comes back we are calling the getData function again
-    .then(response => console.log(response.data)) 
+    .then(response => getData()) 
     .catch(err => console.log(err))
 })
 
