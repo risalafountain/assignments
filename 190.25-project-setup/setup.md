@@ -19,3 +19,8 @@ Challenge: Project setup
   the fonts. You may need to do some extra research to figure out how this 
   works if you haven't done it before)
 */
+
+here is the url to the figma file we are trying to duplicate
+
+
+https://www.figma.com/file/Cf3YxWQu1QjszXsPkv5lM6/ReactFacts-(Copy)?type=design&node-id=0-1&mode=design&t=BGKHUoEugASsBngt-0

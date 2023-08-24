@@ -1,21 +1,21 @@
-//import { useState } from 'react'
+import { useState } from 'react'
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
-// import './App.css'
-// import Navbar  from './components/Navbar'
-// import Main from './components/Main'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
+import './App.css'
+import Navbar  from './components/Navbar'
+import MainContent from './components/MainContent'
 
-// function App() {
-//   //const [count, setCount] = useState(0)
-//   return (
-//     <div>
-//       <Navbar />
-//       <Main />
-//     </div>
-//   )
-// }
+function App() {
+  const [count, setCount] = useState(0)
+  return (
+    <div className = "container">
+      <Navbar />
+      <MainContent />
+    </div>
+  )
+}
 
-// ReactDOM.render(<App />, document.getElementById("root"))
-
-//export default App
+export default App
