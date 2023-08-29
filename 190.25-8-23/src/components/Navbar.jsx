@@ -1,14 +1,13 @@
 import React from "react"
+import coolImg from "./images/group.png"
 
 function Navbar() {
     return (
         <nav>
-          {/* image not showing on page but is visible when clicking from download folder how do import the reactLogo from app.jsx? */}
+          <img src={coolImg} className ="nav--icon" />
 
-          <img src = "190.25-8-23/src/assets/react.svg" />
-
-          <h3>React Facts</h3>
-          <h4>React Course - Project 1</h4>
+          <h3 className ="nav--logo_text">React Facts</h3>
+          <h4 className ="nav--title">React Course - Project 1</h4>
         </nav>
         
     )
