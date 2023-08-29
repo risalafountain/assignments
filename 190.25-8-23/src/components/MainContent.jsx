@@ -1,8 +1,9 @@
 import React from "react"
+import halfLogo from "./images/reactjs-icon2.png"
 
 function MainContent() {
     return (
-        <main>
+      <main>
         <h1 className = "main--title">Fun Facts about React</h1>
         <ul className = "main--facts">
           <li>Was first released in 2013</li> 
@@ -11,6 +12,7 @@ function MainContent() {
           <li>Is maintained by Facebook</li> 
           <li>Powers thousands of enterprise apps, including mobile apps</li> 
         </ul>
+        <img src={halfLogo} className ="main--icon" />
         </main>
     )
   }

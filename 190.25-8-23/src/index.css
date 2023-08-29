@@ -128,3 +128,22 @@ main {
   line-height: 19px;
   padding-block: 10px; 
 }
+
+.main--facts > li::marker {
+  font-size: 1.4rem;
+  color: #61DAFB;
+}
+.main--icon {
+  position: absolute;
+  left: 75%;
+  bottom: 50%;
+  /* border: red dotted; */
+
+  /* 
+  this is what is supposed to be used based on SP 192.25
+  background-image: url(./images/reactjs-icon2.png);
+  background-repeat: no-repeat;
+  background-position: right 75%; */
+
+
+}
