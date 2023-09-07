@@ -22,13 +22,13 @@ function App() {
          email="fluff@me.com"
       />
       <Contact 
-        img="./images/felix.png"
+        img="./images/felix.jpg"
         name="Felix"
         phone="(212) 555-4567"
         email="thecat@hotmail.com"        
       />
       <Contact 
-        img="./images/pumpkin.png"
+        img="./images/pumpkin.jpg"
         name="Pumpkin"
         phone="(0800) CAT KING"
         email="pumpkin@scrimba.com"
