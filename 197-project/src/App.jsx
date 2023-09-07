@@ -23,6 +23,24 @@ function App() {
         title="Life Lessons with Katie Zaferes"
         price={136}
       />
+      {/* <Card 
+        img="./images/wedding.png"
+        rating= " 5.0"
+        reviewCount = {30}
+        country="USA"
+        title="Learn Wedding Photography"
+        price={125}
+      />
+      <Card 
+        img="./images/bike.png"
+        rating= " 4.8"
+        reviewCount = {2}
+        country="USA"
+        title="Group Mountain Biking"
+        price={50}
+      /> */}
+
+
     </div>
   )
 }
