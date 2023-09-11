@@ -7,42 +7,54 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Card from './components/Card'
+import data from "./components/data" //will be able to use api in the future
 // import swimImg from "./images/swim2.png"
 
-function App() {
-  const [count, setCount] = useState(0)
-  return (
-    <div>
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals
+//
+export default function App() {
+  //console.log("inside app comp data:", data)
+  const cards = data.map(item => {
+    return (
+      <Card
+        key={item.id}
+        //item={item}
+        //this spread operator (spreads all the properties of the item into separate props--need to get rid of all instances of "item" in the card component)
+        {...item} 
+
+        />
+      )
+    })
+    
+    return (
+      <div>
       <Navbar />
       <Hero />
-      <Card 
-        img="./images/swim2.png"
-        rating= " 5.0"
-        reviewCount = {6}
-        country="USA"
-        title="Life Lessons with Katie Zaferes"
-        price={136}
-      />
-      {/* <Card 
-        img="./images/wedding.png"
-        rating= " 5.0"
-        reviewCount = {30}
-        country="USA"
-        title="Learn Wedding Photography"
-        price={125}
-      />
-      <Card 
-        img="./images/bike.png"
-        rating= " 4.8"
-        reviewCount = {2}
-        country="USA"
-        title="Group Mountain Biking"
-        price={50}
-      /> */}
-
-
+      <section className='cards-list'>
+        {cards}
+      </section>
     </div>
   )
 }
 
-export default App
+{/* <Card 
+//this data is rendred in the correct spot but is hard coded in  
+// img="./images/swim.png"
+// rating= " 5.0"
+// reviewCount = {6}
+// location="USA"
+// title="Life Lessons with Katie Zaferes"
+// price={136}
+/> */}
+
+//this data is also done ok but there is a way to fix the component that will allow it to appear cleaner 
+// <Card 
+// key={item.id} 
+// img={item.coverImg} //data has diff property than what we chose to call our prop
+// rating={item.stats.rating}
+// reviewCount={item.stats.reviewCount}
+// location={item.location}
+// title={item.title}
+// price={item.price}
+// openSpots={item.openSpots}
+// />
