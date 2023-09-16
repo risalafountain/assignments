@@ -38,7 +38,7 @@ export default function App() {
 }
 
 {/* <Card 
-//this data is rendred in the correct spot but is hard coded in  
+//this data is rendered in the correct spot but is hard coded in  
 // img="./images/swim.png"
 // rating= " 5.0"
 // reviewCount = {6}
