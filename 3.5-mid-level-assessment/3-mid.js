@@ -7,7 +7,7 @@
 //return new arr
 
 
-// //#1--filter method to pull out all non -1 values and put them in a new arr
+//#1--filter method to pull out all non -1 values and put them in a new arr
 // function solution(arr) {
 //     const filteredArr = arr.filter(function (num) {
 //         if (num !== -1) {
@@ -51,28 +51,28 @@
 //convert string to an arr to use arr methods map
    // const onlyVowels = string.map (function (word) {
 
-function countVowels(string) {
-    let count = 0
-    const vowels = ["a", "e", "i", "o", "u" ]
-//make entire string one case and turn into array of characters
-    const lowerCaseResult=string.toLowerCase()
-//make string an array ( so i can use map method) 
-    const arrResult = [...lowerCaseResult]//spread operator made my string an array of characters!!! yay!
-    console.log(lowerCaseResult) //hello, world!
-    console.log(arrResult)//  ['h', 'e', 'l', 'l','o', ',', ' ', 'w','o', 'r', 'l', 'd','!']
-// go through letters in the string to see if any of the characters are vowels if so add to count
-    arrResult.map(function (letter) {
-        if (vowels.includes(letter)) {
-            count ++
-        }
-        return count
-    })
-}
+// function countVowels(string) {
+//     let count = 0
+//     const vowels = ["a", "e", "i", "o", "u" ]
+// //make entire string one case and turn into array of characters
+//     const lowerCaseResult=string.toLowerCase()
+// //make string an array ( so i can use map method) 
+//     const arrResult = [...lowerCaseResult]//spread operator made my string an array of characters!!! yay!
+//     console.log(lowerCaseResult) //hello, world!
+//     console.log(arrResult)//  ['h', 'e', 'l', 'l','o', ',', ' ', 'w','o', 'r', 'l', 'd','!']
+// // go through letters in the string to see if any of the characters are vowels if so add to count
+//     arrResult.map(function (letter) {
+//         if (vowels.includes(letter)) {
+//             count ++
+//         }
+//         return count
+//     })
+// }
 
-//THIS IS STILL RETURNING UNDEFINED!!!! HELP
+// //THIS IS STILL RETURNING UNDEFINED!!!! HELP
 
-const input = 'Hello, World!';
-console.log(countVowels(input)); // Output: 3
+// const input = 'Hello, World!';
+// console.log(countVowels(input)); // Output: 3
 
 // const input = 'Counting Vowels';
 // console.log(countVowels(input)); // Output: 5
@@ -87,3 +87,80 @@ console.log(countVowels(input)); // Output: 3
 // return word
 //     //("result:" + onlyVowels)
 // }
+
+// Write a JavaScript function called **`findSumOfTwo`** that takes in an array of numbers and a target number. The function should find two numbers in the array that add up to the target number and return them as an array. If there are multiple pairs that satisfy the condition, return any one of them. If no such pair exists, return an empty array.
+
+//map through array 
+//
+ 
+
+// Implement the **`findSumOfTwo`** function using either the provided example solutions or your own solution.
+
+ 
+
+// function findSumOfTwo(numbers, target) {
+
+ 
+
+// }
+
+ 
+
+// console.log(findSumOfTwo([2, 4, 7, 11, 15], 9)); // Output: [2, 7]
+
+ 
+
+// console.log(findSumOfTwo([5, 12, 3, 9, 1], 8)); // Output: [3, 5]
+
+//write a function that takes a string as argument and returns the number of vowels contained in that string.
+
+//step 1: turn string into array
+//step 2: map through arr 
+//step 3: if vowels present increase count by one
+
+
+//looop through arr of vowels 
+//conditional statementg add count of 1 
+//return count
+
+// function findVowels(word){
+//     const count = 0
+    
+//     for (let index = 0; index < word.length; index++) {
+//         const vowels = ["a", "e", "i", "o", "u"];
+//         if (word=== vowels) {
+//             count ++
+//         }
+//     return count
+//     }
+// }
+
+// console.log (findVowels("hello")); //2
+
+function findVowels(word) {
+
+    let count = 0; // Initialize the count outside the loop
+  
+    const vowels = ["a", "e", "i", "o", "u"];
+  
+   
+  
+    for (let index = 0; index < word.length; index++) {
+  
+      if (vowels.includes(word[index])) { // Check if the character is in the vowels array
+  
+        count++;
+  
+      }
+  
+    }
+  
+   
+  
+    return count; // Return the count after the loop
+  
+  }
+  
+   
+  
+  console.log(findVowels("hello")); // Output: 2
