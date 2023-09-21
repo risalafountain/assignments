@@ -3,10 +3,11 @@ import React from "react";
 export default function Card() {
     return (
     <nav className="nav--container">
-        <ul>
+        <img src = './images/office.jpg' className="nav--image" />
+        <ul className="nav--container">
             <li>Home</li>
             <li>About</li>
-            <li>ContactUs</li>
+            <li>Contact Us</li>
         </ul>
     </nav>
     )

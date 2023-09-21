@@ -13,7 +13,8 @@ export default function Header() {
                 <h1 className="header--title">Clean Blog</h1>
             <span className="header--subtitle">A Blog Theme by Start Bootstrap</span>
             </div>
-            
+            [`|+
+            `]
        </header>
    ) 
 }

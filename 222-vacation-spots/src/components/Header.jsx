@@ -5,8 +5,8 @@ export default function Card() {
     return (
         <header>
             <Navbar />
-            <h1>Here is my header</h1>
-            <p>Here is my header subtitle </p>
+            <h1 className="header--title">Popular Vacation Spots</h1>
+            <p className="header--subtitle">header subtitle Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim tellus tempus eros pellentesque facilisis.</p>
         </header>
     )
 }

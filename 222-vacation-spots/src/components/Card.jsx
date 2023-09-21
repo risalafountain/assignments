@@ -1,12 +1,13 @@
 import React from "react";
 
 export default function Card(props) {
-    console.log(props)
+    //console.log(props)
 return (
     <div className="card--container">
-       <p>Location: {props.place} </p>
-       <p>Best Time to Go: {props.timeToGo}</p>
-       <p>Cost: {props.price}</p>
+       <img src = {props.coverImg} className="card--image" />
+       <p className="card--place">Location: {props.place} </p>
+       <p className="card--time">Best Time to Go: {props.timeToGo}</p>
+       <p className="card--price">Cost: {props.price}</p>
     </div>
 )
 }

@@ -10,8 +10,6 @@ export default function Navbar() {
                     <li><a>Sample Post</a></li>
                     <li><a>Contact</a></li>
             </ul>
-            
-            
        </nav>
    ) 
 }
