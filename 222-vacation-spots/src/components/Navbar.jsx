@@ -3,7 +3,7 @@ import React from "react";
 export default function Card() {
     return (
     <nav className="nav--container">
-        <img src = './images/office.jpg' className="nav--image" />
+        {/* <img src = './images/beach.jpg' className="nav--image" /> */}
         <ul className="nav--container">
             <li>Home</li>
             <li>About</li>

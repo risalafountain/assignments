@@ -30,12 +30,6 @@ export default [
       coverImg: "./images/beirut.jpg",
       price: 400 ,
       timeToGo: "Spring"
-    },{
-      id: 6,
-      place: "Korin Tower",
-      coverImg: "./images/korin.jpg",
-      price: "5 Senzu Beans",
-      timeToGo: "Spring"
     }
   ]
   
