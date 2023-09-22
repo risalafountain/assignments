@@ -23,9 +23,9 @@ export default function Card(props) {
                 
                 <span>{props.rating}</span>
                 
-                <span className="gray"> ({props.stats.reviewCount}) • </span>
+                <span className="gray"> {props.stats.reviewCount} • </span>
                 
-                <span className="gray"> ({props.location})  </span>
+                <span className="gray"> {props.location}  </span>
             </div>
             
             <p className="card--title">{props.title}</p>
