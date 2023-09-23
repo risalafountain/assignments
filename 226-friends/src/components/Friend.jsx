@@ -1,78 +1,24 @@
 import React from "react";
+import Pet from "./Pet";
 
-export default function Friend() {
+export default function Friend(props) {
+  // .map for the pets array
+  const amigoPets = props.pets.map(pet => {
+    return (
+      <Pet 
+        key = {pet.name}
+        petName = {pet.name}
+        petBreed = {pet.breed}
+        petPic = {pet.pic}
+      />
+    )
+  })
   return (
-    <div>
-      <p>this is the Friend component</p>
+    <div className="card--container">
+      <img className="friend--img" src = {props.friendPic} />
+      <h3 className="friend--info">{props.friendName}, <a className="friend--age">{props.friendAge}</a>  </h3>
+      {amigoPets}
+      {/* render the pets array.map */}
     </div>
   )
 }
-
-// export default function Friend(){
-
-//   const petArr = [
-//     {
-//       id: 1,
-//       name: "Ben",
-//       age: 29,
-//       pets: [
-//         {
-//           name: "spot",
-//           breed: "tabby"
-//         },{
-//           name: "John Johnson",
-//           breed: "husky"
-//         },{
-//           name: "Bear the bear",
-//           breed: "Grizzly"
-//         }
-//       ]
-//     },{
-//       id: 2,
-//       name: "Bob",
-//       age: 31,
-//       pets: [
-//         {
-//           name: "Sally",
-//           breed: "Australian Shepard"
-//         }
-//       ]
-//     },{
-//       id: 3,
-//       name: "Marcus",
-//       age: 25,
-//       pets: [
-//         {
-//           name: "Indy",
-//           breed: "Akita"
-//         },{
-//           name: "Anna",
-//           breed: "persian cat"
-//         }
-//       ]
-//     },{
-//       id:4,
-//       name: "Jacob",
-//       age: 20,
-//       pets: [
-//         {
-//           name: "fluffy",
-//           breed: "sphynx cat"
-//         },{
-//           name: "patches",
-//           breed: "sphynx cat"
-//         },{
-//           name: "tiger",
-//           breed: "sphynx cat"
-//         },{
-//           name: "oscar",
-//           breed: "sphynx cat"
-//         }
-//       ]
-
-//     }
-//   ]
-  
-//   }
-  
-//   console.log("This is a test:hello")

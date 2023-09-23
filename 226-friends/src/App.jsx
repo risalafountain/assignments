@@ -1,25 +1,15 @@
 import './App.css'
 import FriendList from "./components/FriendList"
-import Friend from "./components/Friend"
-import Pet from './components/Pet'
-import data from './components/data'
-
+import Footer from './components/Footer'
+import Header from './components/Header'
 
 function App() {
-  const amigo = data.map(item => {
-    return (
-      <FriendList 
-      key = {item.id}
-      {...item}
-      />
-    )
-  })
+  
   return (
-      <div>
-        <h5>this is typed in app.jsx as a place holder for MAYBE? a header</h5>
-        {amigo}
-        <Friend />
-        <Pet />
+      <div>        
+        <Header />
+        <FriendList />
+        <Footer />
       </div>
   )
 }

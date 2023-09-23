@@ -1,10 +1,12 @@
 import React from "react";
 
-export default function Pet(){
-    
+
+export default function Pet(props){    
     return (
-        <div>
-            <p>this is the Pet component</p>
+        <div className="pet--container">
+           <img className="pet--pic" src = {props.petPic} />
+           <p className="pet--name">Name: {props.petName} </p> 
+           <p className="pet--breed"> Breed: {props.petBreed}</p> 
         </div>
     )
 }

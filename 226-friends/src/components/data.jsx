@@ -1,60 +1,73 @@
 export default [
     {
       id: 1,
-      name: "Ben",
+      name: "Don",
       age: 29,
+      img: "./images/don.jpg",
       pets: [
         {
-          name: "spot",
-          breed: "tabby"
+          pic: "./images/tabby.jpg",
+          name: "Spot",
+          breed: "Tabby"
         },{
+          pic: "./images/husky.jpg",
           name: "John Johnson",
-          breed: "husky"
+          breed: "Husky"
         },{
-          name: "Bear the bear",
+          pic: "./images/grizzly.jpg",
+          name: "Bear the Bear",
           breed: "Grizzly"
         }
       ]
     },{
       id: 2,
       name: "Bob",
+      img:"./images/bob.jpg",
       age: 31,
       pets: [
         {
+          pic: "./images/shepherd.jpg",  
           name: "Sally",
           breed: "Australian Shepard"
         }
       ]
     },{
       id: 3,
-      name: "Marcus",
+      name: "Keanu",
+      img:"./images/keanu.jpg",
       age: 25,
       pets: [
         {
-          name: "Indy",
+          pic: "./images/akita.jpg",  name: "Indy",
           breed: "Akita"
         },{
+          pic: "./images/persian.jpg",
           name: "Anna",
-          breed: "persian cat"
+          breed: "Persian Cat"
         }
       ]
     },{
       id:4,
       name: "Jacob",
+      img: "./images/jacob.jpg",
       age: 20,
       pets: [
         {
-          name: "fluffy",
-          breed: "sphynx cat"
+          pic:"./images/sphynx1.jpg",
+          name: "Fluffy",
+          breed: "Sphynx Cat"
         },{
-          name: "patches",
-          breed: "sphynx cat"
+          pic:"./images/sphynx2.jpg",
+          name: "Patches",
+          breed: "Sphynx Cat"
         },{
-          name: "tiger",
-          breed: "sphynx cat"
+          pic:"./images/sphynx3.jpg",
+          name: "Tiger",
+          breed: "Sphynx Cat"
         },{
-          name: "oscar",
-          breed: "sphynx cat"
+          pic:"./images/sphynx4.jpg",
+           name: "Oscar",
+          breed: "Sphynx Cat"
         }
       ]
     }

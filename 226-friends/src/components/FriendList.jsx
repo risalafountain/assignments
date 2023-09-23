@@ -1,13 +1,25 @@
 import React from "react";
+import Friend from "./Friend";
+import data from "./data";
+import Pet from "./Pet";
 
 export default function FriendList(props) {
-    console.log(props.pets)
+    //console.log(props.pets)
+    const amigo = data.map(item => {
+        return (
+          <Friend 
+          key = {item.id}
+          friendPic = {item.img}
+          friendName = {item.name}
+          friendAge = {item.age}
+          pets = {item.pets}
+          />
+        )
+      })
 return (
     <div className="list--container">
-        <h1>Say hello to {props.name}</h1>
-        <p>{props.name} is {props.age} years old.</p>
-        <p>Pet Names:{props.name} </p>
-        <p></p>
+        {amigo}
+       
     </div>
 )
 }
