@@ -1,4 +1,5 @@
 import React from "react";
+import memesData from "./memesData";
 
 /**
  * Challenge: 
@@ -11,9 +12,20 @@ import React from "react";
  */
 
 export default function Meme(){
+    function getMemeImage() {
+        // access the arr and get an object
+        const memesArray = memesData.data.memes
+        // randomize Selection
+        const randomNumber = Math.floor(Math.random() * memesArray.length)
+        // console.log(randomNumber)
+        // get image object by index into memeas array and index of random number
+        const url = memesArray[randomNumber].url
+        //console.log(url)
+    }
     return(
         <main>
-            <form className="form">
+            {/*put the form in a div instead of a form tag because since there is a button, it will refresh the page unless we stop it */}
+            <div className="form">
                 <input 
                 type="text"
                 placeholder="Top Text"
@@ -24,8 +36,13 @@ export default function Meme(){
                 placeholder="Bottom Text"
                 className="form--input"
                 />
-                <button className="form--button"> Get a new meme image  🖼</button>
-            </form>
+                <button 
+                    className="form--button"
+                    onClick={getMemeImage}
+                    > 
+                    Get a new meme image  🖼
+                    </button>
+            </div>
         </main>
     )
 }
