@@ -5,14 +5,19 @@ import './App.css'
 import React from 'react'
 
 function App() {
-  const isGoingOut = true
-  
+  const [isGoingOut, setIsGoingOut] = React.useState(true) //using this as a boolean instad of using ("yes" or "no") "is" or "has" indicates using a boolean
 
+  function changeMind() {
+    setIsGoingOut(prevState => ! prevState) //the ! means to return the opposite of what prevState currently is 
+
+  }
+  
   return (
     <div className="state">
     <h1 className="state--title">Do I feel like going out tonight?</h1>
-    <div className="state--value">
-        <h1>{isGoingOut === true ? "Yes" : "No"}</h1>
+    <div onClick={changeMind} className="state--value">
+        <h1>{isGoingOut ? "Yes" : "No"}</h1> 
+        {/* if is isGoingOutis true show "yes" otherwise (else) show "no" */}
     </div>
 </div>
   )
@@ -59,8 +64,13 @@ so the "Yes" and "No" are determined inside the <h1>
 NOW WE ARE READY TO CHANGE THE VALUE WITH STATE!
 */
 /** 236.75 FLIPPING STATE BACK AND FORTH 
- * Challenge: 
- * - Make it so clicking the div.state--value flips that
- *   boolean value (true -> false, false -> true)
- * - Display "Yes" if `isGoingOut` is `true`, "No" otherwise
- */
+* Challenge: 
+- Initialize state for `isGoingOut` as a boolean
+  * 
+- Make it so clicking the div.state--value flips that boolean value (true -> false, false -> true)
+
+
+     * - Display "Yes" if `isGoingOut` is `true`, "No" otherwise
+
+
+*/

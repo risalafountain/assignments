@@ -26,7 +26,8 @@ export default App
 
 
 // **********************we can only get so far this way! we need to use state
-// function App() {
+// saving our local variables does NOT update our UI 
+//function App() {
 //   const thingsArray = ["Thing 1", "Thing 2"]
 //       /**
 //      * Challenge: Map over the thingsArray to generate
@@ -63,7 +64,7 @@ export default App
 //     console.log(thingsArray) //['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4'] it works!
 //   }
 
-//   //CONUNDRUM
+//   //CONUNDRUM (see 237-complexStateArr for continuation)
 //   //though our array is changing what we see on the screen is not
 //   //if we update our data then react will update the UI (because it is declarative)
 //   //we need to use react state to hook into the component so that whenever changes are made in state react will update the UI
