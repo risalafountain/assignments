@@ -24,3 +24,8 @@ function App() {
 }
 
 export default App
+
+
+
+
+// all questions answered and solved in challenges.md file in components. I was making this assignment WAYYY TOO COMPLICATED 
