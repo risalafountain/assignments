@@ -1,12 +1,12 @@
 import React from "react";
 import memesData from "./memesData";
-
+import { useState} from 'react'
 
 export default function Meme(){
-    const [memeImage, setMemeImage] = React.useState({
+    const [meme, setMeme] = React.useState({
         topText: "", 
         bottomText: "", 
-        randomImage:"../images/default.jpg"
+        randomImage:"../images/default.jpg "
     })
 
     const [allMemeImages, setAllMemeImages] = React.useState(memesData)
@@ -16,16 +16,17 @@ export default function Meme(){
         const memesArray = allMemeImages.data.memes
         // randomize Selection
         const randomNumber = Math.floor(Math.random() * memesArray.length)
-        // console.log(randomNumber)
+       // console.log(randomNumber)
         
         // get image object by index into meme as array and index of  random number
         const url = memesArray[randomNumber].url 
-        //console.log(url)//this is randomizing! it works
+        console.log(url)//this is randomizing! it works
         setMeme(prevMeme => ({
             ...prevMeme,
             randomImage: url
         }))
     }
+
     return(
         <main>
             {/*put the form in a div instead of a form tag because  there is a button, which will refresh the page unless we stop it */}
@@ -46,7 +47,7 @@ export default function Meme(){
                     > 
                     Get a new meme image  🖼
                     </button>
-                <img src={meme.RandomImage} className="meme--image" />
+                <img src={meme.randomImage} className="meme--image" />
             </div>
         </main>
     )
