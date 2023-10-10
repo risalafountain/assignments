@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import React from "react"
+import Count from './components/Count'
 
 export default function App() {
   const [count, setCount] = React.useState(0)
@@ -13,17 +14,16 @@ export default function App() {
     setCount(prevCount => prevCount+ 1) //this reads: given the old value return old value plus one
   }
   function subtract() {
-    setCount(prevCount => prevCount - 1)
+    setCount(prevCount => prevCount - 1) //given the old value, return old value minus one
 }
 
+console.log("App component rendered")
+  
 
-
-  return (
+return (
     <div className="counter">
             <button className="counter--minus"onClick={subtract}>–</button>
-            <div className="counter--count">
-                <h1> {count} </h1>
-            </div>
+            <Count number={count} />
             <button className="counter--plus" onClick ={add}>+</button>
         </div>
     )
@@ -120,4 +120,36 @@ This is the completed code however; best practices means improving how we use st
     // Challenge: update `substract` to use a callback function
 
 */
+
+
+/*
+240.75 passing state as prop   
   
+     * Challenge:
+     * - Create a new component named Count
+     *    - It should receive a prop called `number`, whose value
+     *      is the current value of our count
+     *    - Have the component render the whole div.counter--count
+     *      and display the incoming prop `number`
+     * - Replace the div.counter--count below with an instance of
+     *   the new Count component
+    
+    take the three lines of code and place them in their own component
+    pass in {props.numbers} since we named (what is it called?? property??) number in App.jsx
+    import Count.jsx into App.jsx
+    call the count component in app.jsx  
+
+      return (
+    <div className="counter">
+            <button className="counter--minus"onClick={subtract}>–</button>
+            <Count number={count} />
+            <button className="counter--plus" onClick ={add}>+</button>
+        </div>
+    )
+  }
+
+  next console log ("App component rendered" and "Count component rendered")
+  this shows how REACT re renders the parent component and children component each time we change our state
+
+
+*/
