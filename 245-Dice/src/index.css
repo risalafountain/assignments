@@ -1,4 +1,4 @@
-aqua to purple color pallete 
+/* aqua to purple color pallete 
 
 #8ce2ee
 #93bae1
@@ -28,7 +28,7 @@ body {
   align-items: flex-end;
   border: dotted red;
 } */
-.main--container{
+/* .main--container{
   background: #8ce2eee6;
   padding: 15px;
   border-radius: 5%;
@@ -38,7 +38,7 @@ body {
 .die--container{
   display: flex;
   flex-direction: row;
-  /* border: dotted yellow; */
+  /* border: dotted yellow; 
   padding: 15px;
   height: fit-content;
   align-items: center;
@@ -69,7 +69,7 @@ body {
 .button {
   height: fit-content;
   width: 80px;
-  /* border-radius: 15%; */
+  /* border-radius: 15%; 
   font-size: 16px;
   font-weight: 900;  
   margin-left: 10px;
@@ -78,7 +78,7 @@ body {
 
 .button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
+} */
 
 /* 
 .container > button {
@@ -186,4 +186,4 @@ button:focus-visible {
   button {
     background-color: rgb(219, 229, 32) ;
   }
-} */
+} */ 
