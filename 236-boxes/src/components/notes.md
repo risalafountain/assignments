@@ -222,9 +222,39 @@ export default function Box(props) {
         
     )
 }
-24
+###################################243-Boxes #5
+No challenge just working on making everything more declarative
 
+1. first thing is to delete the for loop and create a .map to help loop through the array and return the array 
+    return prevSquares.map(() => <whatever goes in here is what will help determine the new version of the array which then gets returned from the .map>)
 
+2. need to look at each square inside of the map 
+    return prevSquares.map((square) => {
+        <whatever gets returned in this callback function is what will be placed in the same index of the original array in the new array that is returned>
+    })
+3. Use a ternary to ask if square.id matches the id passed in the toggle function. If so <?> return a new object {} that has all of the properties of square except for the on property which is the opposite of square.on   <...square, on: !square.on >ELSE <:> return the square 
+    return square.id === id ?{...square, on: !square.on} :square
+
+THIS IS MUCH MORE CONCISE BUT REQUIRES A MORE ADVANCED UNDERSTANDING OF JAVASCRIPT TO FULLY COMPREHEND
+
+TDLR
+1. everytime a square is clicked, the click event handler is running <in Box.jsx>
+2. <in App.jsx> will call our state setter function <setSquares>. 
+3. Use the callback function of setSquares because we do care what the previos array looked like 
+4. map over the previous squares <remember, .map returns a new array without modifying the original array. the new array will be the same length as the original array> whatever is returned in the callback function, will get placed in the same index in the new array as what was in the original array  
+5. everytime we loop through each item in the array , it checks to see if its id matches the id  that is passed in through our toggle function. If the ids match, then that means it was the square that was clicked. If that is true then replace the old object with a brand new object <thats why we are using the {} so we are not updating state directly> 
+6. the object will pull in all the values of square <...square> exactly as it was but will overwrite the on value with its opposite <on: !square>
+7. if this was NOT the box that was clicked, then return the old square <: square>
+
+Note: The toggle function is one of the most complex parts of this whole thing 
+
+ALTERNATIVE SOLUTION: 
+we can get rid of the id prop in App.jsx and just run this closure
+  toggle={() => toggle(square.id)} 
+
+this means that each instance of our box will have its own  toggle and it will remember its own id   
+
+then in Box we can change the event listener to just props.toggle 
 
 
 

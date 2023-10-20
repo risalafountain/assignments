@@ -13,7 +13,8 @@ function App() {
     return <Joke setup={joke.setup} punchline={joke.punchline} />
   })
   return (
-    <div>
+    <div className='container--parent'>
+      
       {jokeElements}
     </div>
   )
