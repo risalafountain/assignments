@@ -18,5 +18,9 @@ export default [
     {
         setup: "What's the best thing about Switzerland?",
         punchline: "I don't know, but the flag is a big plus!"
+    },
+    {
+        setup: "What do sweet potatoes wear to bed?",
+        punchline: "Yammies."
     }
 ]
