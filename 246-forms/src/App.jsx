@@ -39,7 +39,7 @@ function App() {
         placeholder = "First Name"
         onChange={handleChange}
         name="firstName"
-        value={FormData.firstName}
+        value={formData.firstName}
       />
       <input
         type="text"
