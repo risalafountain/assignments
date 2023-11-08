@@ -7,7 +7,7 @@ function App() {
         firstName: "", 
         lastName: "", 
         email: "", 
-        comments:"",
+        comments:"", //this is a
         isFriendly: true,
         employment: "",
         favColor: ""
