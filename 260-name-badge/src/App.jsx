@@ -5,6 +5,8 @@ import './App.css'
     //create state object for badges make empty arr
   // each component(?)/property will be an empty string 
 export default function App() {
+  const [badges, setBadges] = React.useState([])
+  const [byeButton, setByeButton] = React.useState(true)
   const [formData, setFormData] = React.useState({
       firstName: "", 
       lastName: "",
@@ -15,27 +17,22 @@ export default function App() {
       about:"",
     }
     )
-    const [badges, setBadges] = React.useState([])
 
 //#5 create  handleChange function to manage the state of all inputs 
 //      run set formData 
 //      return an object that has prevFormData but updates based on name  data 
 //#6 add onChange event handler to inputs 
 function handleChange(event) {
+  checkInputs()
   const {name, value} = event.target 
+  console.log('formData:', formData)
     setFormData(prevFormData => ({
       ...prevFormData,
       [name]: value
     }))
   }
-//#7 run a check to verify the data is getting logged correctly
-  // console.log(formData)
 
-//#8 handleSubmit function just prevent default--console log form data to verify it is working 
-function handleSubmit(event) {
-  event.preventDefault()
-  // console.log(formData)
-  //check that the formData is all filled out--check if the statments are truthy (filled out)if they are then put that data into a badge arr 
+function checkInputs(){
   if (formData.firstName &&
     formData.lastName &&
     formData.email &&
@@ -43,7 +40,26 @@ function handleSubmit(event) {
     formData.birthPlace &&
     formData.favFood && 
     formData.about) {
-      //make a new badge         
+      console.log('')
+      setByeButton(false)
+      return true
+    } else {
+      // submit button disabled
+      setByeButton(true)
+      return false 
+    }
+  } 
+  
+  
+  //#8 handleSubmit function just prevent default--console log form data to verify it is working 
+  function handleSubmit(event) {
+    console.log('handleSub')
+    event.preventDefault()
+    //#7 run a check to verify the data is getting logged correctly
+    //make a new badge         
+    if (checkInputs()){
+      console.log('inside checkInput TRUE')
+      
       //add FormData to badge arr {err shows prev Form Data is not iterable }
       const newBadge = {...formData}
       //put that in badge arr
@@ -59,16 +75,20 @@ function handleSubmit(event) {
         favFood:"",
         about:"",
       })
+      setByeButton(true)
     } else {
+      console.log('inside checkInput FALSE')
+      setByeButton(true)
       alert("Please enter all data fields ")
-    }
-  } 
-//#2 set up form element with inputs for firstName, lastName, email, phone, favFood, place of birth,text area, and submit button <see syntax notes>
-//#3 add the state properties as name field in each input copy/paste
-//#4 add a value field that points to formData.<selected state property>
+  }
+}
+    //check that the formData is all filled out--check if the statments are truthy (filled out)if they are then put that data into a badge arr 
+    //#2 set up form element with inputs for firstName, lastName, email, phone, favFood, place of birth,text area, and submit button <see syntax notes>
+    //#3 add the state properties as name field in each input copy/paste
+    //#4 add a value field that points to formData.<selected state property>
 return (
   <div className='form-container'>
-    //#9 add handleSubmit function to form
+    {/* //#9 add handleSubmit function to form */}
     <form className='form' onSubmit={handleSubmit}>
       <input 
         type="text"
@@ -101,19 +121,19 @@ return (
         type="text"
         placeholder="Place of Birth "
         className="form--input"
-        name="phone"
+        name="birthPlace"
         minLength="3"
         onChange={handleChange}
-        value={formData.phone}
+        value={formData.birthPlace}
         />
       <input 
         type="tel"
         placeholder="Phone Number"
         className="form--input"
-        name="birthPlace"
+        name="phone"
         minLength="10"
         onChange={handleChange}
-        value={formData.birthPlace}
+        value={formData.phone}
         pattern="[0-9]*"
         />
       <input 
@@ -133,44 +153,43 @@ return (
         onChange={handleChange}
         value={formData.about}
         />
-    <button className='form--submit' >Submit</button>
+    {!!!byeButton && <button className='form--submit'>Submit</button>}
     </form>
     {/* #setup div for formData inputs
         #map over badges, for each badge, set  it up 
     */}
-      <div className='badge-container'>
+      <div className='badge--container'>
+        <h2 className='badge--header'>Badge:</h2>
         {badges.map((badge, index) => {
           return (
-            <div key={index}>
+            <div className='badge--inputs' key={index}>
               {/* console.log(badge.firstName) */}
-              <h1>Badge:</h1>
-              <p> Name: {badges.firstName}{badges.lastName}  </p> 
+              <a className='badge--section'>
+              <p> Name: {badge.firstName} {badge.lastName}  </p> 
               <p>Phone: {badge.phone} </p>
               <p>Place of Birth: {badge.birthPlace} </p>
               <p>Favorite Food: {badge.favFood}</p>
               <p>Email: {badge.email}</p>
-              <p>About info: {badge.about} </p>
+              </a>
+              <p className='badge--about'> {badge.about} </p>
             </div>
           )  
         })}
-        console.log({badges.firstName})
       </div>
     </div>
   )
 }
+
 
 //Game Plan 
 //# Create a badge after submit  
 //setup a div with the information collected  
 
 //# Clear the data after submit 
-//# if value is empty, disable the submit button 
-
-//disabled={!formData}
-
 
 //ISSUES:
 // before mapping, the data was showing up correctly in the handle submit function, when i console.log(badges) now it is returning nothing just emptying the input field
+//# if value is empty, disable the submit button 
 
 // SYNTAX NOTES
 //setup inputs this way specify types to correspond w/ required infor: e.g. text, email, tel?, 
