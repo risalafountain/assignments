@@ -101,7 +101,35 @@ Lastly, update the `getMemeImage` function and the markup
 to reflect our newly reformed state object and array in the
 correct way.
 
+260.5--add image to text 
+at the moment the text is hardcoded and styled  in 
+    <h2 className="meme--text top">One does not simply</h2>
+    <h2 className="meme--text bottom">Walk into Mordor</h2>
 
+Challenge: 
+1. set the text inputs to save to the 'topText' and 'bottomText' state variables 
+    a. add the properties that we need to the inputs from state 
+        name="topText"
+        name="bottomText"
+    b. add the value properties so they can be controlled components
+        value={meme.topText}
+        value={meme.bottomText}
+    c. create onChange event handler , pull in event to get the name and value. destructure and pull from event.target 
+        function handleChange(event){
+            const {name, value} = event.target 
+        }
+    d. follow exactly how we did getMemeImage with setMeme
+        it reads like this: 
+        -set the meme -access the previous version of the meme -return an object (an implicit return = wrapping ({object}) in ()) -copy over all the properties of the previous meme -change either the topText or the bottomText property depending on which name gets pulled in from event.target. --use computed property name and set (:) the value to value -
+        setMeme(prevMeme => ({
+            ..prevMeme,
+            [name] : value
+        }))
+2. replace the hardcoded text on the image with the text being saved to state 
+    e. replace hardcoded text to look at the object values in state 
+        {meme.topText}, {meme.bottomText}
+ 
+minimum valuable product to push out to customers
+currently importing memes data from a javascript file but we need to pull from an api. need to learn more before we get to that 
 
-    
 
