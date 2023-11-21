@@ -1,6 +1,5 @@
 import React from "react";
-import memesData from "./memesData";
-import { useState} from 'react'
+// import memesData from "./memesData";
 
 export default function Meme(){
     // const [meme, setMeme] = React.useState({
@@ -14,17 +13,26 @@ export default function Meme(){
         bottomText:"",
         randomImage: "http://i.imgflip.com/1bij.jpg" 
     })
-    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
+    const [allMemeImages, setAllMemeImages] = React.useState([])
+
+    React.useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        // .then(data => console.log(data))
+        .then(data => setAllMemeImages(data.data.memes))
+    }, [])
+// this is a good test but the data will be logged for EVERY keystroke
+    // console.log(allMemeImages)
 
     function getMemeImage(){
         // access the arr and get an object
-        const memesArray = allMemeImages.data.memes
+        // const memesArray = allMemeImages.data.memes
         // randomize Selection
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
+        const randomNumber = Math.floor(Math.random() * allMemeImages.length)
        // console.log(randomNumber)
         
         // get image object by index into meme as array and index of  random number
-        const url = memesArray[randomNumber].url 
+        const url = allMemeImages[randomNumber].url 
         console.log(url)//this is randomizing! it works
         setMeme(prevMeme => ({
             ...prevMeme,

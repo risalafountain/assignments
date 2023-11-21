@@ -132,4 +132,54 @@ Challenge:
 minimum valuable product to push out to customers
 currently importing memes data from a javascript file but we need to pull from an api. need to learn more before we get to that 
 
+266.5 Get Memes from API 
+Challenge: 
+As soon as the Meme component loads the first time, make an API call to "https://api.imgflip.com/get_memes".
+
+When the data comes in, save just the memes array part of that data to the 'allMemes' state 
+
+Think about if there are any dependencies that, if they changed, you'd want to cause to re-run this function. 
+
+Hint: for now, don't try to use an async/await function. Instead use '.then()' blocks to resolve the promises from using 'fetch' we will learn why after the challenge. 
+
+1. useEffect + arrow function
+make a call to React.useEffect and use an arrow function 
+
+    For the dependencies: We want the API request to happen as soon as the component loads. All the data is saved to state but state itself isn't changed. THerefore we leave the dependcies blank. 
+
+    React.useEffect(() => {}, [])
+
+2. FETCH REQUEST: 
+
+Inside the effect make a fetch request to the url "https://api.imgflip.com/get_memes". Resolve with a .then. Take the response and parse the JSON into javascript. Take the data and console log it to make sure everything is working well 
+
+    React.useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => console.log data)
+    }, [])
+
+3. SET STATE: 
+erase the memesData from allMemeImages and pass in an empty array which will store the data : 
+    const [allMemes, setAllMemes] = React.useState([])
+    
+Replace console.log with setAllMemes and return/access data.data.memes 
+
+    .then(data => setAllMemes(data.data.memes))
+
+outside of the effect, console.log allMemes. what will be returned will be the empty array [] from the first rendering and then all the data from the second rendering BUT
+every key stroke in the input box will log the entire memesArray to the console so make sure to comment it out before proceeding 
+
+Challenge: Fix the bug! 
+
+1. get rid of 
+    const memesArray = allMemeImages.data.memes
+since we are already doing the work in state above. 
+2. change all instances of memesArray to allMemeImages
+
+DELETE memesData
+
+
+
+
 
