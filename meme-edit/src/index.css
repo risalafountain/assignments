@@ -1,0 +1,83 @@
+/* @font-face{
+    /*define font family, define source
+    
+    font-family: "Karla";
+    src:url("./assets/fonts/Karla-VariableFont_wght.ttf");
+    } */
+  
+* {
+    box-sizing: border-box;
+    background-color: rgb(91, 197, 200);
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Karla", sans-serif;
+}
+
+.header{
+    border: red solid;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 100%;
+    padding: 20px; 
+}
+
+.header--image{
+    border: greenyellow solid;
+    height: 150px;
+    width: 100%;
+    margin-left: auto;
+}
+
+.header--title{
+    border: green solid;
+    font-size: .75rem;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.form{
+    display: grid;
+    /* need two 40 px rows  divide columns by fraction unit*/
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 17px;
+    margin-bottom: 17px;
+  }
+  
+  .form--input{
+    font-family: "Karla", sans-serif;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #d5d4d8;
+    text-indent: 5px;
+    margin: 10px;
+  }
+  
+  .form--button{
+    /* need button to span the width of the page*/
+    grid-column: 1 / -1;
+    font-family: "Karla", sans-serif;
+    border-radius: 5px;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    color: white;
+    border: none;
+    cursor:pointer;
+  }
+  
+
+.footer {
+    border: blue solid;
+    color: rgb(106, 98, 194);
+    font-weight: 500;
+    font-style: oblique;
+    font-size: .75rem;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+}
+

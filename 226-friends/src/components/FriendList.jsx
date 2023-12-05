@@ -9,10 +9,12 @@ export default function FriendList(props) {
         return (
           <Friend 
           key = {item.id}
-          friendPic = {item.img}
-          friendName = {item.name}
-          friendAge = {item.age}
-          pets = {item.pets}
+        //   friendPic = {item.img}
+        //   friendName = {item.name}
+        //   friendAge = {item.age}
+        //in lieu of making  
+        {...item}
+        //   pets = {item.pets}
           />
         )
       })

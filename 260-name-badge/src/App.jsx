@@ -159,9 +159,10 @@ return (
         #map over badges, for each badge, set  it up 
     */}
       <div className='badge--container'>
-        <h2 className='badge--header'>Badge:</h2>
         {badges.map((badge, index) => {
           return (
+           <>
+           <h2 className='badge--header'>Badge:</h2>
             <div className='badge--inputs' key={index}>
               {/* console.log(badge.firstName) */}
               <a className='badge--section'>
@@ -173,6 +174,7 @@ return (
               </a>
               <p className='badge--about'> {badge.about} </p>
             </div>
+           </> 
           )  
         })}
       </div>

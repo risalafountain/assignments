@@ -15,8 +15,8 @@ export default function Friend(props) {
   })
   return (
     <div className="card--container">
-      <img className="friend--img" src = {props.friendPic} />
-      <h3 className="friend--info">{props.friendName}, <a className="friend--age">{props.friendAge}</a>  </h3>
+      <img className="friend--img" src = {props.img} />
+      <h3 className="friend--info">{props.name}, <a className="friend--age">{props.age}</a>  </h3>
       {amigoPets}
       {/* render the pets array.map */}
     </div>
