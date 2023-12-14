@@ -17,7 +17,9 @@ export default function Meme(){
     }, [])
 
     function getMemeImage(){
-
+    //get all meme images
+     const randomNumber = Math.floor(Math.random() * allMemeImages.length)
+     console.log(randomNumber)   
     }
 
     return(
