@@ -9,7 +9,7 @@ function App() {
       {/* <h1>This is the App component</h1> */}
       <Header />
       <Meme />
-      <footer className='footer'> Level 3-- Capstone</footer>
+      {/* <footer className='footer'> Level 3-- Capstone</footer> */}
     </>
   )
 }

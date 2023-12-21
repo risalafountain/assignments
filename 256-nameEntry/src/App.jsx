@@ -7,8 +7,6 @@ export default function App(){
     names:[] //will store all the previous Names
   })
   // console.log(formData) //its blank
-
-
  
   function handleChange(event){
     const {name, value, type} = event.target

@@ -7,13 +7,14 @@
   
 * {
     box-sizing: border-box;
-    background-color: rgb(91, 197, 200);
+    background-color: rgb(170, 168, 176);
     margin: 0;
     padding: 0;
 }
 
 body{
     font-family: "Karla", sans-serif;
+    padding: 50px;
 }
 
 .header{
@@ -26,23 +27,23 @@ body{
 }
 
 .header--image{
-    border: greenyellow solid;
-    height: 150px;
+    /* border: greenyellow solid; */
+    height: auto;
     width: 100%;
     margin-left: auto;
 }
 
 .header--title{
-    border: green solid;
+    /* border: green solid; */
     font-size: .75rem;
     font-weight: 500;
     margin-left: auto;
 }
 
 .form{
-    display: grid;
-    /* need two 40 px rows  divide columns by fraction unit*/
-    grid-template: 40px 40px / 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
     gap: 17px;
     margin-bottom: 17px;
   }
@@ -54,6 +55,7 @@ body{
     border: 1px solid #d5d4d8;
     text-indent: 5px;
     margin: 10px;
+    width: 100%;
   }
   
   .form--button{
@@ -81,3 +83,93 @@ body{
     bottom: 0;
 }
 
+/* this adjusts the entire page sizing */
+img {
+    position: relative;
+    max-width: 100%;
+    border-radius: 3px;
+}
+
+
+.meme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: purple dotted 5px;
+    margin: 20px;
+    height: auto;
+    width: 300px;
+}
+
+.meme--container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.meme--image{
+    position: relative;
+    margin: 15px;
+    width: 100%;
+    max-height: fit-content;
+    border-radius: 3px;
+    border: black dotted 12px;
+}
+
+
+
+.meme--text {
+    position: absolute;
+    background: transparent;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+    font-family: impact, sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow:
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0 2px 0 #000,
+        2px 0 0 #000,
+        0 -2px 0 #000,
+        -2px 0 0 #000,
+        2px 2px 5px #000;
+        /* put text in front of the image; but bottom text is not showing while typing, but it adds a background */
+        z-index: 1; 
+  }
+
+.bottom {
+    bottom: 0;
+}
+
+.top {
+    top: 0;
+}
+
+.meme--buttons{
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+    /* margin: 10px; */
+}
+.edit--button {
+    position: absolute;
+    padding: 10px;
+    margin: 10px;
+    margin-top: 30%;
+}
+
+.delete--button {
+    position: absolute;
+    padding: 10px;
+    margin: 10px;
+}
