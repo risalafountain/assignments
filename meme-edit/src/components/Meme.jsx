@@ -84,11 +84,12 @@ export default function Meme() {
 
             <SingleMeme
                 meme={meme}
+                handleDelete={handleDelete}
+                //commenting these lines disables my delete functinality??
                 randomImage={meme.randomImage.url}
                 topText={meme.topText}
                 bottomText={meme.bottomText}
                 id={meme.id}
-                handleDelete={handleDelete}
             />
         )
     })

@@ -31,7 +31,7 @@ export default function SingleMeme(props) {
 
             </div>
             {showForm && <EditForm
-                // newEdit={(editedText)}
+                // newEdit={newEdit}
             />}
         </div>
     )

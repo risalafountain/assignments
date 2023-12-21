@@ -112,6 +112,7 @@ go to form onsubmit={handlesubmit}
 e.prevent.defualt  
 
 --make button a submit typoe
+
 in item feed edit form the things it needs {_id={props._id} 
 title={propls.title} 
 description ={props.description}}

@@ -6,6 +6,7 @@ export default function EditForm(props) {
         topText: props.topText,
         bottomText: props.bottomText
     })
+    // console.log(props)
 
     //handle change         
     //listen for the changes/keystrokes and register them
@@ -15,38 +16,44 @@ export default function EditForm(props) {
         //watch for changes in value update  
         const { name, value } = event.target
         //return an object that has all of the properties of the prev but update the value based on the name data pulled from the input making the change
-        setEditedText(prev => ({ ...prev, [name]: value }))
-
-        console.log(event.target.value) //this works!
-    }
-
-    //handle submit 
-    function handleSubmit(event) {
-        //prevent default 
-        event.preventDefault();
-        //why do we have the id here? 
-        props.newEdit(props.id, editedText) //this newEdit is defined in SingleMeme
-        console.log("the button was clicked")
-    }
-     
-
-    return (
-        <form className="form" onSubmit={handleSubmit}>
-            <input
-                type='text'
-                name="topText"
-                // placeholder="Top Text"
-                onChange={handleChange}
-                value={editedText.value}
-            />
-            <input
-                type='text'
-                name="bottomText"
-                // placeholder="Bottom Text" 
-                onChange={handleChange}
-            />
-            <button>UPDATE MEME</button>
-        </form>
-    )
+        setEditedText(prevEditedText => {
+            return {
+                ...prevEditedText,
+                [name]: value
+            }
+        })
+    // console.log(event.target.value) //
 }
 
+//handle submit 
+function handleSubmit(event) {
+    //prevent default 
+    event.preventDefault();
+    props.newEdit(props.id, editedText) //this newEdit is defined in SingleMeme
+    console.log("the button was clicked")
+}
+
+return (
+    <form className="form" onSubmit={handleSubmit}>
+        <input
+            type='text'
+            name="topText"
+            // placeholder="Top Text"
+            onChange={handleChange}
+            value={props.topText}
+        />
+        <input
+            type='text'
+            name="bottomText"
+            // placeholder="Bottom Text" 
+            onChange={handleChange}
+        />
+        <button>UPDATE MEME</button>
+    </form>
+)
+}
+
+
+
+
+//need to bring in the data that is 
