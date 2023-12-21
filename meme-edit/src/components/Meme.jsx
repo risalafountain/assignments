@@ -42,17 +42,11 @@ export default function Meme() {
             }
         })
     }
-    console.log(savedMemes)
+    // console.log(savedMemes)
 
+    //take saved meme and save it to state savedMemes
     function handleSave() {
-        //take saved meme and save it to state savedMemes
-        // setSavedMemes(prev => {
-        //     return [
-        //         ...prev,
-        //         meme
-        //     ]
-        // })
-        console.log('HANDLESAVE MEME:', meme, 'savedMemes:', savedMemes)
+        // console.log('HANDLESAVE MEME:', meme, 'savedMemes:', savedMemes)
         setSavedMemes(prev => ([...prev, {
             topText: meme.topText,
             bottomText: meme.bottomText,
@@ -77,17 +71,23 @@ export default function Meme() {
         setSavedMemes(newSavedList)
     }
 
-    //map over array savedMeme state create new div with items --create new componenent to house each individual meme
+    // function handleEdit(id, editedText) => {
+    //     ()
+
+    // }
+
+
+//map over array savedMeme state create new div with items --create new componenent to house each individual meme (SingleMeme)
     const memeList = savedMemes.map(meme => {
-        { console.log('meme map meme:', meme) }
+        // { console.log('meme map meme:', meme) }
         return (
 
             <SingleMeme
                 meme={meme}
-                randomImage={meme.randomImage.url}
-                topText={meme.topText}
-                bottomText={meme.bottomText}
-                id={meme.id}
+                // randomImage={meme.randomImage.url}
+                // topText={meme.topText}
+                // bottomText={meme.bottomText}
+                // id={meme.id}
                 handleDelete={handleDelete}
             />
         )

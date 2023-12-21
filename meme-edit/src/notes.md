@@ -67,13 +67,13 @@ make a form in single item
     save button
 
 show and hide the edit form 
-    in item in order to hide the form, make it go away with conditional rendering (false or true && (form data/info here ))
+    in item in order to hide the form, make it go away with conditional rendering (false or t in the item component itself 
+onCLick={() => setShorue && (form data/info here ))
     need a value to switch the form on and off How? 
     maintain state to determine whether or not to show our form 
     const [showForm, setshowForm]=useState(false)
     have onclick function on edit (set show form to the opposite of what it was before )
-    state vaslue lives in the item component itself 
-onCLick={() => setShowForm(show => !show)}>{showForm? "hide form" : "edit form"}
+    state vaslue liveswForm(show => !show)}>{showForm? "hide form" : "edit form"}
 
 handleClickDelete =() => {}
 props.deleteItem(props._id)
