@@ -84,10 +84,10 @@ export default function Meme() {
 
             <SingleMeme
                 meme={meme}
-                // randomImage={meme.randomImage.url}
-                // topText={meme.topText}
-                // bottomText={meme.bottomText}
-                // id={meme.id}
+                randomImage={meme.randomImage.url}
+                topText={meme.topText}
+                bottomText={meme.bottomText}
+                id={meme.id}
                 handleDelete={handleDelete}
             />
         )
