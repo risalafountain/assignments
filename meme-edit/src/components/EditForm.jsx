@@ -4,7 +4,8 @@ export default function EditForm(props) {
     //create new state for edits, format as object, pull in data from props
     const [editedText, setEditedText] = React.useState({
         topText: props.topText,
-        bottomText: props.bottomText
+        bottomText: props.bottomText,
+        randomImage: props.randomImage
     })
     // console.log(props)
 
@@ -33,6 +34,8 @@ function handleSubmit(event) {
     console.log("the button was clicked")
 }
 
+console.log(editedText)
+
 return (
     <form className="form" onSubmit={handleSubmit}>
         <input
@@ -40,13 +43,14 @@ return (
             name="topText"
             // placeholder="Top Text"
             onChange={handleChange}
-            value={props.topText}
+            value={editedText.topText}
         />
         <input
             type='text'
             name="bottomText"
             // placeholder="Bottom Text" 
             onChange={handleChange}
+            value={editedText.bottomText}
         />
         <button>UPDATE MEME</button>
     </form>

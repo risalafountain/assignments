@@ -3,8 +3,10 @@ import EditForm from "./EditForm";
 
 export default function SingleMeme(props) {
     // console.log(props)
-    const { id, handleDelete, meme } = props
+    const { id, handleDelete, meme, newEdit } = props
     const [showForm, setShowForm] = React.useState(false)
+
+
 
     return (
         <div className="meme">
@@ -31,7 +33,8 @@ export default function SingleMeme(props) {
 
             </div>
             {showForm && <EditForm
-                // newEdit={newEdit}
+                {...meme}
+                newEdit={newEdit}
             />}
         </div>
     )

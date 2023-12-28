@@ -71,10 +71,13 @@ export default function Meme() {
         setSavedMemes(newSavedList)
     }
 
-    // function handleEdit(id, editedText) => {
-    //     ()
+    //build newEdit to handle save 
+    function newEdit(id, edits ){
+        //map over 
+        setSavedMemes(prevSavedMemes => prevSavedMemes.map((meme) => meme.id === id ? edits : meme))
 
-    // }
+    }
+   
 
 
 //map over array savedMeme state create new div with items --create new componenent to house each individual meme (SingleMeme)
@@ -86,10 +89,11 @@ export default function Meme() {
                 meme={meme}
                 handleDelete={handleDelete}
                 //commenting these lines disables my delete functinality??
-                randomImage={meme.randomImage.url}
+                randomImage={meme.imgUrl}
                 topText={meme.topText}
                 bottomText={meme.bottomText}
                 id={meme.id}
+                newEdit={newEdit}
             />
         )
     })
