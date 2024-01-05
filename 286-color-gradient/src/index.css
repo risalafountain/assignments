@@ -1,0 +1,18 @@
+*{
+  background-color: rgb(91, 89, 89);
+  color: white;
+}
+
+.form{
+  background-color: white;
+}
+
+.text-code{
+  margin: 15px;
+  width: 200px;
+  height: 100px;
+}
+
+.angle > li {
+  list-style-type: none;
+}
