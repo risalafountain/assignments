@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600");
+/* @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600");
 @import url("fontawesome-all.min.css");
 
 /*
@@ -7,7 +7,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-html, body, div, span, applet, object,
+/* html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
@@ -70,11 +70,11 @@ input, select, textarea {
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
-}
+} */
 
 /* Basic */
 
-	html {
+	/* html {
 		box-sizing: border-box;
 	}
 
@@ -184,11 +184,11 @@ input, select, textarea {
 		color: #fff;
 		color: rgba(255, 255, 255, 0.85);
 		font-weight: 600;
-	}
+	} */
 
 /* List */
 
-	ul.icons {
+	/* ul.icons {
 		cursor: default;
 		margin: 0 0 0.5em 0;
 	}
@@ -226,11 +226,11 @@ input, select, textarea {
 				margin: 0 0 2em 0;
 			}
 
-		}
+		} */
 
 /* Icons */
 
-	.icon {
+	/* .icon {
 		text-decoration: none;
 		position: relative;
 		text-decoration: none;
@@ -263,11 +263,11 @@ input, select, textarea {
 
 		.icon.brands:before {
 			font-family: 'Font Awesome 5 Brands';
-		}
+		} */
 
 /* Wrapper */
 
-	#wrapper {
+	/* #wrapper {
 		min-height: 100vh;
 		display: -moz-flex;
 		display: -webkit-flex;
@@ -309,11 +309,11 @@ input, select, textarea {
 				min-height: 0;
 			}
 
-		}
+		} */
 
 /* Scroll Zone */
 
-	.scrollZone {
+	/* .scrollZone {
 		position: fixed;
 		width: 6rem;
 		height: 100vh;
@@ -338,11 +338,11 @@ input, select, textarea {
 				display: none;
 			}
 
-		}
+		} */
 
 /* Main */
 
-	#main {
+	/* #main {
 		-moz-transition: opacity 1s ease-in-out;
 		-webkit-transition: opacity 1s ease-in-out;
 		-ms-transition: opacity 1s ease-in-out;
@@ -610,11 +610,11 @@ input, select, textarea {
 				height: 10em;
 			}
 
-		}
+		} */
 
 /* Header */
 
-	#footer {
+	/* #footer {
 		width: 100%;
 		padding: 1.5em;
 		display: -moz-flex;
@@ -709,10 +709,10 @@ input, select, textarea {
 						margin-top: 0;
 					}
 
-		}
+		} */
 
 /* Popup */
-
+/*
 	.poptrox-popup {
 		background: #1a1f2c;
 		background: rgba(18, 21, 29, 0.9);
@@ -830,4 +830,4 @@ input, select, textarea {
 					display: none !important;
 				}
 
-		}
+		} */
