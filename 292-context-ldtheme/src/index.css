@@ -4,6 +4,11 @@ div, button {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.nav-style {
+  display: flex;
+  flex-direction: row;
+}
+
 button { 
   border: none; 
 }
@@ -13,7 +18,28 @@ button {
   color: #000;
 }
 
+.light-theme > a {
+  background-color: #6d0303;
+  color: #fff;
+  font-weight: 900;
+  display: flex;
+  /* position: fixed; */
+}
+
 .dark-theme {
   background-color: #3a3b3c;
   color: #fff; 
+}
+.dark-theme > a {
+  background-color: #fff;
+  color:  #6d0303; 
+  font-weight: 900;
+  display: flex;
+  /* position: fixed; */
+}
+
+.link{
+  text-align: center;
+  padding: 14px;
+  margin: 10px;
 }
