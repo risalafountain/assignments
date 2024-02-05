@@ -12,14 +12,23 @@ function App() {
     description: ""
   })
   const [allEntries, setAllEntries] = useState([])
-
+  
   // const [newEntry, setNewEntry] = useState({ 
-  //   title: "",
-  //   imgUrl:{url: "} ,
-  //   description: "" 
-  // })
-  // console.log(newThing.imgUrl)
+    //   title: "",
+    //   imgUrl:{url: "} ,
+    //   description: "" 
+    // })
+    // console.log(newThing.imgUrl)
 
+ //POST request   
+    React.useEffect(() => {
+      fetch("https://api.vschool.io/risalf/thing")
+          // .then(res => res.json())
+          .then(data =>console.log(data))
+          .then(data => setNewThing(newThing))
+  }, [])
+
+    
   function handleChange(event) {
     const { name, value } = event.target
     // console.log(event.target)
@@ -58,9 +67,6 @@ function App() {
   //API request 
   //https://api.vschool.io/<yourname>/thing[/<thingId>]
 
-  // React.useEffect(() => {
-
-  // })
 
 
   return (

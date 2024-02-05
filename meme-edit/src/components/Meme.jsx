@@ -16,8 +16,8 @@ export default function Meme() {
 
     React.useEffect(() => {
         fetch("https://api.imgflip.com/get_memes")
-            .then(res => res.json())
-            // .then(data =>console.log(data))
+            // .then(res => res.json())
+            .then(data =>console.log(data))
             .then(data => setAllMemeImages(data.data.memes))
     }, [])
 
@@ -88,7 +88,7 @@ export default function Meme() {
             <SingleMeme
                 meme={meme}
                 handleDelete={handleDelete}
-                //commenting these lines disables my delete functionality??
+                //commenting these lines disables my delete functinality??
                 randomImage={meme.imgUrl}
                 topText={meme.topText}
                 bottomText={meme.bottomText}
