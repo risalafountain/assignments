@@ -25,7 +25,7 @@ function App() {
       fetch("https://api.vschool.io/risalf/thing")
           // .then(res => res.json())
           .then(data =>console.log(data))
-          .then(data => setNewThing(newThing))
+          // .then(data => setNewThing(newThing))
   }, [])
 
     
