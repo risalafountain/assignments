@@ -2,33 +2,29 @@ import React, { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import axios from 'axios'
 
 function App() {
-  // const [count, setCount] = useState(0)
 
   const [newThing, setNewThing] = useState({
     title: "",
     imgUrl: { url: "" },
     description: ""
   })
-  const [allEntries, setAllEntries] = useState([])
-  
-  // const [newEntry, setNewEntry] = useState({ 
-    //   title: "",
-    //   imgUrl:{url: "} ,
-    //   description: "" 
-    // })
-    // console.log(newThing.imgUrl)
 
- //POST request   
-    React.useEffect(() => {
-      fetch("https://api.vschool.io/risalf/thing")
-          // .then(res => res.json())
-          .then(data =>console.log(data))
-          // .then(data => setNewThing(newThing))
+  const [allEntries, setAllEntries] = useState([])
+
+
+
+  // GET request 
+  React.useEffect(() => {
+    fetch("https://api.vschool.io/risalf/thing")
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .then(data => setNewThing(newThing))
   }, [])
 
-    
+
   function handleChange(event) {
     const { name, value } = event.target
     // console.log(event.target)
@@ -45,13 +41,29 @@ function App() {
     }
     // console.log(event.target)
   }
+
+  function addThing() {
+    setNewThing(newThing)
+    //POST request  
+    axios.post("https://api.vschool.io/risalaf/thing/", newThing)
+      .then(response => console.log(response.data))
+      .catch(error => console.log(error))
+  }
+
+  // function changeThing() {
+  // }
+
+  // function removeThing() {
+  // }
+
   //handleSubmit
   function handleSubmit(event) {
     //prevent default 
     event.preventDefault();
     // console.log("the button was clicked")
     //update new entry to its own array 
-    setAllEntries((prev) => [...prev, { ...newThing }])
+    // setAllEntries((prev) => [...prev, { ...newThing }]) //moved to 
+    addThing()
     //reset to default 
     setNewThing({
       title: "",
@@ -59,6 +71,9 @@ function App() {
       description: ""
     })
   }
+
+
+
   //handleEdit
   //handleDelete
 
@@ -102,15 +117,15 @@ function App() {
       <button className="form--button" onClick={handleSubmit}>Submit</button>
       {/* <button onClick={handleEdit}>Edit</button> */}
       {/* <button onClick={handleDelete}>Delete</button> */}
-      
+
       <h2>Thread:</h2>
-      
+
       <div className="all--things">
         {/* map over array and for each entry, create a new div  */}
         {allEntries.map((entry, id) => (
           <div className='entry' key={id}>
             <p>Title: {entry.title}</p>
-            <img src = {entry.imgUrl.url}/>
+            <img src={entry.imgUrl.url} />
             <p>Reason: {entry.description}</p>
           </div>
         ))}
