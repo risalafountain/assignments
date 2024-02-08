@@ -9,7 +9,7 @@ function App() {
   const [newThing, setNewThing] = useState({
     title: "",
     imgUrl: '',
-    description: ""
+    description: "",
   })
 
   const [allEntries, setAllEntries] = useState([])
@@ -56,13 +56,13 @@ function App() {
     // console.log(newThing)
   // }
 
-  // function removeThing() {
-  //   axios.post("https://api.vschool.io/risalaf/thing", newThing)
-  //   .then(response => setNewThing(newThing))
-  //   .catch(error => console.log(error))
-  // console.log(newThing)
+  function removeThing() {
+    axios.post("https://api.vschool.io/risalaf/thing/<thingId>", newThing)
+    .then(response => setNewThing(newThing))
+    .catch(error => console.log(error))
+  console.log("the delete button was clicked")
 
-  // }
+  }
 
   //handleSubmit
   function handleSubmit(event) {
@@ -76,7 +76,8 @@ function App() {
     setNewThing({
       title: "",
       imgUrl: "",
-      description: ""
+      description: "",
+      // id: uuid()
     })
   }
 
@@ -84,6 +85,7 @@ function App() {
 
   //handleEdit
   // event.preventDefault()///is this necessary??
+  
   //make arr reflect the change 
   // setAllEntries((prev) => [...prev, {...newThing}]) //is this necessary??
   // changeThing()
@@ -91,8 +93,8 @@ function App() {
   //handleDelete
   // event.preventDefault() ///is this necessary??
   //make arr reflect the change 
-  // setAllEntries((prev) => [...prev, {...newThing}])
-  // removeThing()
+  setAllEntries((prev) => [...prev, {...newThing}])
+  removeThing()
 
 
   //store the array of ugly thing objects in the Context store 
@@ -145,6 +147,8 @@ function App() {
             <p>Title: {entry.title}</p>
             <img src={entry.imgUrl} style={{ width: '150px', height: '150px' }} />
             <p>Reason: {entry.description}</p>
+            <button className='form--button'>edit</button>
+            <button className='form--button'> delete</button>
           </div>
         ))}
 
