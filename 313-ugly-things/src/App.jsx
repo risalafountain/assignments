@@ -14,6 +14,10 @@ function App() {
 
   const [allEntries, setAllEntries] = useState([])
 
+  //in the get request we will be setting all entries 
+  //the delete will then have access to the _id
+  //pass entry._id  to the handleDelete function in the onClick then it will be defined 
+
   // GET request 
   React.useEffect(() => {
     fetch("https://api.vschool.io/risalf/thing")
@@ -56,9 +60,10 @@ function App() {
     // console.log(newThing)
   // }
 
-  function removeThing() {
-    axios.post("https://api.vschool.io/risalaf/thing/<thingId>", newThing)
-    .then(response => setNewThing(newThing))
+  //filter in here allThings.filter _id
+  function removeThing(id) {
+    axios.delete(`"https://api.vschool.io/risalaf/thing/${id}"`, newThing)
+    .then(response => console.log(response.data))
     .catch(error => console.log(error))
   console.log("the delete button was clicked")
 
@@ -76,12 +81,10 @@ function App() {
     setNewThing({
       title: "",
       imgUrl: "",
-      description: "",
+      description: ""
       // id: uuid()
     })
   }
-
-
 
   //handleEdit
   // event.preventDefault()///is this necessary??
@@ -92,10 +95,12 @@ function App() {
 
   //handleDelete
   // event.preventDefault() ///is this necessary??
-  //make arr reflect the change 
-  setAllEntries((prev) => [...prev, {...newThing}])
-  removeThing()
+function handleDelete(id){
+ //make arr reflect the change 
+  removeThing(id)
 
+}
+ 
 
   //store the array of ugly thing objects in the Context store 
 
@@ -148,7 +153,7 @@ function App() {
             <img src={entry.imgUrl} style={{ width: '150px', height: '150px' }} />
             <p>Reason: {entry.description}</p>
             <button className='form--button'>edit</button>
-            <button className='form--button'> delete</button>
+            <button className='form--button' onClick={()=>handleDelete(entry._id)} > delete</button>
           </div>
         ))}
 
