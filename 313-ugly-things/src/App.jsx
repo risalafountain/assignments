@@ -20,7 +20,7 @@ function App() {
 
   // GET request 
   React.useEffect(() => {
-    fetch("https://api.vschool.io/risalf/thing")
+    fetch("https://api.vschool.io/risalaf/thing")
       .then(res => res.json())
       //set all the entries with the data received from request 
       .then(data => setAllEntries(data))
@@ -64,9 +64,10 @@ function App() {
 
   //filter in here allThings.filter _id
   function removeThing(id) {
-    axios.delete(`"https://api.vschool.io/risalaf/thing/${_id}"`, newThing)
-    // .then(response => console.log(response.data))
-    .then (response => setAllEntries.filter ((newThing) => newThing.id !== id))
+    axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
+    .then(response => console.log(response.data))
+    // .then(response => )
+    .then (response => setAllEntries(allEntries.filter ((newThing) => newThing._id !== id)))
     .catch(error => console.log(error))
   console.log("the delete button was clicked")
   }
@@ -99,6 +100,7 @@ function App() {
 function handleDelete(id){
  //make arr reflect the change 
   removeThing(id)
+  console.log("this is the handleDelete function", id)
 }
  
 
@@ -147,11 +149,12 @@ function handleDelete(id){
 
       <div className="all--things">
         {/* map over array and for each entry, create a new div  */}
-        {allEntries.map((entry, id) => (
-          <div className='entry' key={id}>
+        {allEntries.map((entry, index) => (
+          <div className='entry' key={index}>
             <p>Title: {entry.title}</p>
             <img src={entry.imgUrl} style={{ width: '150px', height: '150px' }} />
             <p>Reason: {entry.description}</p>
+            <p>{entry.id}</p>
             <button className='form--button'>edit</button>
             <button className='form--button' onClick={()=>handleDelete(entry._id)} > delete</button>
           </div>
