@@ -55,12 +55,14 @@ function App() {
     // console.log(newThing)
   }
 
-  // function changeThing() {
-    // axios.put("https://api.vschool.io/risalaf/thing", newThing)
-    //   .then(response => setNewThing(newThing))
-    //   .catch(error => console.log(error))
-    // console.log(newThing)
-  // }
+  function changeThing() {
+    //PUT request
+    axios.put("https://api.vschool.io/risalaf/thing", newThing)
+      .then(response => setNewThing(newThing))
+      .then (response => setAllEntries(allEntries.filter ((newThing) => newThing._id !== id)))
+      .catch(error => console.log(error))
+    console.log(newThing)
+  }
 
   //filter in here allThings.filter _id
   function removeThing(id) {
@@ -90,26 +92,19 @@ function App() {
 
   //handleEdit
   // event.preventDefault()///is this necessary??
-  
-  //make arr reflect the change 
-  // setAllEntries((prev) => [...prev, {...newThing}]) //is this necessary??
+  //need to map over existing arr to change edits 
+
+
   // changeThing()
 
   //handleDelete
-  // event.preventDefault() ///is this necessary??
 function handleDelete(id){
  //make arr reflect the change 
   removeThing(id)
   console.log("this is the handleDelete function", id)
 }
  
-
   //store the array of ugly thing objects in the Context store 
-
-  //API request 
-  //https://api.vschool.io/<yourname>/thing[/<thingId>]
-
-
 
   return (
     <div className='form'>
@@ -142,8 +137,6 @@ function handleDelete(id){
       />
 
       <button className="form--button" onClick={handleSubmit}>Submit</button>
-      {/* <button onClick={handleEdit}>Edit</button> */}
-      {/* <button onClick={handleDelete}>Delete</button> */}
 
       <h2>Thread:</h2>
 
