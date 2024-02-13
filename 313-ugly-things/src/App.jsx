@@ -22,6 +22,8 @@ function App() {
   React.useEffect(() => {
     fetch("https://api.vschool.io/risalf/thing")
       .then(res => res.json())
+      //set all the entries with the data received from request 
+      .then(data => setAllEntries(data))
     // .then(data => console.log(data))
   }, [])
 
@@ -50,7 +52,7 @@ function App() {
     axios.post("https://api.vschool.io/risalaf/thing", newThing)
       .then(response => setNewThing(newThing))
       .catch(error => console.log(error))
-    console.log(newThing)
+    // console.log(newThing)
   }
 
   // function changeThing() {
@@ -62,11 +64,11 @@ function App() {
 
   //filter in here allThings.filter _id
   function removeThing(id) {
-    axios.delete(`"https://api.vschool.io/risalaf/thing/${id}"`, newThing)
-    .then(response => console.log(response.data))
+    axios.delete(`"https://api.vschool.io/risalaf/thing/${_id}"`, newThing)
+    // .then(response => console.log(response.data))
+    .then (response => setAllEntries.filter ((newThing) => newThing.id !== id))
     .catch(error => console.log(error))
   console.log("the delete button was clicked")
-
   }
 
   //handleSubmit
@@ -82,7 +84,6 @@ function App() {
       title: "",
       imgUrl: "",
       description: ""
-      // id: uuid()
     })
   }
 
@@ -98,7 +99,6 @@ function App() {
 function handleDelete(id){
  //make arr reflect the change 
   removeThing(id)
-
 }
  
 
