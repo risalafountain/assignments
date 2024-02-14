@@ -93,8 +93,6 @@ function App() {
   //handleEdit
   // event.preventDefault()///is this necessary??
   //need to map over existing arr to change edits 
-
-
   // changeThing()
 
   //handleDelete
