@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
-
+import EditThingForm from './components/EditThingForm'
 function App() {
 
   const [newThing, setNewThing] = useState({
@@ -13,6 +11,7 @@ function App() {
   })
 
   const [allEntries, setAllEntries] = useState([])
+ 
 
   //in the get request we will be setting all entries 
   //the delete will then have access to the _id
@@ -44,7 +43,7 @@ function App() {
     }
     // console.log(event.target)
   }
-
+  //ADD REQUEST (POST)
   function addThing() {
     setNewThing(newThing)
 
@@ -55,23 +54,30 @@ function App() {
     // console.log(newThing)
   }
 
-  function changeThing() {
-    //PUT request
-    axios.put("https://api.vschool.io/risalaf/thing", newThing)
-      .then(response => setNewThing(newThing))
-      .then (response => setAllEntries(allEntries.filter ((newThing) => newThing._id !== id)))
-      .catch(error => console.log(error))
-    console.log(newThing)
+  //editing fields
+  //access single id in allEntries arr 
+  //if there's any changes in the id, then upload the changes to the id 
+  //upload the edited item into to allEntries arr 
+  // it would be something like that. you can see in the route we're telling the database which one we're updating by using the id as the endpoint. and than after that the inputs would what your updating it with.
+  // the inputs would end up being the state of your edit form when you call the function
+
+  //EDIT REQUEST  (PUT)
+  function changeThing(id, inputs) {
+    axios.put(`https://api.vschool.io/risalaf/thing/${id}`, inputs)
+      .then(response => console.log(inputs))
+    console.log("this is the id: " + id)
   }
 
+
+  //DELETE
   //filter in here allThings.filter _id
   function removeThing(id) {
     axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
-    .then(response => console.log(response.data))
-    // .then(response => )
-    .then (response => setAllEntries(allEntries.filter ((newThing) => newThing._id !== id)))
-    .catch(error => console.log(error))
-  console.log("the delete button was clicked")
+      .then(response => console.log(response.data))
+      // .then(response => )
+      .then(response => setAllEntries(allEntries.filter((newThing) => newThing._id !== id)))
+      .catch(error => console.log(error))
+    console.log("the delete button was clicked")
   }
 
   //handleSubmit
@@ -91,17 +97,24 @@ function App() {
   }
 
   //handleEdit
-  // event.preventDefault()///is this necessary??
-  //need to map over existing arr to change edits 
-  // changeThing()
+  function handleEdit(id) {
+  // setEditedThing(prevEditedThing => {
+  //   return {
+  //     ...prevEditedThing, 
+  //   }
+  // })
+      //need to map over existing arr to change edits 
+      changeThing()
+  }
 
   //handleDelete
-function handleDelete(id){
- //make arr reflect the change 
-  removeThing(id)
-  console.log("this is the handleDelete function", id)
-}
- 
+  function handleDelete(id) {
+    
+    //make arr reflect the change 
+    removeThing(id)
+    console.log("this is the handleDelete function", id)
+  }
+
   //store the array of ugly thing objects in the Context store 
 
   return (
@@ -146,8 +159,8 @@ function handleDelete(id){
             <img src={entry.imgUrl} style={{ width: '150px', height: '150px' }} />
             <p>Reason: {entry.description}</p>
             <p>{entry.id}</p>
-            <button className='form--button'>edit</button>
-            <button className='form--button' onClick={()=>handleDelete(entry._id)} > delete</button>
+            <button className='form--button' onClick={() => handleEdit(entry.id)}>edit</button>
+            <button className='form--button' onClick={() => handleDelete(entry._id)} > delete</button>
           </div>
         ))}
 

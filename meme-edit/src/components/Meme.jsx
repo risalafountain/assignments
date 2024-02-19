@@ -78,8 +78,6 @@ export default function Meme() {
 
     }
    
-
-
 //map over array savedMeme state create new div with items --create new componenent to house each individual meme (SingleMeme)
     const memeList = savedMemes.map(meme => {
         // { console.log('meme map meme:', meme) }
