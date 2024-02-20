@@ -1,10 +1,12 @@
 import React from "react";
 
 export default function EditThingForm(props) {
-    const [editedThing, setEditedThing] = React.useState ({
-        title: props.Title,
-      imgUrl: props.imgUrl,
-      description: props.description,
+  console.log('editThingForm')
+  const {entry}= props 
+  const [editedThing, setEditedThing] = React.useState ({
+        title: entry.title,
+      imgUrl: entry.imgUrl,
+      description: entry.description,
       })
 
       function handleChange(event) {
@@ -23,8 +25,15 @@ export default function EditThingForm(props) {
         console.log("the update button was clicked")
     }
 
+    function handleSubmit(){
+      //put request 
+      // axios.put(`https://api.vschool.io/risalaf/thing/${id}`, inputs)
+    //   .then(response => console.log(inputs))
+    }
+
     return (
         <form className="form" onSubmit = {handleSubmit}>
+        
 
 <input
         type="text"
@@ -40,7 +49,7 @@ export default function EditThingForm(props) {
         placeholder="Paste Image URL here"
         className='form--input'
         name="imgUrl"
-        value={editedThing.imgUrl.url}
+        value={editedThing.imgUrl}
         onChange={handleChange}
       />
 
@@ -52,7 +61,7 @@ export default function EditThingForm(props) {
         value={editedThing.description}
         onChange={handleChange}
       />
-<button>Upate Values</button>
+<button onClick = {handleEdit}>Upate Values</button>
         </form>
     )
 }

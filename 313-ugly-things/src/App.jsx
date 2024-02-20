@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import axios from 'axios'
 import EditThingForm from './components/EditThingForm'
+import Entry from './components/Entry'
 function App() {
 
   const [newThing, setNewThing] = useState({
@@ -11,7 +12,7 @@ function App() {
   })
 
   const [allEntries, setAllEntries] = useState([])
- 
+  const [toggle, setToggle] = useState(false)
 
   //in the get request we will be setting all entries 
   //the delete will then have access to the _id
@@ -63,8 +64,7 @@ function App() {
 
   //EDIT REQUEST  (PUT)
   function changeThing(id, inputs) {
-    axios.put(`https://api.vschool.io/risalaf/thing/${id}`, inputs)
-      .then(response => console.log(inputs))
+    
     console.log("this is the id: " + id)
   }
 
@@ -104,7 +104,8 @@ function App() {
   //   }
   // })
       //need to map over existing arr to change edits 
-      changeThing()
+      setToggle(!toggle)
+      changeThing(id)
   }
 
   //handleDelete
@@ -155,12 +156,13 @@ function App() {
         {/* map over array and for each entry, create a new div  */}
         {allEntries.map((entry, index) => (
           <div className='entry' key={index}>
-            <p>Title: {entry.title}</p>
-            <img src={entry.imgUrl} style={{ width: '150px', height: '150px' }} />
-            <p>Reason: {entry.description}</p>
-            <p>{entry.id}</p>
-            <button className='form--button' onClick={() => handleEdit(entry.id)}>edit</button>
-            <button className='form--button' onClick={() => handleDelete(entry._id)} > delete</button>
+             
+            <>
+
+            <Entry />
+            </>
+            
+            
           </div>
         ))}
 
