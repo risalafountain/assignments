@@ -156,9 +156,7 @@ function App() {
         {/* map over array and for each entry, create a new div  */}
         {allEntries.map((entry, index) => (
           <div className='entry' key={index}>
-             
             <>
-
             <Entry />
             </>
             

@@ -1,22 +1,27 @@
 import React from "react";
 
-export default function Entry(){
- 
-    function handleEdit() {
+export default function Entry(props){
+    // const {entry}= props 
+    // const [editedThing, setEditedThing] = React.useState ({
+    //       title: Entry.title,
+    //     imgUrl: Entry.imgUrl,
+    //     description: Entry.description,
+    //     })
+    // function handleEdit() {
         
-    }
+    // }
     return (
-        <div>
-<p> Title: {entry.title}</p>
+//   These are being populated in the DOM
+  <div>
+<p> Title: {Entry.title}</p>
 <img 
-src ={entry.imgUrl}
+src ={Entry.imgUrl}
 style={{width: '150px', height: '150px' }}
 />
-
-<p>Reason: {entry.description}</p>
-<p>{entry.id}</p>
-<button className="form--button" onClick={() => handleEdit(entry.id)} > Edit </button>
-<button className="form--button" onClick={() => handleDelete(entry.id)}>Delete </button>
+<p>Reason: {Entry.description}</p>
+<p>{Entry.id}</p>
+<button className="form--button" onClick={() => handleEdit(Entry.id)} > Edit </button>
+<button className="form--button" onClick={() => handleDelete(Entry.id)}>Delete </button>
         </div>
     )
 }
