@@ -72,14 +72,14 @@ function App() {
 
   //DELETE
   //filter in here allThings.filter _id
-  function removeThing(id) {
-    axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
-      .then(response => console.log(response.data))
-      // .then(response => )
-      .then(response => setAllEntries(allEntries.filter((newThing) => newThing._id !== id)))
-      .catch(error => console.log(error))
-    console.log("the delete button was clicked")
-  }
+  // function removeThing(id) {
+  //   axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
+  //     .then(response => console.log(response.data))
+  //     // .then(response => )
+  //     .then(response => setAllEntries(allEntries.filter((newThing) => newThing._id !== id)))
+  //     .catch(error => console.log(error))
+  //   console.log("the delete button was clicked")
+  // }
 
   //handleSubmit
   function handleSubmit(event) {
@@ -150,7 +150,7 @@ function App() {
       <div className="all--things">
         {/* map over array and for each entry, create a new div  */}
         {/* ? = when allEntries is defined we will map through it  */}
-        {allEntries && allEntries?.map((entry, index) => (
+        {allEntries && allEntries ?.map((entry, index) => (
           <div className='entry' key ={index} >
             <>
               <Entry

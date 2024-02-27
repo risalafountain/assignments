@@ -12,13 +12,21 @@ export default function ContextProvider(props) {
             .then(res => setAllEntries(res.data))
             .catch(error => console.log(error))
     }
-
+//only deletes from back end until refresh 
     function deleteRequest(id) {
-        try {
-            const res = axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
-        } catch (error) {
-            console.log(error)
-        }       
+        axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
+      .then(response => console.log(response.data))
+      console.log("the delete button was clicked")
+      getRequest()
+//what logic do i need here to successfully delete 
+      //   .then(response => setAllEntries(response.data))
+    //   .catch(error => console.log(error))
+    
+        // try {
+        //     const res = axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
+        // } catch (error) {
+        //     console.log(error)
+        // }       
     }
 
     return (
