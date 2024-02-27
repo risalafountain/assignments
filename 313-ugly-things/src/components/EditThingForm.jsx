@@ -61,7 +61,7 @@ export default function EditThingForm(props) {
         value={editedThing.description}
         onChange={handleChange}
       />
-<button onClick = {handleEdit}>Upate Values</button>
+<button onClick = {handleEdit}>Update Values</button>
         </form>
     )
 }

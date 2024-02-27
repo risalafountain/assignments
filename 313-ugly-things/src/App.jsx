@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './App.css'
 import axios from 'axios'
 import EditThingForm from './components/EditThingForm'
 import Entry from './components/Entry'
+import { Context } from './components/Context'
 function App() {
+  const { allEntries, setAllEntries } = useContext(Context)
 
   const [newThing, setNewThing] = useState({
     title: "",
@@ -11,7 +13,6 @@ function App() {
     description: "",
   })
 
-  const [allEntries, setAllEntries] = useState([])
   const [toggle, setToggle] = useState(false)
 
   //in the get request we will be setting all entries 
@@ -64,7 +65,7 @@ function App() {
 
   //EDIT REQUEST  (PUT)
   function changeThing(id, inputs) {
-    
+
     console.log("this is the id: " + id)
   }
 
@@ -98,25 +99,19 @@ function App() {
 
   //handleEdit
   function handleEdit(id) {
-  // setEditedThing(prevEditedThing => {
-  //   return {
-  //     ...prevEditedThing, 
-  //   }
-  // })
-      //need to map over existing arr to change edits 
-      setToggle(!toggle)
-      changeThing(id)
+    // setEditedThing(prevEditedThing => {
+    //   return {
+    //     ...prevEditedThing, 
+    //   }
+    // })
+    //need to map over existing arr to change edits 
+    setToggle(!toggle)
+    changeThing(id)
   }
 
-  //handleDelete
-  function handleDelete(id) {
-    
-    //make arr reflect the change 
-    removeThing(id)
-    console.log("this is the handleDelete function", id)
-  }
 
   //store the array of ugly thing objects in the Context store 
+
 
   return (
     <div className='form'>
@@ -154,16 +149,19 @@ function App() {
 
       <div className="all--things">
         {/* map over array and for each entry, create a new div  */}
-        {allEntries.map((entry, index) => (
-          <div className='entry' key={index}>
+        {/* ? = when allEntries is defined we will map through it  */}
+        {allEntries && allEntries?.map((entry, index) => (
+          <div className='entry' key ={index} >
             <>
-            <Entry />
+              <Entry
+                title={entry.title}
+                imgUrl={entry.imgUrl}
+                description={entry.description}
+                id={entry._id}
+              />
             </>
-            
-            
           </div>
         ))}
-
       </div>
     </div>
 
