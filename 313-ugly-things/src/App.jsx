@@ -5,7 +5,7 @@ import EditThingForm from './components/EditThingForm'
 import Entry from './components/Entry'
 import { Context } from './components/Context'
 function App() {
-  const { allEntries, setAllEntries } = useContext(Context)
+  const { allEntries, setAllEntries} = useContext(Context)
 
   const [newThing, setNewThing] = useState({
     title: "",
@@ -50,10 +50,10 @@ function App() {
     setNewThing(newThing)
 
     //POST request  
-    axios.post("https://api.vschool.io/risalaf/thing", newThing)
-      .then(response => setNewThing(newThing))
-      .catch(error => console.log(error))
-    // console.log(newThing)
+    // axios.post("https://api.vschool.io/risalaf/thing", newThing)
+    //   .then(response => setNewThing(newThing))
+    //   .catch(error => console.log(error))
+    // // console.log(newThing)
   }
 
   //editing fields
@@ -70,7 +70,7 @@ function App() {
   }
 
 
-  //DELETE
+  //DELETE--moved to context so I don't have to filter by id 
   //filter in here allThings.filter _id
   // function removeThing(id) {
   //   axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
@@ -85,7 +85,7 @@ function App() {
   function handleSubmit(event) {
     //prevent default 
     event.preventDefault();
-    // console.log("the button was clicked")
+    console.log("the submit button was clicked")
     //update new entry to its own array 
     setAllEntries((prev) => [...prev, { ...newThing }])
     addThing()
@@ -104,6 +104,7 @@ function App() {
     //     ...prevEditedThing, 
     //   }
     // })
+    // EditThingForm()
     //need to map over existing arr to change edits 
     setToggle(!toggle)
     changeThing(id)
@@ -150,7 +151,7 @@ function App() {
       <div className="all--things">
         {/* map over array and for each entry, create a new div  */}
         {/* ? = when allEntries is defined we will map through it  */}
-        {allEntries && allEntries ?.map((entry, index) => (
+        {allEntries && allEntries?.map((entry, index) => (
           <div className='entry' key ={index} >
             <>
               <Entry
