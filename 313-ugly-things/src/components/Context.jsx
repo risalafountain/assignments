@@ -21,35 +21,21 @@ export default function ContextProvider(props) {
             .catch(error => console.log(error))
     }
     //ADDING THING
-    function postRequest(id) {
-        axios.post("https://api.vschool.io/risalaf/thing", id)
-            .then(response => setNewThing(newThing))
+    function postRequest(newThing) {
+        axios.post("https://api.vschool.io/risalaf/thing", newThing)
+            .then(response => setAllEntries(prev => [...prev, response.data]))
             .catch(error => console.log(error))
         console.log(`this is the post request: ${newThing}`)
     }
     //only deletes from back end until refresh also, the console log isn't showing
     function deleteRequest(id) {
         axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
-            .then(response => console.log(response.data))
-            .then(response => setAllEntries((newThing) => newThing._id !== id))
-        console.log("the delete button was clicked")
-        getRequest()
-
-        //what logic do i need here to successfully delete 
-        //with TA help here      
-        //   .then(response => setAllEntries(response.data))
-        //   .catch(error => console.log(error))
-
-        // try {
-        //     const res = axios.delete(`https://api.vschool.io/risalaf/thing/${id}`)
-        // } catch (error) {
-        //     console.log(error)
-        // }       
+            .then(response => setAllEntries(newThing => newThing.filter(thing => thing._id !== id) ))    
     }
     //EDIT THING
-    function putRequest(id) {
-        axios.put(`https://api.vschool.io/risalaf/thing/${id}`)
-            .then(response => console.log(response.data))
+    function putRequest(id, update) {
+        axios.put(`https://api.vschool.io/risalaf/thing/${id}`, update)
+            .then(response => setAllEntries(prev => prev.map(ugly => ugly._id === id ? response.data : ugly)))
             // .then(response => )
             .catch(error => console.log(error))
     }

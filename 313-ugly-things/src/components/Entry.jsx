@@ -8,12 +8,15 @@ export default function Entry(props) {
   const [showForm, setShowForm] = useState(false)
   const [isEditing, setIsEditing] = React.useState(false)
 
+  function handleToggle(){
+    setIsEditing(prev => !prev)
+  }
 
   //bring in state and get request 
   return (
     <>
     {/* //   These are being populated in the DOM */}
-      {isEditing?
+      {!isEditing?
       (<div>
         <p> Title: {title} </p>
         <img
@@ -22,10 +25,13 @@ export default function Entry(props) {
           />
         <p>Reason: {description}</p>
         <p>ID: {id}</p>
-        <button className="form--button" onClick={() => putRequest(id)} > Edit </button>
+        <button className="form--button" onClick={handleToggle} > Edit </button>
         <button className="form--button" onClick={() => deleteRequest(id)}>Delete </button>
       </div>):(
-        <EditThingForm/>)}
+        <EditThingForm 
+        entry = {{title, description, imgUrl, id}}
+        handleToggle = {handleToggle}
+        />)}
     </>
   )
 }

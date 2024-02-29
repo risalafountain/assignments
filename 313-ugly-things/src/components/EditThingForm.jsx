@@ -1,22 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "./Context";
 
 export default function EditThingForm(props) {
   // console.log('editThingForm')
-  const { entry } = props
+  const { entry, handleToggle } = props
+  const {putRequest} = useContext(Context)
+
   const [editedThing, setEditedThing] = React.useState({
     title: entry.title,
     imgUrl: entry.imgUrl,
     description: entry.description,
   })
-  // const [isEditing, setIsEditing] = React.useState(true)
 
-  function toggleIsEditing() {
-    setIsEditing(prev => { !prev })
-  }
 
   function handleChange(event) {
     const { name, value } = event.target
-
     setEditedThing(prevEditedThing => {
       return {
         ...prevEditedThing,
@@ -28,11 +26,8 @@ export default function EditThingForm(props) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    props.newEdit(props.id, editedThing)
-    console.log("the submit button was clicked in teh EditThingForm component ")
-    //put request 
-    // axios.put(`https://api.vschool.io/risalaf/thing/${id}`, inputs)
-    //   .then(response => console.log(inputs))
+    putRequest(entry.id, editedThing)
+    handleToggle()
   }
 
   return (
@@ -65,7 +60,8 @@ export default function EditThingForm(props) {
           value={editedThing.description}
           onChange={handleChange}
         />
-        <button onClick={toggleIsEditing}>Update Values</button>
+        <button onClick={handleSubmit}>Update Values</button>
+        <button onClick={handleToggle}>Cancel</button>
 
       </form>
   )

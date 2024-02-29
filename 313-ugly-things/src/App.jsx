@@ -97,19 +97,7 @@ function App() {
     })
   }
 
-  //handleEdit
-  function handleEdit(id) {
-    // setEditedThing(prevEditedThing => {
-    //   return {
-    //     ...prevEditedThing, 
-    //   }
-    // })
-    // EditThingForm()
-    //need to map over existing arr to change edits 
-    setToggle(!toggle)
-    changeThing(id)
-  }
-
+  
 
   //store the array of ugly thing objects in the Context store 
 
