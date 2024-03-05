@@ -2,35 +2,74 @@
 
 // **Understand the Problem:**
 // Before you start coding, make sure you understand what the challenge is asking. You need to filter a given array of words to find the anagrams of a target word. Anagrams are words that have the same letters but in a different order.
+//1. check to see if any of the words in the array are anagrams of the target.
+//2. check if the same length 
+//3. check if the letters are the same 
+//4. separate string into individual letters /split/ 
+//5. sort method -- will put the letters in the same order if they're the same
+//6. join method -- to join arr into string 
+//7. conditional statements if === anagrams
 
 // ```jsx
-// function filterAnagrams(arr, target) {
-  
+
+//since the logic is the same, if i build this function outside of the filterAnagrams function, I can then apply it to both the arr and the target since they are needing the same things done 
+// function sortWord(word){
+//     //this splits the word into individual letters, sorts them in ascending order and rejoins them
+//     return word.split("").sort().join("")
 // }
+// const list = ['bananas', 'apples', 'oranges'] 
+// const sortedWords = list.map(word => sortWord(word))  
+// console.log(sortedWords)
 
-// const words = ['listen', 'silent', 'dog', 'god', 'hello', 'world'];
-// const target = 'enlist';
+function filterAnagrams(arr, target) {
+//1. separate string into individual letters /split/ 
+//2. sort method -- will put the letters in the same order if they're the same
+//3. join method -- to join arr into string 
+//4. for the arr map over each word in the arr and apply the above logic
+    const param1= arr.map(word => word.split("").sort().join(""))
+    const param2 = target.split("").sort().join("")
+// compare sorted changed arr of words with target sorted and changed word 
+//if they match they are anagrams
+    const compareResult = arr.filter((word) => param1 === param2)
+    return compareResult
+}
 
-// const anagrams = filterAnagrams(words, target);
-// console.log(anagrams); // Output: ['listen', 'silent']
-// ```
+//these are the words to use and the target word 
+const words = ['listen', 'silent', 'dog', 'god', 'hello', 'world'];
+const target = 'enlist';
+
+//call the function and pass in the above parameters
+const anagrams = filterAnagrams(words, target);
+console.log("anagrams here: " + anagrams); // Output: ['listen', 'silent']
+//I AM GETTING AN EMPTY ARRAY ????
 
 
 // Sort by Multiple Criteria
 // Write a function called sortByMultipleCriteria that takes an array of objects representing people, each with a name (string) and age (number) property. The function should return a new array with the people sorted first by age in ascending order, and then by name in alphabetical order.
-// function sortByMultipleCriteria(people) {
+//1. sort the people arr by age people.sort (ab if a>b)
+//2. within sort by name 
 
-// }
+function sortByMultipleCriteria(people) {
+ //access people.age and sort 
+people.age.sort(a,b) {
+    return a-b
+}
+ //access people.name
+people.name.sort(a,b) {
+    return a-b
+}
+ //sort both at the same time??
+}
 
-// const people = [
-// { name: 'Alice', age: 30 },
-// { name: 'Bob', age: 25 },
-// { name: 'Charlie', age: 35 },
-// { name: 'David', age: 25 },
-// ];
+const people = [
+{ name: 'Alice', age: 30 },
+{ name: 'Bob', age: 25 },
+{ name: 'Charlie', age: 35 },
+{ name: 'David', age: 25 },
+];
 
-// const sortedPeople = sortByMultipleCriteria(people);
-// console.log(sortedPeople);
+const sortedPeople = sortByMultipleCriteria(people);
+console.log(sortedPeople);
 
 // Expected outcome: [
 //  { name: 'Bob', age: 25 },
