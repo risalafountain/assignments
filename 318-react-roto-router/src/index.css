@@ -1,0 +1,62 @@
+:root {
+  --maroon: #800000;
+  --dark-maroon: #550000;
+  --light-maroon: #a52a2a;
+  --lighter-maroon: #b22222;
+  --teal: #008080; /* Complimentary color */
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(50deg, var(--maroon), white);
+}
+
+.link {
+  text-decoration: none;
+  color:black;
+}
+
+.navBar{
+  /* vh = view heighth ~10% of screen's height */
+  height: 5vh; 
+  border-bottom: solid black 2px;
+  padding: 10px;
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  background-color: var(--teal);
+}
+
+button{
+  margin: 5px;
+
+}
+
+.footer{
+  height: 5vh;
+  border-top: solid black 2px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  background-color: var(--teal);
+}
+
+.main {
+  min-height: 90vh;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.home{
+  background-color: var(--dark-maroon);
+}
+
+.services{
+  background-color: var(--maroon);
+}
+
+.about{
+ background-color: var(--light-maroon);
+}

@@ -26,11 +26,11 @@ function filterAnagrams(arr, target) {
 //2. sort method -- will put the letters in the same order if they're the same
 //3. join method -- to join arr into string 
 //4. for the arr map over each word in the arr and apply the above logic
-    const param1= arr.map(word => word.split("").sort().join(""))
+    const param1 = arr.map(word => word.split("").sort().join(""))
     const param2 = target.split("").sort().join("")
 // compare sorted changed arr of words with target sorted and changed word 
 //if they match they are anagrams
-    const compareResult = arr.filter((word) => param1 === param2)
+    const compareResult = arr.filter((word, index) => param1 [index] === param2)
     return compareResult
 }
 
@@ -41,7 +41,6 @@ const target = 'enlist';
 //call the function and pass in the above parameters
 const anagrams = filterAnagrams(words, target);
 console.log("anagrams here: " + anagrams); // Output: ['listen', 'silent']
-//I AM GETTING AN EMPTY ARRAY ????
 
 
 // Sort by Multiple Criteria
@@ -49,27 +48,27 @@ console.log("anagrams here: " + anagrams); // Output: ['listen', 'silent']
 //1. sort the people arr by age people.sort (ab if a>b)
 //2. within sort by name 
 
-function sortByMultipleCriteria(people) {
- //access people.age and sort 
-people.age.sort(a,b) {
-    return a-b
-}
- //access people.name
-people.name.sort(a,b) {
-    return a-b
-}
- //sort both at the same time??
-}
+// function sortByMultipleCriteria(people) {
+//  //access people.age and sort 
+// people.age.sort(a,b) {
+//     return a-b
+// }
+//  //access people.name and sort
+// people.name.sort(a,b) {
+//     return a-b
+// }
+//  //sort both at the same time??
+// }
 
-const people = [
-{ name: 'Alice', age: 30 },
-{ name: 'Bob', age: 25 },
-{ name: 'Charlie', age: 35 },
-{ name: 'David', age: 25 },
-];
+// const people = [
+// { name: 'Alice', age: 30 },
+// { name: 'Bob', age: 25 },
+// { name: 'Charlie', age: 35 },
+// { name: 'David', age: 25 },
+// ];
 
-const sortedPeople = sortByMultipleCriteria(people);
-console.log(sortedPeople);
+// const sortedPeople = sortByMultipleCriteria(people);
+// console.log(sortedPeople);
 
 // Expected outcome: [
 //  { name: 'Bob', age: 25 },
@@ -79,8 +78,56 @@ console.log(sortedPeople);
 // ]
 
 
+function sortByMultipleCriteria(people) {
+    return people.sort((personA, personB) => {
+      if (personA.age === personB.age) {
+        if (personA.name < personB.name) return -1;
+        if (personA.name > personB.name) return 1;
+        return 0;
+      }
+      return personA.age - personB.age;
+    });
+  }
+  
+  const people = [
+    { name: 'Alice', age: 30 },
+    { name: 'Bob', age: 25 },
+    { name: 'Charlie', age: 35 },
+    { name: 'David', age: 25 },
+  ];
+  
+  const sortedPeople = sortByMultipleCriteria(people);
+  console.log(sortedPeople);
 
 
+// Write a function called calculateTotalPrice that calculates the total price for each product in an array of objects representing products, where each object has a name (string), price (number), and quantity (number) property. The function should return a new array containing objects with the name and totalPrice properties, where totalPrice is the result of multiplying the price with the quantity for each product.
+
+//write a function called totalprice 
+//calculate total price for each product 
+//return a new arr with quantity x price 
+
+//console log products --> products.name [figure out the data type etc]
+
+
+function calculateTotalPrice(products) {
+const friend = products.map(product => `This is the result: ${product.name} ${product.quantity * product.price}`)
+      return friend
+}
+
+const products = [
+  { name: 'Apple', price: 1.5, quantity: 3 },
+  { name: 'Banana', price: 0.75, quantity: 5 },
+  { name: 'Orange', price: 1.25, quantity: 2 },
+];
+
+const totalPriceArray = calculateTotalPrice(products);
+console.log(totalPriceArray);
+
+// Output: [
+//  { name: 'Apple', totalPrice: 4.5 },
+//  { name: 'Banana', totalPrice: 3.75 },
+//  { name: 'Orange', totalPrice: 2.5 }
+// ]
 
 /* QUIZ (GOT 7/8 CORRECT)
 1. How do you provide data to components using createContext and useContext? 
