@@ -1,15 +1,20 @@
+
+  /* Main Color */
 :root {
-  --maroon: #800000;
-  --dark-maroon: #550000;
-  --light-maroon: #a52a2a;
-  --lighter-maroon: #b22222;
-  --teal: #008080; /* Complimentary color */
+  --main-color: #0077cc; /* Blue */
 }
+
+/* Accent Colors */
+:root {
+  --accent-color-orange: #ff7f00; /* Orange */
+  --accent-color-yellow: #ffd700; /* Yellow */
+}
+
 
 body{
   margin: 0;
   padding: 0;
-  background: linear-gradient(50deg, var(--maroon), white);
+  /* background: linear-gradient(50deg, white, var(--accent-color-yellow)); */
 }
 
 .link {
@@ -18,45 +23,64 @@ body{
 }
 
 .navBar{
-  /* vh = view heighth ~10% of screen's height */
+  /* vh = view height ~10% of screen's height */
   height: 5vh; 
   border-bottom: solid black 2px;
   padding: 10px;
   display: flex;
-  align-items: end;
-  justify-content: flex-end;
+  /* //buttons w/o logo/h1
+  align-items: end; 
+  justify-content: flex-end; */
+  align-items: center;
+  justify-content: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  background-color: var(--teal);
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+  background-image: url("https://cdn.pixabay.com/photo/2023/05/23/14/25/ai-generated-8012885_1280.jpg");
+  color:  whitesmoke;
+  font-weight: 900;
 }
 
 button{
   margin: 5px;
-
+  padding:10px;
+  font-weight: 600;
 }
 
 .footer{
   height: 5vh;
   border-top: solid black 2px;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-  background-color: var(--teal);
+  background-color: var(--accent-color-yellow);
 }
 
 .main {
-  min-height: 90vh;
-  padding: 20px;
+  min-height: 80vh;
+  padding: 50px;
   margin: 20px;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 .home{
-  background-color: var(--dark-maroon);
+  background-color: var(--main-color);
+  color: #ffffff; /* White */
 }
 
 .services{
-  background-color: var(--maroon);
-}
+  background-color: #005d9e; /* Darker Blue */
+  color: #ffffff; /* White */}
 
 .about{
- background-color: var(--light-maroon);
+  background-color: #0099cc; /* Lighter Blue */
+  color: #000000; /* Black */}
+
+.content-image{
+  max-height: 80vh;
+  max-width: 50vh;
+}
+
+.logo{
+  width:50px;
+  height: 50px;
+  padding: 10px;
 }
