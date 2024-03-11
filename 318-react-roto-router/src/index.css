@@ -74,8 +74,8 @@ button{
   background-color: #0099cc; /* Lighter Blue */
   color: #000000; /* Black */}
 
-.content-image{
-  max-height: 80vh;
+.image{
+  max-height: 50vh;
   max-width: 50vh;
 }
 
