@@ -9,14 +9,19 @@ import Card from './Card';
 function Home() {
     //destructuring the object
     const { magicData } = useContext(magicContext)
+    const [toggle, setToggle] = useState(false)
     const filteredCards = magicData.filter(card => card.imageUrl)
+    console.log('filteredCards',filteredCards)
+    
     const cardList = filteredCards.map(card => {
         return (
             <Card key={card.id} {...card} />
         )
     })
+
     return (
         <div className='homeContainer'>
+            <h1> Home Page</h1>
             {cardList}
         </div>
     );
