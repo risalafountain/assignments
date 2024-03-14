@@ -4,11 +4,13 @@ import {Routes, Route} from 'react-router-dom'
 import Home from './Components/Home'
 import CardDetails from './Components/CardDetails'
 import SavedCards from './Components/SavedCards'
+import NavBar from './Components/NavBar'
 
 function App() {
 
   return (
     <>
+    <NavBar />
     <Routes>
       <Route path = "/" element={<Home />}/>
       <Route path = "/favorites" element={<SavedCards />}/>

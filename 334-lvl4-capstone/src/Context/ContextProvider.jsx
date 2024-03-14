@@ -15,7 +15,7 @@ export default function MagicProvider(props) {
         setFaveCards(prevFaveCards => [...prevFaveCards, card])
     }
     // console.log(magicData)
-    console.log(faveCards)
+    // console.log(faveCards)
     return (
         <magicContext.Provider value={{ magicData, newFave, faveCards }}>
             {props.children}

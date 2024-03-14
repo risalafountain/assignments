@@ -14,7 +14,6 @@ function Card(props) {
 
     function handleClick(event) {
         event.preventDefault()
-        // open a diff component? 
         navigate(`/details/${id}`)
     }
 

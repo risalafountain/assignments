@@ -5,14 +5,16 @@
 import React, { useState, useContext } from 'react';
 import { magicContext } from '../Context/ContextProvider';
 import Card from './Card';
+import NavBar from './NavBar';
+
 
 function Home() {
     //destructuring the object
     const { magicData } = useContext(magicContext)
     const [toggle, setToggle] = useState(false)
     const filteredCards = magicData.filter(card => card.imageUrl)
-    console.log('filteredCards',filteredCards)
-    
+    console.log('filteredCards', filteredCards)
+
     const cardList = filteredCards.map(card => {
         return (
             <Card key={card.id} {...card} />
@@ -20,8 +22,7 @@ function Home() {
     })
 
     return (
-        <div className='homeContainer'>
-            <h1> Home Page</h1>
+        <div className='homeContainer main'>
             {cardList}
         </div>
     );

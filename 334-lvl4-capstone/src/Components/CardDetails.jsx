@@ -5,20 +5,25 @@ import { magicContext } from "../Context/ContextProvider";
 function CardDetails() {
     const { id } = useParams()
     const { magicData, newFave, faveCards } = useContext(magicContext)
- const foundCard= magicData.find(card=> card.id === id)
- console.log(foundCard)
- const isSaved = faveCards.includes(foundCard)
+    const foundCard = magicData.find(card => card.id === id)
+    // console.log(foundCard)
+    const isSaved = faveCards.includes(foundCard)
 
-if(!foundCard){
-    return <div></div>
-}
+    if (!foundCard) {
+        return <div></div>
+    }
 
     return (
-        <div>
-            <h1>Title: {foundCard.name}</h1>
-            <h1>Image:{foundCard.printings.map(print => <p>{print}</p>)}</h1>
-            <h3>Rarity:</h3>
-            {!isSaved && <button onClick={()=>newFave(foundCard)}>Click to Save</button>}
+        <div className="main list">
+            <h1>{foundCard.name}</h1>
+            <img src={foundCard.imageUrl} alt={foundCard.name} />
+            <h2>{foundCard.originalType}</h2>
+            <h2>Artist: {foundCard.artist}</h2>
+            
+            <h2>Mana Cost: {foundCard.manaCost}</h2>
+            <h2>Rarity: {foundCard.rarity}</h2>
+            <h2>{foundCard.originalText}</h2>
+            {!isSaved && <button onClick={() => newFave(foundCard)}>Click to Save</button>}
         </div>
     )
 }

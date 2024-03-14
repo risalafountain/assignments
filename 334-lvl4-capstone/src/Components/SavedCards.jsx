@@ -12,7 +12,7 @@ const favoriteCardList = faveCards.map(card => {
     )
 })
     return ( 
-        <div>{favoriteCardList}</div>
+        <div className='main list'>{favoriteCardList}</div>
      );
 }
 
