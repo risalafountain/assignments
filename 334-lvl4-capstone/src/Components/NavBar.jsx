@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom'
+//must import link for them to work 
+import { Link } from 'react-router-dom'
 
 function NavBar() {
     return (
         <div className='navBar'>
             <h1>Magic the Gathering</h1>
-            
-            <button>
-                <Link to="/"
-                    className="link">
+{/* the to="" is the endpoint in the url */}
+            <Link to="/"
+                className="link">
+                <button>
                     Home
-                </Link>
-            </button>
+                </button>
+            </Link>
 
-            <button>
-                <Link to='/favorites'
-                    className="link">
+            <Link to='/favorites'
+                className="link">
+                <button>
                     Favorite Cards
-                </Link>
-            </button>
+                </button>
+            </Link>
 
         </div>
     );

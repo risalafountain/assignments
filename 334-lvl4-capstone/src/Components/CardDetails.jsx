@@ -3,8 +3,11 @@ import React, { useState, useContext } from 'react';
 import { magicContext } from "../Context/ContextProvider";
 
 function CardDetails() {
+    //accesses the id 
     const { id } = useParams()
+    //receives values from magicContext provider
     const { magicData, newFave, faveCards } = useContext(magicContext)
+    //search for the card that matches the id of the selected card
     const foundCard = magicData.find(card => card.id === id)
     // console.log(foundCard)
     const isSaved = faveCards.includes(foundCard)
@@ -16,13 +19,13 @@ function CardDetails() {
     return (
         <div className="main list">
             <h1>{foundCard.name}</h1>
-            <img src={foundCard.imageUrl} alt={foundCard.name} />
+            <img src={foundCard.imageUrl} />
             <h2>{foundCard.originalType}</h2>
             <h2>Artist: {foundCard.artist}</h2>
-            
             <h2>Mana Cost: {foundCard.manaCost}</h2>
             <h2>Rarity: {foundCard.rarity}</h2>
             <h2>{foundCard.originalText}</h2>
+            {/* if card is saved already, the button disappears  */}
             {!isSaved && <button onClick={() => newFave(foundCard)}>Click to Save</button>}
         </div>
     )

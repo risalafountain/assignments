@@ -9,12 +9,14 @@ import NavBar from './NavBar';
 
 
 function Home() {
-    //destructuring the object
+    //destructuring the object [?]
     const { magicData } = useContext(magicContext)
+    //am i using this?
     const [toggle, setToggle] = useState(false)
+    //filter out the cards that do not have an imageUrl
     const filteredCards = magicData.filter(card => card.imageUrl)
     console.log('filteredCards', filteredCards)
-
+//map over list of filteredcards and for each card create key plus spread in all the details of the card props. Props are received from the magicData in filteredCards. 
     const cardList = filteredCards.map(card => {
         return (
             <Card key={card.id} {...card} />

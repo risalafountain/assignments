@@ -12,6 +12,7 @@ function App() {
     <>
     <NavBar />
     <Routes>
+{/* these set the routes and endpoints in the url */}
       <Route path = "/" element={<Home />}/>
       <Route path = "/favorites" element={<SavedCards />}/>
       <Route path = "/details/:id" element = {<CardDetails />} />

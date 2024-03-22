@@ -6,7 +6,7 @@ function Card(props) {
     const { name, imageUrl, card, id } = props
 
     console.log(props.id)
-    //use Navigate here ?
+    //fires within a function or onClick etc..
     const navigate = useNavigate()
     // const cards = cardData.map(card => (<h3 key ={card.id}>
     //     This is in the Card component
