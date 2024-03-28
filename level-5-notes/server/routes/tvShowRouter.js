@@ -41,6 +41,12 @@ tvShowRouter.route("/")
     res.send(`Succesfully added ${newShow.title} to the database`)
 })
 
+//params
+tvShowRouter.get("/:tvshowID", (req, res) => {
+    const tvshowID = req.params.tvshowID
+    const foundShow = tvShows.find(show => show._id ===tvshowID)
+    res.send(foundShow)
+})
 
 
 module.exports = tvShowRouter //4

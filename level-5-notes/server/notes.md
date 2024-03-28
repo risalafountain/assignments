@@ -56,3 +56,20 @@ movieRouter.route("/")
         movies.push(newMovie)
         res.send(`Successfully added ${newMovie.title} to the database`)
     })
+
+# URL Parameters 
+
+# Parts of a URL 
+    *Base 
+    *Endpoint
+    *Parameter 
+    *Query 
+
+# Parameters (req.perams) - GET one 
+
+# URL Queries 
+
+# Query String-typically to filter results
+* begins with ?
+* Built of key=value pairs
+* multiple queries separated with & 

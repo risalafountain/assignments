@@ -9,10 +9,11 @@
     const app = express()
     const {v4:uuidv} = require('uuid')
 
-5.  server listen needs port, cb function
+5.  @bottom is the server listen needs port, cb function
     app.listen(9000, () => console.log("Server is running on Port 9000"))
-
-6. create fake data 
-7. create routes 
+6. need middleware 
+    app.use(express.json())
+7. create fake data 
+8. create routes 
     .get()
-8. run nodemon <filename.js>
+9. run nodemon <filename.js>
