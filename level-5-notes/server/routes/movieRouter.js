@@ -44,4 +44,27 @@ movieRouter.get("/search/genre", (req, res) => {
 })
 //in postman 
 // localhost:9000/movies/search/genre?genre=comedy
+
+//DELETE one 
+movieRouter.delete("/:movieId", (req,res) => {
+    const movieId= req.params.movieId
+    //splice to edit existing array --need index 
+    const movieIndex = movies.findIndex(movie => movie._id === movieId)
+    movies.splice(movieIndex, 1) //at the movie index remove 1 item
+    res.send('Successfully deleted movie!') 
+})
+
+//update one 
+movieRouter.put ("/:movieId", (req, res) => {
+    //this is what user sends us 
+    const movieId = req.params.movieId
+    const updateObject = req.body 
+    
+    const movieIndex = movies.findIndex(movie => movie._id === movieId)
+    //Object.assign takes two object and merges them together (#1 out of date object, #2 new object to merge in)
+    const updatedMovie = Object.assign(movies[movieIndex], updateObject) 
+    res.send(updatedMovie)
+
+})
+
 module.exports = movieRouter

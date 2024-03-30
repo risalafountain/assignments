@@ -65,7 +65,7 @@ movieRouter.route("/")
     *Parameter 
     *Query 
 
-# Parameters (req.perams) - GET one 
+# Parameters (req.params) - GET one 
 
 # URL Queries 
 
@@ -73,3 +73,35 @@ movieRouter.route("/")
 * begins with ?
 * Built of key=value pairs
 * multiple queries separated with & 
+
+# Middleware 
+
+# What is it? 
+* app.use allows us to use that logic on any type of CRUD requests
+    * app.use()needs two parameters 
+    1. optional - Mount Path/endpoint  if left out it fires on every request
+    2. Callback Function - receives the request, response objects, also the 'next' function 
+
+# The 'next' function 
+    * moves on to the middleware in line on our server 
+
+    (req, res, next)
+
+    app.use("/items", (req, res, next) => {
+    console.log("THE ITEMS MIDDLEWARE WAS EXECUTED)
+    next()
+        })
+    
+    app.get("/items", (req, res, next) => {console.log ("get request received")
+    res.send("Hello world")
+    })
+
+* Every single piece of middleware needs to either call next or res.send something to end the process. 
+
+
+
+
+
+
+
+
