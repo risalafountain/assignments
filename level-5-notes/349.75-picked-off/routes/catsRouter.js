@@ -32,9 +32,19 @@ catsRouter.use((req, res, next) => {
     next()
 })
 
+catsRouter.post ("/cats", (req,res, next) => {
+    const newCat = (req.body)
+    //add id to newCat
+    newCat._id = uuidv4()
+    cats.push(newCat)
+    res.send('successfully added a new cat to the database')
+})
+
 catsRouter.get("/cats", (req, res, next) => {
     console.log("the get request was sent")
     res.send(cats)
 })
+
+
 
 module.exports = catsRouter
