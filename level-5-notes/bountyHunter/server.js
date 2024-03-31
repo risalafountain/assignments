@@ -55,7 +55,7 @@ app.get("/bounty", (req, res) => {
 app.get("/bounty/:bountyId", (req,res) => {
     const bountyId = req.params.bountyId
     const foundBounty=bounties.find(bounty => bounty._id === bountyId)
-//this returns a blank in postman
+//this returns a blank in postman--null/undefined
     res.send( foundBounty)
 })
 
@@ -73,7 +73,7 @@ app.delete("/bounty/:bountyId", (req, res) => {
     //splice to edit existing arr-need index
     const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
     bounties.splice(bountyIndex, 1)
-    //how can i add the first and last name using template literals? when i tried it returned undefined
+    //how can i add the first and last name using template literals? when i tried, it returned undefined
     res.send('Successfully deleted bounty  from the database!')
 })
 
