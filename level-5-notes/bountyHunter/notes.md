@@ -2,7 +2,7 @@
 
 2. npm install express 
 
-3.  npm install uuid 
+3. npm install uuid 
 
 4. variables at top
     const express = require('express')
