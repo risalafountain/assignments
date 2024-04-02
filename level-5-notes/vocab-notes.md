@@ -98,6 +98,36 @@ movieRouter.route("/")
 
 * Every single piece of middleware needs to either call next or res.send something to end the process. 
 
+# Console Errors in Express
+
+# use a logger 
+* npm install morgan
+//per project installation--do not install it globally 
+import it into your project 
+    const morgan = require ('morgan')
+add it to the middleware
+    app.use(morgan('dev)) //logs requests to the console 
+
+# Connecting the Front End to the Back end 
+
+* Folder Structure    
+    client (all frontend goes here )
+    cd into client and run "npx create-react-app ."
+* Proxy
+add to the bottom of the package.json file after last entry before closing }
+      },
+  "proxy": "http://localhost:9000"
+in index file, can just use endpoint from your own server without full url when making requests
+    axios.get("/movies") 
+
+to request from a 3rd party api, you would need the whole url 
+
+    axios.get("http://rickandmortyapi.com")
+
+will need 2 windows open for front end (npm start) and back end (nodemon)
+
+
+
 
 
 

@@ -25,7 +25,7 @@ movieRouter.route("/")
     //add id to newMovie
     newMovie._id = uuidv4()
     movies.push(newMovie)
-    res.send(`Successfully added ${newMovie.title} to the database`)
+    res.send(newMovie)
 })
 
 //GET one

@@ -2,10 +2,12 @@
 //since it is in node modules just use express
 const express = require("express")
 const app = express()
+const morgan = require("morgan")
 //const {v4: uuidv4} = require('uuid') no longer needed after transfer
 
 //Middleware (for every request)
 app.use(express.json())
+app.use(morgan('dev'))
 
 //use movieRouter for data 
 //when you get a request for "/movies" or "/tvshows", use my file

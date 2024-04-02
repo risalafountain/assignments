@@ -1,4 +1,5 @@
-1. npm init -y
+1. npm init -y 
+    npm install morgan
 
 2. npm install express 
 
@@ -8,12 +9,15 @@
     const express = require('express')
     const app = express()
     const {v4:uuidv4} = require('uuid')
+    const morgan = require ('morgan') 
 
 5.  @bottom is the server listen needs port, cb function
     app.listen(9000, () => console.log("Server is running on Port 9000"))
 
 6. need middleware 
     app.use(express.json())
+    app.use(morgan('dev')) * logs requests to the console 
+
 
 7. create fake data 
     const fakedata = [{data here}]
