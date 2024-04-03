@@ -126,7 +126,8 @@ to request from a 3rd party api, you would need the whole url
 
 will need 2 windows open for front end (npm start) and back end (nodemon)
 
-
+Status 200 when asking the database for something (get delete)
+status 201 when adding something to the database (put post)
 
 
 

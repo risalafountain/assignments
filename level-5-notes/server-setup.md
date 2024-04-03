@@ -68,3 +68,6 @@ app.put("/todo/:todoId", (req, res, next) => {
     const updatedTodo = Object.assign(todos[todoIndex], updateTodo)
     res.send(updatedTodo)
 })
+
+MONGO DB info do not lose
+// mongodb+srv://mrsrisalafountain:D3INAzzICrV0AMgF@cluster0.dhmkqhk.mongodb.net/
