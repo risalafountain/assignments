@@ -13,6 +13,22 @@ authorRouter.get('/', (req, res, next) => {
     })
 })
 
+//get authors by search terms 
+authorRouter.get('/search', (req, res, next) => {
+    const {author} = req.query
+    const pattern = new RegExp(author) 
+    Author.find({name: {$regex: pattern, $options: 'i'} }, 
+    (err, author) => {
+        if(err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(author)
+    })
+})
+//test in postman localhost:9000/authors/search?author=c <= or whatever letters you want
+
+
 //add one author 
 authorRouter.post('/', (req, res, next) => {
     const newAuthor = new Author(req.body)
@@ -24,5 +40,7 @@ authorRouter.post('/', (req, res, next) => {
         return res.status(201).send(savedAuthor)
     })
 })
+
+
 
 module.exports = authorRouter
