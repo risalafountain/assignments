@@ -20,6 +20,6 @@ app.use((err, req, res, next) => {
     return res.send({ errMsg: err.message })
 })
 
-
+ 
 //server listen
 app.listen(9000, () => console.log("Server is running on Port 9000"))

@@ -1,19 +1,35 @@
 // #1 Write a function called extractUniqueCharacters that takes an array of strings and returns a new array containing only the unique characters from all the strings.
 
-function extractUniqueCharacters(strings) {
-  console.log("hello")
-  //split up the words into characters
-  const splitArr = words.map(word => word.split(''))
-//   console.log(splitArr)
-  //flatten the arr to turn it into one arr
-  const oneArr = splitArr.flat()
-//   console.log(oneArr)
-  //filter through the flattened arr and pull out unique chars
+// function extractUniqueCharacters(strings) {
+//   console.log("hello")
+//   //split up the words into characters
+//   const splitArr = strings.map(word => word.split(''))
+// //   console.log(splitArr)
+//   //flatten the arr to turn it into one arr
+//   const oneArr = splitArr.flat()
+// //   console.log(oneArr)
+//   //filter through the flattened arr and pull out unique chars
 
-  const uniqueChars = oneArr.filter((char,index) => oneArr.indexOf(char)===index)
-  return(
-    uniqueChars
-  )
+//   const uniqueChars = oneArr.filter((char,index) => oneArr.indexOf(char)===index)
+//   return(
+//     uniqueChars
+//   )
+// }
+
+function extractUniqueCharacters(arr){
+  const result = []
+
+  arr.forEach(word => {
+    const wordArr = word.split('')
+    wordArr.map(letter => {
+      if(!result.includes(letter)){
+        result.push(letter)
+      }
+    })
+  })
+  
+
+  return result
 }
 
 const words = ['apple', 'banana', 'cherry'];
