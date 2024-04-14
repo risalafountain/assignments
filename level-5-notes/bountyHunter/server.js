@@ -5,7 +5,7 @@ const morgan = require('morgan')
 
 //Middleware (for every request)
 app.use(express.json())
-app.use("/bounty", require("./routes/bountyRouter"))
+app.use("/bounty", require("./routes/bountyRouter")) //this is duplicated? on line 16?
 app.use(morgan('dev'))
 
 mongoose.set('strictQuery', true)

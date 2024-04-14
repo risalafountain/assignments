@@ -70,4 +70,4 @@ app.put("/todo/:todoId", (req, res, next) => {
 })
 
 MONGO DB info do not lose
-// mongodb+srv://mrsrisalafountain:D3INAzzICrV0AMgF@cluster0.dhmkqhk.mongodb.net/
+mongodb+srv://mrsrisalafountain:D3INAzzICrV0AMgF@cluster0.dhmkqhk.mongodb.net/

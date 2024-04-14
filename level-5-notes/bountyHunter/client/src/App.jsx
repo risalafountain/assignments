@@ -10,7 +10,7 @@ function App() {
   }, [])
 
   const bountyList = bounties.map(bounty => {
-    return <Bounty {...bounty} key ={id} /> //how do i resolve the key value pairs
+    return <Bounty {...bounty}  /> //how do i resolve the key value pairs
 
   })
 

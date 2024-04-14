@@ -45,7 +45,7 @@ bountyRouter.delete('/:id', (req, res, next) => {
             res.status(500)
             return next(err)
         }
-        return res.send(200).send(deletedBounty)
+        return res.status(200).send(deletedBounty)
     })
 })
 
