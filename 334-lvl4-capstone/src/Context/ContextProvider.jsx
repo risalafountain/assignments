@@ -16,7 +16,7 @@ export default function MagicProvider(props) {
             .catch(error => console.log(error))
     }, [])
 
-//add new cards to the fave cards array
+//add new cards to the fave cards array 
     function newFave(card) {
         setFaveCards(prevFaveCards => [...prevFaveCards, card])
     }
