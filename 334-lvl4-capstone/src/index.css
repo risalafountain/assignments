@@ -28,7 +28,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   background-image: url("https://cdn.pixabay.com/photo/2022/12/12/16/39/universe-7651376_1280.jpg");
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 button {
