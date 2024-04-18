@@ -32,7 +32,30 @@ export default function ContextProvider(props) {
     }
 
     //update task as fave and push to faveTask arr 
+    function makeFavorite(taskId) {
+        //find the favorited task
+        const favoritedTask = allTasks.find(task => task._id === taskId)
+        //update isFave and add task to the favetasks arr
+        console.log('favorited task:', favoritedTask)
+        axios.put(`/tasks/${taskId}`, { isFavorite: true })
+            .then(res => {
+                console.log('put req successful')
 
+                setFaveTasks(prev => {
+                    return ([...prev, favoritedTask])
+                })
+
+                console.log('fave tasks after update', favoritedTask)
+            })
+            .catch(err => console.log(err))
+    }
+    //delete faveTask
+    function deleteFavorite(id) {
+        axios.delete(`/tasks/${id}`)
+            //filter out the deleted id and update faveTasks
+            .then(res => setFaveTasks(tasks => tasks.filter(task => task._id !== id)))
+            .catch(err => console.log(err))
+    }
     //delete task
     function deleteTask(id) {
         axios.delete(`/tasks/${id}`)
@@ -40,10 +63,21 @@ export default function ContextProvider(props) {
             .then(res => setAllTasks(tasks => tasks.filter(task => task._id !== id)))
             .catch(err => console.log(err))
     }
+    //allows a card to move from favorites to 
+    function copyToHome(task){
+        //copy task and its props
+        const copiedTask = {...task}
+        //add to the allTasks arr
+        setAllTasks(prev => [...prev, copiedTask])
+
+        axios.post('/tasks', copiedTask)
+        .then(res => res.data)
+        .catch(err => console.log(err))
+    }
 
     return (
         //allow the children to have access to the values 
-        <Context.Provider value={{ allTasks, newTask, deleteTask, editTask }}>
+        <Context.Provider value={{ allTasks, newTask, deleteTask, editTask, faveTasks, makeFavorite, deleteFavorite, copyToHome }}>
             {props.children}
         </Context.Provider>
     )

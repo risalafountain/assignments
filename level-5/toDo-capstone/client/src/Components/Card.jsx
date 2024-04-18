@@ -3,7 +3,7 @@ import { Context } from "../Context/ContextProvider";
 import EditTaskForm from "./EditTaskForm";
 
 export default function Card(props) {
-    const { deleteTask } = useContext(Context)
+    const { deleteTask, makeFavorite} = useContext(Context)
     const { imageUrl, title, _id } = props
     const [isEditing, setIsEditing] = useState(false)
 
@@ -14,6 +14,11 @@ export default function Card(props) {
 //toggle isEditing state
     function handleToggle() {
         setIsEditing(prev => !prev)
+    }
+    
+    function handleFavorite(){
+        console.log('this is a favorite task:' + _id )
+        makeFavorite(_id)
     }
 
     return (
@@ -27,7 +32,7 @@ export default function Card(props) {
                     />
                     <button onClick={handleToggle} > Edit </button>
                     <button onClick={handleDelete}>Delete </button>
-                    <button>Add  To Favorites</button>
+                    <button onClick={handleFavorite}>Add  To Favorites</button>
                 </div>) :
                 (<EditTaskForm
                         card={{ title, imageUrl, _id }}
