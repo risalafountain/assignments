@@ -10,12 +10,16 @@ function App() {
 
   return (
     <>
+      
       <NavBar />
+      
+    <div className='app'>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/resources/' element={<Resources />} />
-        <Route path= '/favorites' element={<FaveTasks />} />
+        <Route path='/' element={<Home />}  />
+        <Route path='/resources/' element={<Resources />}  />
+        <Route path= '/favorites' element={<FaveTasks />}  />
       </Routes>
+    </div>
     </>
   )
 }

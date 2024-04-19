@@ -6,7 +6,6 @@ export const Context = createContext()
 export default function ContextProvider(props) {
     //empty array to store data 
     const [allTasks, setAllTasks] = useState([])
-    const [faveTasks, setFaveTasks] = useState([])
 
 
     //useEffect gets the data from the api and sets the data to the cards received
@@ -39,21 +38,23 @@ export default function ContextProvider(props) {
         console.log('favorited task:', favoritedTask)
         axios.put(`/tasks/${taskId}`, { isFavorite: true })
             .then(res => {
-                console.log('put req successful')
-
-                setFaveTasks(prev => {
-                    return ([...prev, favoritedTask])
-                })
-
-                console.log('fave tasks after update', favoritedTask)
+                console.log(res.data)
+                setAllTasks(prev => {
+                   return prev.map(todo => taskId === todo._id ? res.data : todo)
+               })
             })
             .catch(err => console.log(err))
     }
     //delete faveTask
     function deleteFavorite(id) {
-        axios.delete(`/tasks/${id}`)
+        axios.put(`/tasks/${id}`, {isFavorite: false})
             //filter out the deleted id and update faveTasks
-            .then(res => setFaveTasks(tasks => tasks.filter(task => task._id !== id)))
+            .then(res => {
+                setAllTasks(prev => {
+                    return prev.map(todo => id === todo._id ? res.data : todo)
+                })
+            }
+)
             .catch(err => console.log(err))
     }
     //delete task
@@ -63,21 +64,11 @@ export default function ContextProvider(props) {
             .then(res => setAllTasks(tasks => tasks.filter(task => task._id !== id)))
             .catch(err => console.log(err))
     }
-    //allows a card to move from favorites to 
-    function copyToHome(task){
-        //copy task and its props
-        const copiedTask = {...task}
-        //add to the allTasks arr
-        setAllTasks(prev => [...prev, copiedTask])
-
-        axios.post('/tasks', copiedTask)
-        .then(res => res.data)
-        .catch(err => console.log(err))
-    }
+    
 
     return (
         //allow the children to have access to the values 
-        <Context.Provider value={{ allTasks, newTask, deleteTask, editTask, faveTasks, makeFavorite, deleteFavorite, copyToHome }}>
+        <Context.Provider value={{ allTasks, newTask, deleteTask, editTask, makeFavorite, deleteFavorite }}>
             {props.children}
         </Context.Provider>
     )

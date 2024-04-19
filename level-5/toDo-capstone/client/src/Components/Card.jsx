@@ -25,18 +25,21 @@ export default function Card(props) {
         <>
         {/* if isEditing is false return card details  : return EditTaskForm*/}
             {!isEditing ?
-                (<div className="card">
-                    <p> Title: {title} </p>
+                (<div className="card container">
+                    <h4> Title: {title} </h4>
                     <img src={imageUrl}
                         style={{ width: '150px', height: '150px' }}
                     />
+                    <a>
                     <button onClick={handleToggle} > Edit </button>
                     <button onClick={handleDelete}>Delete </button>
                     <button onClick={handleFavorite}>Add  To Favorites</button>
+                    </a>
                 </div>) :
                 (<EditTaskForm
                         card={{ title, imageUrl, _id }}
                         handleToggle={handleToggle}
+                        className = 'form'
                     />)}
 
         </>

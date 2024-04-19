@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react';
 import { Context } from '../Context/ContextProvider';
 
 export default function EditTaskForm(props) {
-    const { card , handleToggle} = props
-    const {editTask} = useContext(Context)
+    const { card, handleToggle } = props
+    const { editTask } = useContext(Context)
 
     const [editedTask, setEditedTask] = useState({
         title: card.title,
@@ -27,35 +27,37 @@ export default function EditTaskForm(props) {
         editTask(card._id, editedTask)
         handleToggle()
     }
-    function handleCancel(){
+    function handleCancel() {
         //if clicked return to original state
         setEditedTask(prev => ({
             ...prev,
             title: card.title,
-            imageUrl: card.imageUrl,    
+            imageUrl: card.imageUrl,
         }))
         handleToggle()
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                name='title'
-                value={editedTask.title}
-                onChange={handleChange}
-                placeholder='Title'
-                className='inputs'
-            />
+        <form onSubmit={handleSubmit} className='container'>
+            <div className='inputs'>
+                <p>Editing in progress...</p>
+                <input
+                    name='title'
+                    value={editedTask.title}
+                    onChange={handleChange}
+                    placeholder='Title'
+                    
+                />
 
-            <input
-                name='imageUrl'
-                value={editedTask.imageUrl}
-                onChange={handleChange}
-                placeholder='ImageURL'
-                className='inputs'
-            />
-            <button type = 'submit' >Save Changes</button>
-            <button type ='button' onClick={handleCancel}>Cancel</button>
+                <input
+                    name='imageUrl'
+                    value={editedTask.imageUrl}
+                    onChange={handleChange}
+                    placeholder='ImageURL'
+                />
+                <button type='submit' >Save Changes</button>
+                <button type='button' onClick={handleCancel}>Cancel</button>
+            </div>
         </form>
     )
 }

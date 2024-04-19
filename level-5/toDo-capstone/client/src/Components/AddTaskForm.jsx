@@ -31,23 +31,25 @@ export default function AddTaskForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                name='title'
-                value={task.title}
-                onChange={handleChange}
-                placeholder='Title'
-                className='inputs'
-            />
+        <form onSubmit={handleSubmit} className='form'>
+            < div className='inputs'>
+                <h4>We Must Do This...</h4>
+                <input
+                    name='title'
+                    value={task.title}
+                    onChange={handleChange}
+                    placeholder='Title'
+                />
 
-            <input
-                name='imageUrl'
-                value={task.imageUrl}
-                onChange={handleChange}
-                placeholder='ImageURL'
-                className='inputs'
-            />
-            <button>Save</button>
+                <input
+                    name='imageUrl'
+                    value={task.imageUrl}
+                    onChange={handleChange}
+                    placeholder='ImageURL'
+                />
+            <button>but we hates it!</button>
+            </div>
+
         </form>
     )
 }

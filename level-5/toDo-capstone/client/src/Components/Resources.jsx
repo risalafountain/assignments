@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Resources(){
     return(
-        <div className="container">
-            <h2>Helpful Resources</h2>
+        <div className="container ">
+            <h1>Helpful Resources</h1>
             <ul>
                 <li>
                     <a href="https://www.bhg.com/homekeeping/house-cleaning/tips/whole-house-cleaning-schedule/#:~:text=A%20Room%20(or%20Two)%20a,clean%20the%20hallway%20and%20bedrooms.">Whole House Cleaning Schedule </a>
@@ -27,6 +27,8 @@ export default function Resources(){
                     <a href="https://www.theottoolbox.com/brain-breaks/">Brain Breaks for Kids</a>
                 </li>
             </ul>
+            <img src='https://i.gifer.com/7asW.gif' className="gif"/>
+
         </div>
     )
 }

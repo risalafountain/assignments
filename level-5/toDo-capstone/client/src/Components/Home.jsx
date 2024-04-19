@@ -9,12 +9,10 @@ export default function Home(){
 
     const {allTasks} = useContext(Context)
     //map over data so we can see the cards
-    const cards = allTasks.map(card => <Card key ={card.id} {...card} />)
+    const cards = allTasks.map(card => <Card key ={card._id} {...card} />)
     
     return(
         <div className="container">
-            
-            <h4>Create New Task:</h4>
             <AddTaskForm />
             {cards}
         </div>

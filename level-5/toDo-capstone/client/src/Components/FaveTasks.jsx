@@ -3,19 +3,17 @@ import { Context } from '../Context/ContextProvider';
 import FaveCard from './FaveCard';
 
 export default function FaveTasks(props){
-    const {faveTasks} = useContext(Context)
+    const {allTasks} = useContext(Context)
 
     useEffect(() => {
         //this component doesn't mount until AFTER i press the favorite tasks link on the page is this ok?
-        console.log('faveTask is mounted')
-        console.log(faveTasks)
     },[])
+    const filteredArr = allTasks.filter(task => task.isFavorite)
 
     return (
-        <div>
-            <h1>favorites here</h1>
+        <div className=' fave-inputs container'>
             {/* map over fave tasks arr and render a favecard */}
-            {faveTasks.map(task => {
+             {filteredArr.map(task => {
                 return (
                     <FaveCard
                     key = {task._id}
