@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="mariostyle.css"/>
+    <title>Mario Pest Control</title>
+</head>
+<body>
+    <h1>Mario Pest Control</h1>
+
+    <form id = "myForm">
+        <h2>Baddies Caught:</h2> <br>
+        
+        <!-- <img src = "https://images.nintendolife.com/a06727be4bcc6/banner-supermariorun-goldengoombahunting-pt1.large.jpg"/> -->
+        
+        <div class = "container">
+            <h2>Goombas</h2> 
+            <img class = "image" src ="https://play.nintendo.com/images/Masthead_Goomba.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"/><input type = "number" class = "numBox" id ="goomba" min = "0" />
+            <label for ="gValue"> x 5 coins = </label> 
+            <input type = "text" class = "individualBox" id = "gTotal"/>
+        </div>
+
+        <div class = "container">
+            <h2>Bob-ombs</h2>
+            <img class = "image" src = https://mario.wiki.gallery/images/thumb/9/9e/Bobomb_-_MarioPartyStarRush.png/200px-Bobomb_-_MarioPartyStarRush.png />
+            <input type = "number" class = "numBox" id ="bob" min = "0"/>  
+            <label for ="bValue"> x 7 Coins = </label>
+            <input type = "text" class = "individualBox" id = "bTotal"/>
+        </div>
+
+        <div class = "container">
+            <h2>Cheep-cheeps </h2>
+            <img class = "image" src = "https://mario.wiki.gallery/images/thumb/6/63/CheepCheepNSMBU.png/200px-CheepCheepNSMBU.png"/>
+            <input type = "number" class = "numBox" id ="cheep" min = "0"/> 
+            <label for = "cValue">x 11 coins = </label> 
+            <input type = "text" class = "individualBox" id ="cTotal"/>
+    </div>
+    <button id ="submit">Calculate Total</button> 
+    <span id = "solution">Solution</span>
+    </form>
+
+    <footer>mario@mariopestcontrol.com<br>mariopestcontrol.com<br>1234 Pipe Dream Lane Mushroom Kingdom </footer>
+    <script src = "mario.js"></script>
+</body>
+</html>

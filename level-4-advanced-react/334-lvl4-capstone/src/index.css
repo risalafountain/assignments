@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to bottom, #59009c, #50059e, #460a9f, #390ea1, #2a12a2, #3c12a3, #4a13a5, #5614a6, #7515a7, #8f1aa7, #a723a8, #bc2ea8);}
+
+.homeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 87vw;
+  background-color: blueviolet;
+}
+
+.card {
+  width: 30%;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  font-size: large;
+}
+
+.navBar {
+  height: 5vh;
+  border-bottom: solid black 2px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: url("https://cdn.pixabay.com/photo/2022/12/12/16/39/universe-7651376_1280.jpg");
+  color: rgb(255, 255, 255);
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  font-weight: 600;
+  width: 25vw;
+  background-color: rgb(47, 1, 77);
+  color: white;
+  font-size: large;
+}
+
+.main {
+  min-height: 80vh;
+  padding: 80px;
+  margin: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-image: url("https://cdn.pixabay.com/photo/2022/12/12/16/39/universe-7651376_1280.jpg");
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 87vw;
+  background-color: blueviolet;
+  text-align: center;
+}
