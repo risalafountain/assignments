@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 //mount the taskRouter
-app.use('/tasks', require('./routes/taskRouter'))
+app.use('/api/tasks', require('./routes/taskRouter'))
 
 //mongoose
 mongoose.set('strictQuery', true)

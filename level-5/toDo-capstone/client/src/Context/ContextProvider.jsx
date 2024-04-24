@@ -11,21 +11,21 @@ export default function ContextProvider(props) {
     //useEffect gets the data from the api and sets the data to the cards received
     //empty dependency ensures it only runs once 
     useEffect(() => {
-        axios.get('/tasks')
+        axios.get('/api/tasks')
             .then(res => setAllTasks(res.data))
             .catch(err => console.log(err))
     }, [])
 
     //add new tasks to the faveTasks arr
     function newTask(task) {
-        axios.post('/tasks', task)
+        axios.post('/api/tasks', task)
             .then(res => setAllTasks(prev => [...prev, res.data]))
             .catch(err => console.log(err))
     }
 
     //edit task 
     function editTask(id, update) {
-        axios.put(`/tasks/${id}`, update)
+        axios.put(`/api/tasks/${id}`, update)
             .then(res => setAllTasks(prev => prev.map(task => task._id === id ? res.data : task)))
             .catch(err => console.log(err))
     }
@@ -36,7 +36,7 @@ export default function ContextProvider(props) {
         const favoritedTask = allTasks.find(task => task._id === taskId)
         //update isFave and add task to the favetasks arr
         console.log('favorited task:', favoritedTask)
-        axios.put(`/tasks/${taskId}`, { isFavorite: true })
+        axios.put(`/api/tasks/${taskId}`, { isFavorite: true })
             .then(res => {
                 console.log(res.data)
                 setAllTasks(prev => {
@@ -47,7 +47,7 @@ export default function ContextProvider(props) {
     }
     //delete faveTask
     function deleteFavorite(id) {
-        axios.put(`/tasks/${id}`, {isFavorite: false})
+        axios.put(`/api/tasks/${id}`, {isFavorite: false})
             //filter out the deleted id and update faveTasks
             .then(res => {
                 setAllTasks(prev => {
@@ -59,7 +59,7 @@ export default function ContextProvider(props) {
     }
     //delete task
     function deleteTask(id) {
-        axios.delete(`/tasks/${id}`)
+        axios.delete(`/api/tasks/${id}`)
             //filter out deleted id and setAllTasks
             .then(res => setAllTasks(tasks => tasks.filter(task => task._id !== id)))
             .catch(err => console.log(err))
