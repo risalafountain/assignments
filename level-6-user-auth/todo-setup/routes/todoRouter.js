@@ -14,6 +14,7 @@ todoRouter.get("/", (req, res, next) => {
 })
 
 // Add new Todo
+//err @vid3:17 post _id undefined
 todoRouter.post("/", (req, res, next) => {
   console.log('THIS IS THE USER REQ:', req.user)
   req.body.user = req.user._id 
