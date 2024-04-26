@@ -13,7 +13,7 @@ app.use(morgan('dev'))
 
 mongoose.connect(
   'mongodb+srv://mrsrisalafountain:D3INAzzICrV0AMgF@cluster0.dhmkqhk.mongodb.net/',
-  () => console.log('Connected to the DB')
+  (err) => console.log('Connected to the DB', err)
 )
 
 app.use('/api/auth', require('./routes/authRouter.js'))

@@ -1,7 +1,15 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { config } from 'dotenv'
 
 export const UserContext = React.createContext()
+//this is also axios
+const userAxios = axios.create()
+//setup interceptior
+userAxios.interceptors.request.use(config => {
+    const token = localStorage.getItem('token')
+    config.headers.Authorization = `Bearer ${token}`
+})
 
 export default function UserProvider(props) {
     const initState = {
@@ -42,7 +50,7 @@ export default function UserProvider(props) {
                     token
                 }))
             })
-            .catch(err => console.log(err.ressponse.data.errMssg))
+            .catch(err => console.log(err))
     }
 //reset local storage reset state
     function logout(){
@@ -54,6 +62,12 @@ export default function UserProvider(props) {
             todos: []
         })
     }
+    function addTodo(newTodo){
+        //use axios interceptor to do the stuff only once
+        userAxios.post('/api/todo/', newTodo)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
 
     return (
         <UserContext.Provider
@@ -61,7 +75,8 @@ export default function UserProvider(props) {
                 ...userState,
                 signup,
                 login,
-                logout
+                logout,
+                addTodo
             }}
         >
             {props.children}

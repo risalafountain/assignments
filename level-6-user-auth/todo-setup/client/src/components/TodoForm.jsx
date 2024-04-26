@@ -6,9 +6,11 @@ const initInputs = {
   imgUrl: ""
 }
 
-export default function TodoForm(){
+export default function TodoForm(props){
   const [inputs, setInputs] = useState(initInputs)
-
+  const {addTodo} = props
+  const { title, description, imgUrl } = inputs
+  
   function handleChange(e){
     const {name, value} = e.target
     setInputs(prevInputs => ({
@@ -19,10 +21,10 @@ export default function TodoForm(){
 
   function handleSubmit(e){
     e.preventDefault()
-    // add todo
+    addTodo(inputs)
+    setInputs(initInputs)
   }
 
-  const { title, description, imgUrl } = inputs
   return (
     <form onSubmit={handleSubmit}>
       <input 
