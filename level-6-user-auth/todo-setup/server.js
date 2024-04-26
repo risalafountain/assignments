@@ -16,7 +16,7 @@ mongoose.connect(
   () => console.log('Connected to the DB')
 )
 
-app.use('/auth', require('./routes/authRouter.js'))
+app.use('/api/auth', require('./routes/authRouter.js'))
 //gatekeeper listens for specific endpoint and protects anything after the api endpoint
 //req.user is the payload
 app.use('/api', expressjwt({secret: process.env.SECRET, algorithms: ['HS256']}))
