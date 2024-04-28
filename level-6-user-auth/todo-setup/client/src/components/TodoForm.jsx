@@ -22,6 +22,7 @@ export default function TodoForm(props){
   function handleSubmit(e){
     e.preventDefault()
     addTodo(inputs)
+    //clear inputs after submit
     setInputs(initInputs)
   }
 

@@ -5,16 +5,18 @@ import { config } from 'dotenv'
 export const UserContext = React.createContext()
 //this is also axios
 const userAxios = axios.create()
-//setup interceptior
+
+//setup interceptor
 userAxios.interceptors.request.use(config => {
     const token = localStorage.getItem('token')
     config.headers.Authorization = `Bearer ${token}`
+    return config
 })
 
 export default function UserProvider(props) {
     const initState = {
         user: JSON.parse(localStorage.getItem('user')) ||  {},
-        //get the tken item or return empty string
+        //get the token item or return empty string
         token: localStorage.getItem("token") || "",
         todos: []
     }
@@ -25,9 +27,9 @@ export default function UserProvider(props) {
             .then(res => {
                 const {user, token} = res.data
                 //save both pieces of data in local storage so it still exists if erased or window is closed
-                //i dont see the key value pairs i just see the object (2nd param)
                 localStorage.setItem("token", token)
                 localStorage.setItem("user", JSON.stringify(user))
+                getUserTodos()
                 setUserState(prevUserState => ({
                     ...prevUserState,
                     user,
@@ -35,7 +37,7 @@ export default function UserProvider(props) {
                 }))
             })
             //this doesn't work says data is undefined
-            .catch(err => console.log(err.res.data.errMssg))
+            .catch(err => console.log(err))
     }
 
     function login(credentials) {
@@ -44,6 +46,7 @@ export default function UserProvider(props) {
                 const {user, token} = res.data
                 localStorage.setItem("token", token)
                 localStorage.setItem("user", JSON.stringify(user))
+                getUserTodos()
                 setUserState(prevUserState => ({
                     ...prevUserState,
                     user,
@@ -62,10 +65,27 @@ export default function UserProvider(props) {
             todos: []
         })
     }
+
+    function getUserTodos(){
+        userAxios.get("/api/todo/user")
+        .then(res => {
+            setUserState(prevState => ({
+                ...prevState,
+                todos: res.data
+            }))
+        })
+        .catch(err => console.log(err))
+    }
+
     function addTodo(newTodo){
         //use axios interceptor to do the stuff only once
         userAxios.post('/api/todo/', newTodo)
-        .then(res => console.log(res))
+        .then(res => {
+            setUserState(prevState => ({
+                ...prevState,
+                todos: [...prevState.todos, res.data] 
+            }))
+        })
         .catch(err => console.log(err))
     }
 
@@ -76,7 +96,8 @@ export default function UserProvider(props) {
                 signup,
                 login,
                 logout,
-                addTodo
+                addTodo, 
+                getUserTodos
             }}
         >
             {props.children}
