@@ -2,17 +2,36 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const app = express()
+const {expressjwt} = require('express-jwt')
+require('dotenv').config()
 
-app.use(express.json)
+app.use(express.json())
 app.use(morgan('dev'))
 
 mongoose.set('strictQuery', true)
-mongoose.connect('mongodb+srv://mrsrisalafountain:D3INAzzICrV0AMgF@cluster0.dhmkqhk.mongodb.net/',
-    (err) => console.log('connected to the database', err)
+mongoose.connect(
+    'mongodb+srv://mrsrisalafountain:D3INAzzICrV0AMgF@cluster0.dhmkqhk.mongodb.net/',
+      (err) => console.log('connected to the database', err)
 )
 
+//ROUTE HANDLERS
+//authentication 
+app.use('/api/auth', require('./routes/authRouter.js'))
+
+//issue (do i need api in front of this?)
+app.use('/api/issue', require('./routes/issueRouter.js'))
+
+//AUTH MIDDLEWARE
+//express-jwt listens for spec endpoint and protects anything after the api endpoint
+app.use('/api', expressjwt({secret: process.env.SECRET, algorithms: ['HS256']}))
+
+
+//ERR HANDLER
 app.use((err, req, res, next) => {
 console.log(err)
+if(err.name === 'UnauthorizedError'){
+    res.status(err.status)
+}
 return res.send({errMssg: err.message})
 })
 
