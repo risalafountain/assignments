@@ -28,7 +28,9 @@ issueRouter.get('/user', (req, res, next) => {
 
 //add new issue
 //err _id undefined at api/issue
-//err 
+//moved jwt in between the public route and the protected route, changed the endpoint to include api/main
+//created access to the username 
+//
 issueRouter.post('/', (req, res, next) => {
     //once user is setup use this
     req.body.user = req.auth._id
