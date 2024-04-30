@@ -10,6 +10,7 @@ issueRouter.get("/", (req, res, next) => {
             res.status(500)
             return next(err)
         }
+        console.log(req.auth)
         return res.status(200).send(issues)
     })
 })
@@ -31,6 +32,7 @@ issueRouter.get('/user', (req, res, next) => {
 issueRouter.post('/', (req, res, next) => {
     //once user is setup use this
     req.body.user = req.auth._id
+    req.body.username=req.auth.username
     console.log(req.body.user)
     const newIssue = new Issue(req.body)
     newIssue.save((err, savedIssue) => {

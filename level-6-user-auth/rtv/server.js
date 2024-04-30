@@ -18,12 +18,12 @@ mongoose.connect(
 //authentication 
 app.use('/api/auth', require('./routes/authRouter.js'))
 
-//issue (do i need api in front of this?)
-app.use('/api/issue', require('./routes/issueRouter.js'))
-
 //AUTH MIDDLEWARE
 //express-jwt listens for spec endpoint and protects anything after the api endpoint
-app.use('/api', expressjwt({secret: process.env.SECRET, algorithms: ['HS256']}))
+app.use('/api/main', expressjwt({secret: process.env.SECRET, algorithms: ['HS256']}))
+
+//issue (do i need api in front of this?)
+app.use('/api/main/issue', require('./routes/issueRouter.js'))
 
 
 //ERR HANDLER

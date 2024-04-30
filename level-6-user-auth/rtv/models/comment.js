@@ -10,6 +10,12 @@ const commentSchema = new Schema({
         type: String, 
         required: true
     },
+    //many to many
+    user:{
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    },
     //one to many
     issue:{
         type: Schema.Types.ObjectId,
