@@ -52,3 +52,65 @@ console.log("RESULTS #2: ",filteredByCountry);
 
 const filteredByAge = filterByProperty(people, "age", 25)
 console.log("RESULTS #3: ", filteredByAge)
+
+
+// Write a function called createTable(rows, columns) - done
+
+// take two parameters: rows (number of rows) and columns (number of columns)-done
+//The function should generate a table represented as an array of arrays,
+// Each inner array represents a row and contains the row's data 
+//Each cell in the table should contain the product of its row index and column index
+
+//concrete imperative
+function createTable(rows, columns){
+    const table=[];
+
+    for(let i =0; i < rows; i++){
+        const row=[]
+        for(let j=0; j <columns; j++){
+            row.push(i*j)
+    }
+    table.push(row)
+}
+return table;
+}
+
+//abstract declarative
+//this works awesome
+// function createTable(rows, columns) {
+//     const table = Array.from({ length: rows }, (param, rowIndex) =>
+//       Array.from({ length: columns }, (param, colIndex) => rowIndex * colIndex)
+//     );
+  
+//     return table;
+//   }
+
+// Test the function with different values
+const table1 = createTable(3, 4);
+console.log('RESULTS1:', table1);
+
+/* Expected Outcome:
+[
+  [0, 0, 0, 0],
+  [0, 1, 2, 3],
+  [0, 2, 4, 6]
+]
+ */
+
+//R0-0123
+//R1-0123
+//R2-0123
+
+//R0-01234
+//R1-01234
+//R2-01234
+//R3-01234
+//R4-01234
+
+
+//0 * 0, 0 * 1, 0 * 2, 0 * 3
+// 1 * 0, 1 * 1, 1 * 2, 1 * 3
+// 2 * 0, 2 *1, 2 * 2, 2 * 3
+
+const table2 = createTable(5, 5);
+console.log('RESULTS2', table2);
