@@ -7,7 +7,8 @@ const initInputs = { username: "", password: "" }
 export default function Auth(){
   const [inputs, setInputs] = useState(initInputs)
   const [toggle, setToggle] = useState(false)
-//   const {signup, login} = useContext(UserContext)
+  //this is the user data
+  const {signup, login} = useContext(UserContext)
 
   function handleChange(e){
     const {name, value} = e.target
@@ -18,13 +19,13 @@ export default function Auth(){
   }
 
   function handleSignup(e){
-    // e.preventDefault()
-    // signup(inputs)
+    e.preventDefault()
+    signup(inputs)
   }
 
   function handleLogin(e){
-    // e.preventDefault()
-    // login(inputs)
+    e.preventDefault()
+    login(inputs)
   }
 
   return (

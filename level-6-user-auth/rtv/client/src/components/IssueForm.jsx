@@ -20,9 +20,9 @@ export default function IssueForm(props){
 
   function handleSubmit(e){
     e.preventDefault()
-    // addIssue(inputs)
-    // //clear inputs after submit
-    // setInputs(initInputs)
+    addIssue(inputs)
+    //clear inputs after submit
+    setInputs(initInputs)
   }
 
   return (
