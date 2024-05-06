@@ -23,7 +23,7 @@ const userSchema = new Schema({
     }
 })
 
-//pre-save hook to encrypt user passwords on signup 
+//433.75pre-save hook to encrypt user passwords on signup 
 
 userSchema.pre('save', function(next){
     const user = this
@@ -35,12 +35,19 @@ userSchema.pre('save', function(next){
     })
 })
 
-//method to chekc encrypted password on login 
+//434.25method to check encrypted password on login 
 userSchema.methods.checkPassword = function(passwordAttempt, callback){
     bcrypt.compare(passwordAttempt, this.password, (err, isMatch)=>{
         if (err) return callback (err)
         return callback(null, isMatch)
     })
+}
+
+//434.75-method to remove password 
+userSchema.methods.withoutPassword = function (){
+    const user= this.toObject()
+    delete user.password
+    return user
 }
 
 module.exports = mongoose.model("User", userSchema)
