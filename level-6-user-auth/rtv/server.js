@@ -10,7 +10,7 @@ app.use(morgan('dev'))
 
 mongoose.set('strictQuery', true)
 mongoose.connect(
-    'mongodb+srv://mrsrisalafountain:D3INAzzICrV0AMgF@cluster0.dhmkqhk.mongodb.net/',
+    'mongodb+srv://mrsrisalafountain:D3INAzzICrV0AMgF@cluster0.dhmkqhk.mongodb.net/RTV',
       (err) => console.log('connected to the database', err)
 )
 
