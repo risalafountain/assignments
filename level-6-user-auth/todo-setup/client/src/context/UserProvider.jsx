@@ -15,17 +15,18 @@ userAxios.interceptors.request.use(config => {
 
 export default function UserProvider(props) {
     const initState = {
-        user: JSON.parse(localStorage.getItem('user')) ||  {},
+        user: JSON.parse(localStorage.getItem('user')) || {},
         //get the token item or return empty string
         token: localStorage.getItem("token") || "",
-        todos: []
+        todos: [],
+        errMssg: ""
     }
 
     const [userState, setUserState] = useState(initState)
     function signup(credentials) {
         axios.post('/api/auth/signup', credentials)
             .then(res => {
-                const {user, token} = res.data
+                const { user, token } = res.data
                 //save both pieces of data in local storage so it still exists if erased or window is closed
                 localStorage.setItem("token", token)
                 localStorage.setItem("user", JSON.stringify(user))
@@ -36,14 +37,13 @@ export default function UserProvider(props) {
                     token
                 }))
             })
-            //this doesn't work says data is undefined
-            .catch(err => console.log(err))
+            .catch(err => handleAuthErr(err.response.data.errMssg))
     }
 
     function login(credentials) {
         axios.post('/api/auth/login', credentials)
             .then(res => {
-                const {user, token} = res.data
+                const { user, token } = res.data
                 localStorage.setItem("token", token)
                 localStorage.setItem("user", JSON.stringify(user))
                 getUserTodos()
@@ -53,10 +53,27 @@ export default function UserProvider(props) {
                     token
                 }))
             })
-            .catch(err => console.log(err))
+            .catch(err => handleAuthErr(err.response.data.errMssg))
     }
-//reset local storage reset state
-    function logout(){
+    function handleAuthErr(errMssg) {
+    // console.log("ErrMssg in UserProvider:", errMssg) 
+    setUserState(prevState => ({
+        ...prevState,
+        errMssg
+    }))
+    }
+
+    function resetAuthErr(){
+        setUserState(prevState =>({
+            ...prevState,
+            errMssg: ""
+        }))
+    }
+
+
+
+    //reset local storage reset state
+    function logout() {
         localStorage.removeItem("token")
         localStorage.removeItem("user")
         setUserState({
@@ -66,41 +83,42 @@ export default function UserProvider(props) {
         })
     }
 
-    function getUserTodos(){
+    function getUserTodos() {
         userAxios.get("/api/todo/user")
-        .then(res => {
-            setUserState(prevState => ({
-                ...prevState,
-                todos: res.data
-            }))
-        })
-        .catch(err => console.log(err))
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    todos: res.data
+                }))
+            })
+            .catch(err => console.log(err))
     }
 
-    function addTodo(newTodo){
+    function addTodo(newTodo) {
         //use axios interceptor to do the stuff only once
         userAxios.post('/api/todo/', newTodo)
-        .then(res => {
-            setUserState(prevState => ({
-                ...prevState,
-                todos: [...prevState.todos, res.data] 
-            }))
-        })
-        .catch(err => console.log(err))
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    todos: [...prevState.todos, res.data]
+                }))
+            })
+            .catch(err => console.log(err))
     }
 
-    return (
-        <UserContext.Provider
-            value={{
-                ...userState,
-                signup,
-                login,
-                logout,
-                addTodo, 
-                getUserTodos
-            }}
-        >
-            {props.children}
-        </UserContext.Provider>
-    )
+return (
+    <UserContext.Provider
+        value={{
+            ...userState,
+            signup,
+            login,
+            logout,
+            addTodo,
+            getUserTodos,
+            resetAuthErr
+        }}
+    >
+        {props.children}
+    </UserContext.Provider>
+)
 }

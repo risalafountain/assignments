@@ -101,3 +101,8 @@
     padding: 8px;
     border-radius: 5px;
 }
+
+.errMssg{
+    color: rgb(158, 9, 9);
+    font-weight: 900;
+}
