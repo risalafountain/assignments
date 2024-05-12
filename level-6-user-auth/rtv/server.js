@@ -37,5 +37,5 @@ return res.send({errMssg: err.message})
 
 
 app.listen(9000, ()=>{
-    console.log('server is running on port 9000')
+    console.log(`server is running on port 9000`)
 })

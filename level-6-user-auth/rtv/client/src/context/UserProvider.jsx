@@ -20,17 +20,22 @@ export default function UserProvider(props){
         user: JSON.parse(localStorage.getItem('user')) ||  {},
         //get the token item or return empty string
         token: localStorage.getItem("token") || "",
-        issues: []
+        issues: [],
+        errMssg: ""
     }
     const [userState, setUserState] = useState (initState)
 
+//SIGNUP
     function signup(credentials) {
         axios.post('/api/auth/signup', credentials)
             .then(res => {
                 const {user, token} = res.data
+                console.log('Response data:', res.data); // Log the response data
+
                 //save both pieces of data in local storage so it still exists if erased or window is closed
                 localStorage.setItem("token", token)
                 localStorage.setItem("user", JSON.stringify(user))
+                console.log('User data after signup:', localStorage.getItem('user'));
                 getUserIssues()
                 setUserState(prevUserState => ({
                     ...prevUserState,
@@ -38,9 +43,9 @@ export default function UserProvider(props){
                     token
                 }))
             })
-            //this doesn't work says data is undefined
-            .catch(err => console.log(err))
+            .catch(err => handleAuthErr(err.response.data.errMssg))
     }
+
     function login(credentials) {
         axios.post('/api/auth/login', credentials)
             .then(res => {
@@ -54,8 +59,23 @@ export default function UserProvider(props){
                     token
                 }))
             })
-            .catch(err => console.log(err))
+            .catch(err => handleAuthErr(err.response.data.errMssg))
     }
+
+    function handleAuthErr(errMssg){
+        setUserState(prevState => ({
+            ...prevState,
+            errMssg
+        }))
+    }
+
+    function resetAuthErr(){
+        setUserState(prevState=>({
+            ...prevState,
+            errMssg:""
+        }))
+    }
+
 //reset local storage reset state
     function logout(){
         localStorage.removeItem("token")
@@ -98,11 +118,12 @@ export default function UserProvider(props){
         <UserContext.Provider
             value={{
                 ...userState,
+                signup,
+                login,
+                logout,
                 addIssue,
                 getUserIssues,
-                logout,
-                login,
-                signup
+                resetAuthErr
             }}
         >
             {props.children}

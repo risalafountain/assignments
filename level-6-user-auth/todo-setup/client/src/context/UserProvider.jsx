@@ -70,8 +70,6 @@ export default function UserProvider(props) {
         }))
     }
 
-
-
     //reset local storage reset state
     function logout() {
         localStorage.removeItem("token")

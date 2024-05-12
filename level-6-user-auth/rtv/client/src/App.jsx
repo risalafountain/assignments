@@ -8,10 +8,10 @@ import Profile from './components/Profile'
 import Public from './components/Public'
 
 function App() {
- const {token, logout} = useContext(UserContext)
+ const {logout, token} = useContext(UserContext)
   return (
     <div className="app">
-    <Navbar logout={logout} /> 
+   <Navbar logout={logout} /> 
     <Routes>
       <Route 
         path="/" 
