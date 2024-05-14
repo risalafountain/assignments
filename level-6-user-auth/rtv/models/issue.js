@@ -10,6 +10,9 @@ const issueSchema = new Schema({
         type: String,
         required: true
     },
+    imgUrl: {
+        type: String,
+    },
     //one to many 
     user:{
         type: Schema.Types.ObjectId,

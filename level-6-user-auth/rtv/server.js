@@ -24,6 +24,7 @@ app.use('/api/main', expressjwt({secret: process.env.SECRET, algorithms: ['HS256
 
 //issue (do i need api in front of this?)
 app.use('/api/main/issue', require('./routes/issueRouter.js'))
+app.use('/api/main/comments', require('./routes/commentRouter'))
 
 
 //ERR HANDLER
@@ -39,3 +40,6 @@ return res.send({errMssg: err.message})
 app.listen(9000, ()=>{
     console.log(`server is running on port 9000`)
 })
+
+//what is the difference of using this instead of the above code? 
+//app.listen(process.env.PORT, () => conosle.log(`Server is running on port ${process.env.PORT}`))
