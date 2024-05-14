@@ -18,7 +18,19 @@ const issueSchema = new Schema({
     },
     username:{
         type: String,
-    }
+    },
+    createdAt: {
+        type: Date, 
+        default: Date.now
+    },
+    likedUsers: [{
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }],
+    dislikedUsers: [{
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }]
 })
 
 module.exports=mongoose.model('Issue', issueSchema)

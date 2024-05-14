@@ -45,7 +45,7 @@ export default function UserProvider(props){
             })
             .catch(err => handleAuthErr(err.response.data.errMssg))
     }
-
+//LOGIN
     function login(credentials) {
         axios.post('/api/auth/login', credentials)
             .then(res => {
@@ -62,6 +62,7 @@ export default function UserProvider(props){
             .catch(err => handleAuthErr(err.response.data.errMssg))
     }
 
+//HANDLE ERR
     function handleAuthErr(errMssg){
         setUserState(prevState => ({
             ...prevState,
@@ -69,6 +70,7 @@ export default function UserProvider(props){
         }))
     }
 
+//RESET ERR    
     function resetAuthErr(){
         setUserState(prevState=>({
             ...prevState,
@@ -86,7 +88,7 @@ export default function UserProvider(props){
             issues: []
         })
     }
-
+//GET ALL USER ISSUES
     function getUserIssues(){
         userAxios.get("/api/main/issue/user")
         .then(res => {
@@ -98,6 +100,7 @@ export default function UserProvider(props){
         .catch(err => console.log(err))
     }
 
+//CREATE NEW ISSUE
     function addIssue(newIssue){
         //use axios interceptor to do the stuff only once
         userAxios.post('/api/main/issue/', newIssue)
@@ -110,8 +113,8 @@ export default function UserProvider(props){
         })
         .catch(err => console.log(err))
     }
-//need to create a way to see all issues (profile?)
-//how do i see all my users? i forgot who i've signed up  
+
+    
 
 
     return(

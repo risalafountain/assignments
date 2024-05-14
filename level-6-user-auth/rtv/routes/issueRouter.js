@@ -50,7 +50,7 @@ issueRouter.post('/', (req, res, next) => {
 //delete issue
 issueRouter.delete('/:issueId', (req, res, next) => {
     Issue.findOneAndDelete(
-        { id: req.params.issueId },
+        {_id: req.params.issueId, user: req.auth._id   },
         (err, deletedIssue) => {
             if (err) {
                 res.status(500)
@@ -60,6 +60,7 @@ issueRouter.delete('/:issueId', (req, res, next) => {
         }
     )
 })
+
 
 //update issue
 issueRouter.put('/:issueId', (req, res, next) => {
@@ -76,5 +77,8 @@ issueRouter.put('/:issueId', (req, res, next) => {
         }
     )
 })
+//UPVOTE
+
+
 
 module.exports = issueRouter
