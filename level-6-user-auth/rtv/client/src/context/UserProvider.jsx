@@ -124,8 +124,7 @@ export default function UserProvider(props){
     }
 //UPVOTES
     function upvoteIssue(issueId){
-        userAxios
-        .put(`/api/main/issue/upvote/${issueId}`)
+        userAxios.put(`/api/main/issue/upvote/${issueId}`)
         .then(res => {
             setAllIssues(prevIssues => 
                 prevIssues.map(issue => issue._id === issueId ? res.data : issue)
@@ -141,9 +140,24 @@ export default function UserProvider(props){
         .catch(err => console.log(err));
     }
 //DOWNVOTES
-
+    function downvoteIssue(issueId) {
+        userAxios.put(`/api/main/issue/downvote/${issueId}`)
+        .then(res => {
+            //PUBLIC PAGE
+            setAllIssues(prevIssues => 
+                prevIssues.map(issue => issue._id === issueId ? res.data.issue : issue))
+            //PROFILE PAGE 
+            setUserState(prevUserState =>{
+                return {
+                    ...prevUserState,
+                    issues: prevUserState.issues.map(issue => issueId === issue._id ? res.data : issue)
+                }
+            })
+        })
+        .catch(err => console.log(err))
+    }
     
-    //GET ALL COMMENTS
+//GET ALL COMMENTS
     function getAllComments(){
         userAxios.get('/api/main/comments')
         .then(res => setAllComments(res.data))
@@ -179,6 +193,7 @@ export default function UserProvider(props){
             allComments,
             addComment,
             upvoteIssue,
+            downvoteIssue
         }}
         >
             {props.children}
