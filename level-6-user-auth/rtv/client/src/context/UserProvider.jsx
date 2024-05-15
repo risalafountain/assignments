@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { createContext } from "react";
 import axios from 'axios'
-import user from "../../../models/user";
 
 export const UserContext = createContext()
 //this is also axios
@@ -73,7 +72,7 @@ export default function UserProvider(props){
         }))
     }
 
-//RESET ERR    
+//RESET ERR  
     function resetAuthErr(){
         setUserState(prevState=>({
             ...prevState,
@@ -123,14 +122,35 @@ export default function UserProvider(props){
         .then(res => setAllIssues(res.data))
         .catch (err => console.log(err))
     }
-//GET ALL COMMENTS
+//UPVOTES
+    function upvoteIssue(issueId){
+        userAxios
+        .put(`/api/main/issue/upvote/${issueId}`)
+        .then(res => {
+            setAllIssues(prevIssues => 
+                prevIssues.map(issue => issue._id === issueId ? res.data : issue)
+            );
+
+            setUserState(prevUserState => ({
+                ...prevUserState,
+                issues: prevUserState.issues.map(issue => 
+                    issue._id === issueId ? res.data : issue
+                )
+            }));
+        })
+        .catch(err => console.log(err));
+    }
+//DOWNVOTES
+
+    
+    //GET ALL COMMENTS
     function getAllComments(){
         userAxios.get('/api/main/comments')
         .then(res => setAllComments(res.data))
         .catch(err => console.log(err))
     }    
-
-//ADD COMMENT
+    
+    //ADD COMMENT
     function addComment(id, comment){
         userAxios.post(`/api/main/comments/${id}`, comment)
         .then(res => setAllComments(prevAllComments => {
@@ -145,23 +165,25 @@ export default function UserProvider(props){
     
     return(
         <UserContext.Provider
-            value={{
-                ...userState,
-                signup,
-                login,
-                logout,
-                addIssue,
-                getUserIssues,
-                getAllIssues,
-                allIssues,
-                resetAuthErr,
-                getAllComments,
-                allComments,
-                addComment,
-            }}
+        value={{
+            ...userState,
+            signup,
+            login,
+            logout,
+            addIssue,
+            getUserIssues,
+            getAllIssues,
+            allIssues,
+            resetAuthErr,
+            getAllComments,
+            allComments,
+            addComment,
+            upvoteIssue,
+        }}
         >
             {props.children}
         </UserContext.Provider>
     )
 }
+    
 

@@ -34,7 +34,7 @@ issueRouter.get('/user', (req, res, next) => {
 issueRouter.post('/', (req, res, next) => {
     //once user is setup use this
     req.body.user = req.auth._id
-    req.body.username=req.auth.username
+    req.body.username = req.auth.username
     console.log(req.body.user)
     const newIssue = new Issue(req.body)
     newIssue.save((err, savedIssue) => {
@@ -50,7 +50,7 @@ issueRouter.post('/', (req, res, next) => {
 //delete issue
 issueRouter.delete('/:issueId', (req, res, next) => {
     Issue.findOneAndDelete(
-        {_id: req.params.issueId, user: req.auth._id   },
+        { _id: req.params.issueId, user: req.auth._id },
         (err, deletedIssue) => {
             if (err) {
                 res.status(500)
@@ -78,7 +78,44 @@ issueRouter.put('/:issueId', (req, res, next) => {
     )
 })
 
-//UPVOTE? 
+//UPVOTE
+issueRouter.put(`/upvote/:id`, (req, res, next) => {
+    Issue.findOneAndUpdate(
+        { _id: req.params.id },
+    {
+        $addToSet: { likedUsers: req.auth._id },
+        $pull: { dislikedUsers: req.auth._id }
+    },
+        { new: true },
+        (err, updatedIssue) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedIssue)
+        }
+)
+})
+
+//DOWNVOTE
+issueRouter.put(`/downvote/:id`, (req, res, next) =>{
+    Issue.findByIdAndUpdate(
+        req.params.id,
+        {
+            $addToSet: { dislikedUsers: req.auth._id },
+            $pull: { likedUsers: req.auth._id }
+        },
+        { new: true },
+        (err, updatedIssue) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedIssue)
+        }
+        )
+    })
+
 
 
 

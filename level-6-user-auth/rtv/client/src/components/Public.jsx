@@ -5,21 +5,21 @@ import UserProvider from '../context/UserProvider.jsx'
 
 export default function Public(){
 
-  const {
-    getAllIssues, 
-    allIssues, 
-    getAllComments
-  } = useContext(UserProvider)
+  // const {
+  //   getAllIssues, 
+  //   allIssues, 
+  //   getAllComments
+  // } = useContext(UserProvider)
   
-  useEffect(()=> {
-    getAllIssues()
-    getAllComments()
-  }, [])
+  // useEffect(()=> {
+  //   getAllIssues()
+  //   getAllComments()
+  // }, [])
 
   return (
     <div className="public">
         <h1>All Issues: </h1>
-        <IssueList issues = {allIssues} />
+        {/* <IssueList issues = {allIssues} /> */}
     </div>
   )
 }

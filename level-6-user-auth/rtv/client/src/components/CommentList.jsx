@@ -1,11 +1,11 @@
 import { useContext } from "react"
-import comment from "../../../models/comment"
 import UserProvider from "../context/UserProvider"
 //do i need to import react??
 
 export default function CommentList(props){
     const {issueId} = props
     const {allComments} = useContext(UserProvider)
+    //is this usercontext or userprovider?
     const filteredComments = allComments.filter(comment => comment.issue === issueId)
     const commentElements = filteredComments.map(comment => {
         return (

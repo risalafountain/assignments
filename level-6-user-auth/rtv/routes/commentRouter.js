@@ -1,11 +1,10 @@
 const express = require('express')
 const commentRouter = express.Router()
 const Comment = require('../models/comment')
-const { rawListeners } = require('../models/issue')
 
 //get comment request
 commentRouter.get('/', (req, res, next) => {
-    Commment.find((err, comment) => {
+    Comment.find((err, comment) => {
         if(err){
             res.status(500)
             return next(err)

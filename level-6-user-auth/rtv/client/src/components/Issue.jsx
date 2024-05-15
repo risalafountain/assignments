@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import moment from 'moment'
 import CommentContainer from './CommentContainer'
+import {UserContext} from ''
 
 export default function Issue(props) {
   const { title, description, _id, username, createdAt } = props
+  // const {upvoteIssue} = useContext(UserContext)
+  const {upvoteIssue} = useContext(UserContext)
   const timeStamp = moment(createdAt).fromNow()
   return (
     <div className="issue">
@@ -13,7 +16,7 @@ export default function Issue(props) {
       <p>{timeStamp}</p>
       <div>
         <p>Upvotes: 0 </p>
-        <button>Upvote</button>
+        <button onClick = {() => upvoteIssue(_id)}>Upvote</button>
       </div>
       <div>
         <p>Downvotes: 0 </p>
