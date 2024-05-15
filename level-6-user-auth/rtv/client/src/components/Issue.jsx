@@ -1,4 +1,6 @@
 import React from 'react'
+import moment from 'moment'
+import CommentContainer from './CommentContainer'
 
 export default function Issue(props) {
   const { title, description, _id, username, createdAt } = props
@@ -17,6 +19,7 @@ export default function Issue(props) {
         <p>Downvotes: 0 </p>
         <button>Downvote</button>
       </div>
+      <CommentContainer issueId={_id} />
       {/* <img src={imgUrl} width={300} /> */}
     </div>
   )

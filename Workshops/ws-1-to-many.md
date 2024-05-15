@@ -200,6 +200,7 @@ commentRouter.post('/:issueId', (req, res, next) => {
     //coming from comment model = //coming from auth token 
     req.body.user = req.auth._id
     req.body.issue = req.params.issueId
+    //req.auth object allows us to access token
     req.body.username = req.auth.username
 
     const newComment = new Comment(req.body)
@@ -211,5 +212,172 @@ commentRouter.post('/:issueId', (req, res, next) => {
         res.status(201).send.apply(comment)
     })
 })
-24:09
+
 module.exports = commentRouter
+
+test in postman 
+GET req > /api/main/issue
+grab id of issue
+
+POST req >/api/main/comments/<paste id> 
+change body
+{"title" : "some title"}
+shows unique id username and user
+Get req > /api/main/comments to see that that user no longer has an empty arr 
+
+FRONTEND STUFF--add functionality to the comments
+open new terminal cd into client npm run dev
+
+in userProvider>     const [allComments, setAllComments] = useState([])
+
+write a function that getAllComments. 
+    function getAllComments(){
+        userAxios.get('/api/main/comments')
+        .then(res => setAllComments(res.data))
+        .catch(err => console.log(err))
+    }    
+
+Pass out of our context into values getAllComments function and allcomments Arr (verify that getUserIssues, getAllIssues, and allIssues are also passed out as values)
+
+need to call this function in two places 
+profile and public components 
+components>Profile> 
+we already have a useEffect that is getUserIssues() add getAllComments()
+make sure it is passsed into context above 
+  const {
+    user: {username}, 
+    issues,
+    getUserIssues, 
+    getAllComments
+  } = useContext(UserContext)
+
+  useEffect(() => {
+    getUserIssues()
+    getAllComments()//these are attached to our issues 
+  }, [])
+
+components> Public >
+const {
+    getAllIssues, 
+    allIssues, 
+    getAllComments
+  } = useContext(UserProvider)
+  
+  useEffect(()=> {
+    getAllIssues()
+    getAllComments()
+  }, [])
+
+PROP DRILLING
+issue.jsx >
+      <CommentContainer issueId={_id} />
+
+CommentContainer >
+pass in props and the issueId
+    const {issueId} = props
+    {!isHidden && <CommentList issueId ={issueId}/>}
+
+CommentList >
+once you see all comments in console, you need to filter out all comments to return the comment.issue (from comment model) that matches the issue id 
+
+import { useContext } from "react"
+import UserProvider from "../context/UserProvider"
+
+export default function CommentList(props){
+    const {issueId} = props
+    const {allComments} = useContext(UserProvider)
+    const filteredComments = allComments.filter(comment => comment.issue ===issueId)
+
+    //if you click on show comments it should show up in the console
+    console.log(allComments)
+    console.log(filteredComments)
+    return (
+        <div>
+
+        </div>
+    )
+}
+
+setup the Comment Form >
+
+import React, { useState } from 'react';
+
+export default function CommentForm() {
+    const [formData, setFormData] = useState({
+        title: ''
+    })
+
+    function handleChange(e) {
+        const { name, value } = e.target
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: value
+            }
+        })
+    }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        console.log(formData)
+        setFormData({title: ''})
+    }
+
+    return(
+        <form onSubmit = {handleSubmit}>
+            <input 
+            placeholder='Comment'
+            name = 'title'
+            value={formData.text}
+            onChange = {handleChange}
+        />
+        <button>Leave Comment</button>
+        </form>
+    )
+}
+
+as of right now this is only console logging the formData, we want to create the function to add a comment 
+
+UserProvider> 
+
+create parameters id, comment so we can know which id we are commenting to
+function addComment(id, comment){
+    userAxios.post(`/api/main/comments/${id}`, comment)
+    .then(res => setAllComments(prevAllcomments => {
+        return [
+            ...prevAllComments,
+            res.data
+        ]
+    }) )
+    .catch(err => console.log(err))
+}
+
+pass the function out cto values below addComment
+
+CommentForm>
+
+const {addComment} = useContext(UserProvider)
+<make sure it imports all this at top >
+
+go down to the console.log in handle submit and call in the parameters
+addComment(<where are we getting the id from??>, formData)
+
+CommentContainer>
+add value to commentForm instance
+ <CommentForm issueId ={issueId} />
+
+CommentForm > 
+pass in props and destructure 
+const {issueId} = props
+
+now you can go to addComment and pass the issueId and formData
+addComment(issueId, formData)
+
+TEST ON FRONT END 
+add comment on existing 
+
+
+where is hide/show comments button ?
+
+
+

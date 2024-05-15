@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { createContext } from "react";
 import axios from 'axios'
+import user from "../../../models/user";
 
 export const UserContext = createContext()
 //this is also axios
@@ -24,6 +25,8 @@ export default function UserProvider(props){
         errMssg: ""
     }
     const [userState, setUserState] = useState (initState)
+    const [allIssues, setAllIssues] = useState([])
+    const [allComments, setAllComments] = useState([])
 
 //SIGNUP
     function signup(credentials) {
@@ -88,6 +91,7 @@ export default function UserProvider(props){
             issues: []
         })
     }
+
 //GET ALL USER ISSUES
     function getUserIssues(){
         userAxios.get("/api/main/issue/user")
@@ -113,10 +117,32 @@ export default function UserProvider(props){
         })
         .catch(err => console.log(err))
     }
+//get all issues 
+    function getAllIssues(){
+        userAxios.get('/api/main/issue')
+        .then(res => setAllIssues(res.data))
+        .catch (err => console.log(err))
+    }
+//GET ALL COMMENTS
+    function getAllComments(){
+        userAxios.get('/api/main/comments')
+        .then(res => setAllComments(res.data))
+        .catch(err => console.log(err))
+    }    
 
+//ADD COMMENT
+    function addComment(id, comment){
+        userAxios.post(`/api/main/comments/${id}`, comment)
+        .then(res => setAllComments(prevAllComments => {
+            return [
+                ...prevAllComments,
+                res.data
+            ]
+        }) )
+        .catch(err => console.log(err))
+    }
     
-
-
+    
     return(
         <UserContext.Provider
             value={{
@@ -126,7 +152,12 @@ export default function UserProvider(props){
                 logout,
                 addIssue,
                 getUserIssues,
-                resetAuthErr
+                getAllIssues,
+                allIssues,
+                resetAuthErr,
+                getAllComments,
+                allComments,
+                addComment,
             }}
         >
             {props.children}
