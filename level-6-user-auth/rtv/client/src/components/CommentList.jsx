@@ -1,25 +1,21 @@
-import { useContext } from "react"
-import UserProvider from "../context/UserProvider"
+import React,{ useContext } from "react"
+import {UserContext} from "../context/UserProvider"
 //do i need to import react??
 
 export default function CommentList(props){
     const {issueId} = props
-    const {allComments} = useContext(UserProvider)
-    //is this usercontext or userprovider?
+    const {allComments} = useContext(UserContext)
     const filteredComments = allComments.filter(comment => comment.issue === issueId)
+
     const commentElements = filteredComments.map(comment => {
         return (
-            <>
+            <div className="comments"
+            key ={comment._id}>
                 <p>{comment.username} says:</p>
                 <p>"{comment.title}"</p>
-            </>
+            </div>
         )
     })
-
-    //if you click on show comments it should show up in the console
-    console.log(allComments)
-    //check if it works and if it works then put it on the page 
-    //console.log(filteredComments)
 
     return (
         <div>

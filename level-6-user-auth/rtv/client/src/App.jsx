@@ -1,4 +1,3 @@
-// auto import does not add .jsx...is this ok?
 import React, { useContext } from 'react'
 import { UserContext } from './context/UserProvider'
 import { Routes, Route, Navigate } from 'react-router-dom'

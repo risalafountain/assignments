@@ -20,14 +20,15 @@ commentRouter.post('/:issueId', (req, res, next) => {
     req.body.user = req.auth._id
     req.body.issue = req.params.issueId
     req.body.username = req.auth.username
+    console.log(req.params.issueId)
 
     const newComment = new Comment(req.body)
-    newComment.save((err, comment) => {
+    newComment.save((err, savedComment) => {
         if(err) {
             res.status(500)
             return next(err)
         }
-        res.status(201).send.apply(comment)
+        res.status(201).send(savedComment)
     })
 })
 

@@ -8,9 +8,11 @@ export default function Profile(){
   //issues indicates the arr here
   const {
     user: {username}, 
-    issues,
+    allIssues,
+    getAllIssues,
     getUserIssues, 
-    getAllComments
+    getAllComments,
+    addIssue
   } = useContext(UserContext)
 
   useEffect(() => {
@@ -18,14 +20,14 @@ export default function Profile(){
     getAllComments()//these are attached to our issues 
   }, [])
 
+
   return (
     <div className="profile">
       <h1>Welcome @{username}!</h1>
-      <h3>Add an Issue</h3>
+      <h3>Add an Issue:</h3>
       <IssueForm addIssue = {addIssue} />
-      {/* <IssueForm /> that means this is already passsed into the IssueForm? */}
       <h3>Your Issues:</h3>
-      <IssueList issues={issues} />
+      <IssueList issues={allIssues} />
     </div>
   )
 }

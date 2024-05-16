@@ -165,8 +165,8 @@ export default function UserProvider(props){
     }    
     
     //ADD COMMENT
-    function addComment(id, comment){
-        userAxios.post(`/api/main/comments/${id}`, comment)
+    function addComment(issueId, comment){
+        userAxios.post(`/api/main/comments/${issueId}`, comment)
         .then(res => setAllComments(prevAllComments => {
             return [
                 ...prevAllComments,

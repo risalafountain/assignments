@@ -6,9 +6,14 @@
     font-family: sans-serif;
     outline: none;
     text-decoration: none;
+    background-color: dimgray;
 }
 
 .app {
+    background-color: #eee9;
+}
+
+.body{
     background-color: #eee9;
 }
 
@@ -58,12 +63,10 @@
     border-radius: 4px;
 }
 
-/* .issue-list {}
-
-.issue {} */
 
 .public {
     height: 100vh;
+    background-color:#eee9;
 }
 
 .profile {
@@ -71,7 +74,6 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-color: rgba(45, 44, 44, 0.6);
 }
 
 .profile>h1 {
@@ -104,4 +106,18 @@
 
 .errMssg{
     color: rgb(118, 2, 2);
+}
+
+.comments{
+    border: solid red 3px;
+    margin: 5px;
+    font-style: italic;
+}
+
+.issue{
+    border: solid green 3px;
+}
+
+button{
+    background-color: white;
 }

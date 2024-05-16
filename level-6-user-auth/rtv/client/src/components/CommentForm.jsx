@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import UserProvider from '../context/UserProvider';
+import {UserContext} from '../context/UserProvider';
 
 export default function CommentForm(props) {
     const [formData, setFormData] = useState({
         title: ''
     })
-    const { addComment } = useContext(UserProvider)
+    const { addComment } = useContext(UserContext)
     const { issueId } = props
 
     function handleChange(e) {
@@ -20,7 +20,7 @@ export default function CommentForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(formData)
+        // console.log(formData)
         addComment(issueId, formData)
         setFormData({ title: '' })
     }

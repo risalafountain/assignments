@@ -3,7 +3,7 @@ import Issue from "./Issue";
 
 export default function IssueList(props) {
   const {issues} = props
-  console.log("Issue:", issues)
+  // console.log("Issue:", issues)
   if (!issues){
     return(
       <div>Loading...</div>
@@ -11,7 +11,7 @@ export default function IssueList(props) {
   }
   return (
     <div className="issue-list">
-      {issues.map(issue => <Issue {...issue} key = {issue._id} /> )}
+      {issues.map(issue => issue ? <Issue {...issue} key = {issue._id} /> : null )}
     </div>
   )
 }
