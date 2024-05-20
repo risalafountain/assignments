@@ -20,8 +20,8 @@ function App() {
         <Route
           path="/profile"
           element={
-            <ProtectedRoute>
-              <Profile token={token} redirectTo='/' />
+            <ProtectedRoute token={token} redirectTo='/'>
+              <Profile  />
             </ProtectedRoute>}
         />
         <Route

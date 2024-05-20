@@ -9,6 +9,7 @@ export default function Profile(){
   const {
     user: {username}, 
     allIssues,
+    issues,
     getAllIssues,
     getUserIssues, 
     getAllComments,
@@ -20,14 +21,14 @@ export default function Profile(){
     getAllComments()//these are attached to our issues 
   }, [])
 
-
+console.log(issues)
   return (
     <div className="profile">
       <h1>Welcome @{username}!</h1>
       <h3>Add an Issue:</h3>
       <IssueForm addIssue = {addIssue} />
       <h3>Your Issues:</h3>
-      <IssueList issues={allIssues} />
+      <IssueList issues={issues} />
     </div>
   )
 }

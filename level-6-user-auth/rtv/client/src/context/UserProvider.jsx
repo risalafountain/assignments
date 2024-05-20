@@ -139,13 +139,14 @@ export default function UserProvider(props){
         })
         .catch(err => console.log(err));
     }
+    
 //DOWNVOTES
     function downvoteIssue(issueId) {
         userAxios.put(`/api/main/issue/downvote/${issueId}`)
         .then(res => {
             //PUBLIC PAGE
             setAllIssues(prevIssues => 
-                prevIssues.map(issue => issue._id === issueId ? res.data.issue : issue))
+                prevIssues.map(issue => issue._id === issueId ? res.data : issue))
             //PROFILE PAGE 
             setUserState(prevUserState =>{
                 return {

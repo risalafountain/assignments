@@ -8,6 +8,7 @@ export default function Issue(props) {
   const { title, description, _id, username, createdAt, likedUsers, dislikedUsers } = props
   const {upvoteIssue, downvoteIssue} = useContext(UserContext)
   const timeStamp = moment(createdAt).fromNow()
+  console.log(props)
   return (
     <div className="issue">
       <h1>Title: {title}</h1>
