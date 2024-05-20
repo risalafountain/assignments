@@ -42,12 +42,12 @@ noteRouter.delete('/:noteId', (req, res, next) =>{
                 return next(err)
             }
             return res.status(200).send
-            (`'Successfully Deleted Note: ${deletedNote.title}`)
+            (`Successfully Deleted Note: ${deletedNote.title}`)
         }
     )
 })
 
-//edit note <updated note is null>
+//edit note <works>
 noteRouter.put('/:noteId', (req, res, next) => {
     Note.findOneAndUpdate(
         {_id: req.params.noteId, user: req.auth._id},
