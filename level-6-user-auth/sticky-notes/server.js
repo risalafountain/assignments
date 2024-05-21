@@ -19,11 +19,12 @@ app.use('/api/auth', require('./routes/authRouter'))
 //auth middleware
 app.use('/api/main', expressjwt({secret: process.env.SECRET, algorithms: ['HS256']}))
 
+app.use('/api/main/note/', require('./routes/noteRouter'))
+
 app.use((err, req, res, next) => {
     console.log(err)
     return res.send({errMssg: err.message})
 })
-app.use('/api/main/note', require('./routes/noteRouter'))
 
 //ERR HANDLER
 app.use((err, req, res, next) => {

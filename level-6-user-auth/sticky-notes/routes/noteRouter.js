@@ -4,7 +4,7 @@ const Note = require ('../models/note')
 
 //get notes by userId <works>
 noteRouter.get('/user', (req, res, next) => {
-    Note.find((err, notes) => {
+    Note.find({ user: req.auth._id}, (err, notes) => {
         if(err) {
             res.status(500)
             return next(err)
