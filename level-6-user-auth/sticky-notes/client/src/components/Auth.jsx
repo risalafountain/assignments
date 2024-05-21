@@ -36,7 +36,7 @@ export default function Auth() {
     return (
         <div>
             <h1>Sticky Notes</h1>
-            <p> Have fun with your sticky notes!</p>
+            <p>Log in to see your notes</p>
            { !toggle ?
             <>
                 <AuthForm

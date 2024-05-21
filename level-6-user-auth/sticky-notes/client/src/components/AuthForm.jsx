@@ -30,7 +30,7 @@ export default function AuthForm(props){
                 placeholder="Password"
             />
 
-            <button >some words{btnText}</button>
+            <button>{btnText}</button>
             <p>{errMssg}</p>
         </form>
     )
