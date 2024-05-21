@@ -7,6 +7,7 @@ export default function Navbar(props) {
     return (
         <div className="navbar">
             <h1>Sticky Notes</h1>
+            {token && <Link to='/profile'></Link>}
             {token && <button onClick={logout}>Logout</button>}
         </div>
     )

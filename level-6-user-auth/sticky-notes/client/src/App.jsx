@@ -9,12 +9,12 @@ import Auth from './components/Auth'
 
 export default function App() {
   const {logout, token} = useContext(UserContext)
-
+  console.log('this is the token: ', token)
   return (
     <div className='app'>
       {token && <Navbar logout = {logout} token = {token} />}
        <Routes>
-        
+  
         <Route 
           path = '/'
           element ={ token ? <Navigate to ={'/profile'}/> : <Auth />}

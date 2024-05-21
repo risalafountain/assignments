@@ -11,3 +11,7 @@ input{
     background-color: white;
     margin: 16px;
 }
+
+.errMssg{
+    color: red
+}

@@ -31,7 +31,7 @@ export default function AuthForm(props){
             />
 
             <button>{btnText}</button>
-            <p>{errMssg}</p>
+            <p className="errMssg">{errMssg}</p>
         </form>
     )
 }

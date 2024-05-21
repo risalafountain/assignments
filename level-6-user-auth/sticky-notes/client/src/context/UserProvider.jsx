@@ -33,7 +33,7 @@ export default function UserProvider(props){
             //save both pieces of data in local storage(won't erase on refresh)
             localStorage.setItem('token', token)
             localStorage.setItem('user', JSON.stringify(user))
-            console.log('User data after signup', localStorage.getItem('user'))
+            // console.log('User data after signup', localStorage.getItem('user'))
             getNotes() //where is this coming from 
             setUserState(prevUserState => ({
                 ...prevUserState,
@@ -49,11 +49,11 @@ export default function UserProvider(props){
         axios.post('/api/auth/login', credentials)
         .then(res => {
             const {user, token} = res.data
-            console.log('Response Data:', res.data)
+            // console.log('Response Data:', res.data)
             //save both pieces of data in local storage(won't erase on refresh)
             localStorage.setItem('token', token)
             localStorage.setItem('user', JSON.stringify(user))
-            console.log('User data after login', localStorage.getItem('user'))
+            // console.log('User data after login', localStorage.getItem('user'))
             getNotes()
             setUserState(prevUserState => ({
                 ...prevUserState,

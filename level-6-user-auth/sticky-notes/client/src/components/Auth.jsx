@@ -9,7 +9,7 @@ export default function Auth() {
     const [inputs, setInputs] = useState(initInputs)
     const [toggle, setToggle] = useState(false)
     //this is the user data 
-    const { signup, login } = useContext(UserContext)
+    const { signup, login, errMssg } = useContext(UserContext)
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -44,6 +44,7 @@ export default function Auth() {
                     handleSubmit={handleSignup}
                     inputs={inputs}
                     btnText="Sign Up"
+                    errMssg={errMssg}
                 />
                 <p onClick={handleToggle}>Already a member?</p>
             </>
@@ -54,6 +55,7 @@ export default function Auth() {
                     handleSubmit={handleLogin}
                     inputs={inputs}
                     btnText="Log In"
+                    errMssg={errMssg}
                 />
                 <p onClick={handleToggle}>Not a member?</p>
             </>
